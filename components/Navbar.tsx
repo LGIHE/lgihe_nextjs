@@ -305,17 +305,17 @@ export default function Navbar() {
               {activeDropdown === menuKey && (
                 <div className="absolute top-full left-0 pt-2 min-w-[200px]">
                   <div className="bg-white rounded-lg shadow-xl border border-[#5B6F8C]/10 py-4 px-2">
-                    {menuData[menuKey as keyof typeof menuData].columns ? (
+                    {'columns' in menuData[menuKey as keyof typeof menuData] ? (
                       <div className={`grid gap-6 ${
-                        menuData[menuKey as keyof typeof menuData].columns!.length === 2 ? "grid-cols-2" : "grid-cols-3"
+                        (menuData[menuKey as keyof typeof menuData] as any).columns.length === 2 ? "grid-cols-2" : "grid-cols-3"
                       } min-w-[500px]`}>
-                        {menuData[menuKey as keyof typeof menuData].columns!.map((column, idx) => (
+                        {(menuData[menuKey as keyof typeof menuData] as any).columns.map((column: any, idx: number) => (
                           <div key={idx} className="px-3">
                             <h3 className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider mb-3">
                               {column.title}
                             </h3>
                             <ul className="space-y-2">
-                              {column.items.map((item) => (
+                              {column.items.map((item: any) => (
                                 <li key={item.label}>
                                   <Link
                                     href={item.href}
@@ -331,7 +331,7 @@ export default function Navbar() {
                       </div>
                     ) : (
                       <ul className="space-y-1 px-2">
-                        {menuData[menuKey as keyof typeof menuData].items!.map((item) => (
+                        {(menuData[menuKey as keyof typeof menuData] as any).items.map((item: any) => (
                           <li key={item.label}>
                             <Link
                               href={item.href}
@@ -416,15 +416,15 @@ export default function Navbar() {
 
               {mobileActiveMenu === menuKey && (
                 <div className="mt-2 pl-4">
-                  {menuData[menuKey as keyof typeof menuData].columns ? (
+                  {'columns' in menuData[menuKey as keyof typeof menuData] ? (
                     <div className="space-y-4">
-                      {menuData[menuKey as keyof typeof menuData].columns!.map((column, idx) => (
+                      {(menuData[menuKey as keyof typeof menuData] as any).columns.map((column: any, idx: number) => (
                         <div key={idx}>
                           <h3 className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider mb-2">
                             {column.title}
                           </h3>
                           <ul className="space-y-2">
-                            {column.items.map((item) => (
+                            {column.items.map((item: any) => (
                               <li key={item.label}>
                                 <Link
                                   href={item.href}
@@ -441,7 +441,7 @@ export default function Navbar() {
                     </div>
                   ) : (
                     <ul className="space-y-2">
-                      {menuData[menuKey as keyof typeof menuData].items!.map((item) => (
+                      {(menuData[menuKey as keyof typeof menuData] as any).items.map((item: any) => (
                         <li key={item.label}>
                           <Link
                             href={item.href}
