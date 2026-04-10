@@ -20,19 +20,21 @@ const menuData = {
       {
         title: "Programmes",
         items: [
+          { label: "All Programmes", href: "/academics/programmes" },
+          { label: "Certificate Programmes", href: "/academics/certificate" },
+          { label: "Diploma Programmes", href: "/academics/diploma" },
           { label: "Undergraduate", href: "/academics/undergraduate" },
           { label: "Postgraduate", href: "/academics/postgraduate" },
-          { label: "Diploma Programmes", href: "/academics/diploma" },
-          { label: "Certificate Programmes", href: "/academics/certificate" },
         ],
       },
       {
         title: "Schools",
         items: [
-          { label: "School of Arts & Humanities", href: "/academics/schools/arts" },
-          { label: "School of Business", href: "/academics/schools/business" },
+          { label: "All Schools", href: "/academics/schools" },
           { label: "School of Education", href: "/academics/schools/education" },
-          { label: "School of Science", href: "/academics/schools/science" },
+          { label: "Arts & Humanities Education", href: "/academics/schools/arts" },
+          { label: "Science & Mathematics Education", href: "/academics/schools/science" },
+          { label: "Educational Leadership & Management", href: "/academics/schools/business" },
         ],
       },
     ],
@@ -49,12 +51,12 @@ const menuData = {
         ],
       },
       {
-        title: "In This Section",
+        title: "By Programme Level",
         items: [
-          { label: "Undergraduate Admissions", href: "/admissions/undergraduate" },
-          { label: "Postgraduate Admissions", href: "/admissions/postgraduate" },
+          { label: "Certificate & Diploma", href: "/admissions/undergraduate" },
+          { label: "Bachelor's Programmes", href: "/admissions/undergraduate" },
+          { label: "Postgraduate Programmes", href: "/admissions/postgraduate" },
           { label: "International Students", href: "/admissions/international" },
-          { label: "Important Dates", href: "/admissions/dates" },
         ],
       },
       {
