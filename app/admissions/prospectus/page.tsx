@@ -14,6 +14,22 @@ export default function ProspectusPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4">Certificate Programmes</h3>
+            <p className="mb-6">Foundation programmes in early childhood education and child care</p>
+            <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+              Download PDF
+            </button>
+          </div>
+
+          <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4">Diploma Programmes</h3>
+            <p className="mb-6">Professional teacher education for pre-primary and primary levels</p>
+            <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+              Download PDF
+            </button>
+          </div>
+
+          <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4">Undergraduate Prospectus</h3>
             <p className="mb-6">Complete guide to our bachelor's degree programs</p>
             <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
@@ -23,7 +39,7 @@ export default function ProspectusPage() {
 
           <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4">Postgraduate Prospectus</h3>
-            <p className="mb-6">Information on master's and doctoral programs</p>
+            <p className="mb-6">Information on postgraduate diploma programs</p>
             <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
               Download PDF
             </button>

@@ -47,16 +47,26 @@ export default function AdmissionsPage() {
         <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Quick Links</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {[
+            { title: "Apply Now", href: "/admissions/apply", featured: true },
             { title: "How to Apply", href: "/admissions/how-to-apply" },
             { title: "Entry Requirements", href: "/admissions/requirements" },
             { title: "Tuition & Fees", href: "/admissions/fees" },
-            { title: "Scholarships", href: "/admissions/scholarships" },
             { title: "Important Dates", href: "/admissions/dates" },
-            { title: "Application Portal", href: "/admissions/portal" },
+            { title: "FAQs", href: "/admissions/faqs" },
+            { title: "Prospectus", href: "/admissions/prospectus" },
+            { title: "Contact Admissions", href: "/admissions/contact" },
           ].map((link) => (
-            <Link key={link.title} href={link.href} className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors flex justify-between items-center no-underline">
-              <span className="font-medium text-[#5B6F8C]">{link.title}</span>
-              <span className="text-[#5B6F8C]">→</span>
+            <Link 
+              key={link.title} 
+              href={link.href} 
+              className={`p-4 rounded-lg transition-colors flex justify-between items-center no-underline ${
+                link.featured 
+                  ? 'bg-[#5B6F8C] text-white hover:bg-[#4A5D75] font-bold' 
+                  : 'bg-gray-50 hover:bg-gray-100 text-[#5B6F8C] font-medium'
+              }`}
+            >
+              <span>{link.title}</span>
+              <span>→</span>
             </Link>
           ))}
         </div>

@@ -30,7 +30,7 @@ export default function HowToApplyPage() {
 
         <div className="mt-8 bg-[#5B6F8C] text-white p-6 rounded-lg text-center">
           <h3 className="text-xl font-bold mb-3">Ready to Apply?</h3>
-          <a href="/admissions/portal" className="inline-block bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <a href="/admissions/apply" className="inline-block bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             Start Your Application
           </a>
         </div>

@@ -44,19 +44,19 @@ const menuData = {
       {
         title: "About Admissions",
         items: [
+          { label: "Apply Now", href: "/admissions/apply" },
           { label: "How to Apply", href: "/admissions/how-to-apply" },
           { label: "Entry Requirements", href: "/admissions/requirements" },
           { label: "Tuition & Fees", href: "/admissions/fees" },
-          { label: "Scholarships", href: "/admissions/scholarships" },
         ],
       },
       {
         title: "By Programme Level",
         items: [
-          { label: "Certificate & Diploma", href: "/admissions/undergraduate" },
+          { label: "Certificate Programmes", href: "/admissions/certificate" },
+          { label: "Diploma Programmes", href: "/admissions/diploma" },
           { label: "Bachelor's Programmes", href: "/admissions/undergraduate" },
           { label: "Postgraduate Programmes", href: "/admissions/postgraduate" },
-          { label: "International Students", href: "/admissions/international" },
         ],
       },
       {
@@ -368,7 +368,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <Link
-            href="/admissions/portal"
+            href="/admissions/apply"
             className="text-sm font-medium px-6 py-2.5 rounded-full bg-[#5B6F8C] text-white hover:bg-[#4A5D75] transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Apply Now
@@ -475,7 +475,7 @@ export default function Navbar() {
             </Link>
           </div>
           <Link
-            href="/admissions/portal"
+            href="/admissions/apply"
             onClick={() => setMenuOpen(false)}
             className="mt-4 block text-sm font-medium px-5 py-2.5 rounded-full bg-[#5B6F8C] text-white text-center hover:bg-[#4A5D75] transition-all duration-200"
           >
