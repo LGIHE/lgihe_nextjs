@@ -8,10 +8,10 @@ const pillars = [
   {
     icon: GraduationCap,
     tag: "Academic Programs",
-    title: "Diploma & Certificate Courses",
+    title: "Comprehensive Education Programmes",
     description:
-      "Offering diploma and certificate courses in education including Primary Education Diploma, Early Childhood Development Certificate, and Leadership Certificate.",
-    stat: "4+ Programs",
+      "Diploma in Primary Education, Certificate in Early Childhood Development (ECD), Leadership Certificate for school administrators, and customized professional development trainings.",
+    stat: "Multiple Programmes",
     accent: "bg-[#5B6F8C]/5",
     iconColor: "text-[#5B6F8C]",
     link: "/academics",

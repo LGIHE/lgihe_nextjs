@@ -155,15 +155,11 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-white/90 backdrop-blur-sm"
-      }`}
-    >
-      {/* Top Navigation Bar */}
-      <div className="bg-[#5B6F8C] text-white">
+    <>
+      {/* Top Navigation Bar - Visible when not scrolling, hidden when scrolling */}
+      <div className={`fixed top-0 left-0 right-0 z-50 bg-[#5B6F8C] text-white transition-transform duration-300 ${
+        scrolled ? "-translate-y-full" : "translate-y-0"
+      }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-10">
           {/* Left Side - Quick Links */}
           <div className="flex items-center gap-6">
@@ -173,8 +169,8 @@ export default function Navbar() {
             <Link href="/news" className="text-xs hover:text-white/80 transition-colors">
               Campus News
             </Link>
-            <Link href="/jobs" className="text-xs hover:text-white/80 transition-colors">
-              Jobs
+            <Link href="/opportunities" className="text-xs hover:text-white/80 transition-colors">
+              Opportunities
             </Link>
           </div>
 
@@ -194,7 +190,7 @@ export default function Navbar() {
             {/* Social Media Icons */}
             <div className="flex items-center gap-3 border-l border-white/20 pl-4">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/LGIHE/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-white/80 transition-colors"
@@ -205,7 +201,7 @@ export default function Navbar() {
                 </svg>
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://x.com/LGIHE1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-white/80 transition-colors"
@@ -216,7 +212,7 @@ export default function Navbar() {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="http://ug.linkedin.com/company/luigi-giussani-institute-of-higher-education" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-white/80 transition-colors"
@@ -227,7 +223,7 @@ export default function Navbar() {
                 </svg>
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://www.youtube.com/@lgihe" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-white/80 transition-colors"
@@ -244,7 +240,9 @@ export default function Navbar() {
 
       {/* Search Bar (Expandable) */}
       {searchOpen && (
-        <div className="bg-white border-b border-[#5B6F8C]/10">
+        <div className={`fixed left-0 right-0 z-50 bg-white border-b border-[#5B6F8C]/10 transition-all duration-300 ${
+          scrolled ? "top-0" : "top-10"
+        }`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
             <div className="flex items-center gap-3">
               <input
@@ -266,8 +264,15 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Main Navigation */}
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 md:h-20 border-b border-[#5B6F8C]/10">
+      {/* Main Navigation - Sticky, adjusts position based on scroll */}
+      <header
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "top-0 bg-white/95 backdrop-blur-md shadow-sm"
+            : "top-10 bg-white/90 backdrop-blur-sm"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 md:h-20 border-b border-[#5B6F8C]/10">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image 
@@ -478,6 +483,7 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-    </header>
+      </header>
+    </>
   );
 }

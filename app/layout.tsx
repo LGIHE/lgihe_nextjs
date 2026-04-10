@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-paper text-navy antialiased">
         <Navbar />
-        {children}
+        <div className="pt-[104px]">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

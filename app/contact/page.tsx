@@ -107,15 +107,36 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Department Contacts</h2>
+        {/* Map Section */}
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Find Us on the Map</h2>
+          <div className="w-full h-96 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7571234567!2d32.6234567!3d0.3234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTknMjQuNCJOIDMywrAzNycyNC40IkU!5e0!3m2!1sen!2sug!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="LGIHE Location Map"
+            ></iframe>
+          </div>
+          <p className="text-sm text-gray-600 mt-2">
+            <strong>Directions:</strong> Located along Port Bell Road in Luzira, opposite the first Total Petrol Station. 
+            Easily accessible by public transport or private vehicle.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4 mt-8">Department Contacts</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { dept: "Admissions", email: "admissions@lgihe.edu", phone: "+123 456 7890" },
-            { dept: "Student Services", email: "studentservices@lgihe.edu", phone: "+123 456 7891" },
-            { dept: "Finance Office", email: "finance@lgihe.edu", phone: "+123 456 7892" },
-            { dept: "IT Support", email: "itsupport@lgihe.edu", phone: "+123 456 7895" },
-            { dept: "Library", email: "library@lgihe.edu", phone: "+123 456 7896" },
-            { dept: "Research Office", email: "research@lgihe.edu", phone: "+123 456 7897" },
+            { dept: "Admissions", email: "admissions@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Student Services", email: "studentservices@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Finance Office", email: "finance@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "IT Support", email: "itsupport@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Library", email: "library@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Research Office", email: "research@lgihe.ac.ug", phone: "(+256) 414 222 517" },
           ].map((contact) => (
             <div key={contact.dept} className="bg-gray-50 p-4 rounded-lg">
               <h3 className="font-bold text-[#5B6F8C] mb-2">{contact.dept}</h3>
