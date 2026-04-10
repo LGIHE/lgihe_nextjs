@@ -102,29 +102,18 @@ const menuData = {
     ],
   },
   Staff: {
-    columns: [
-      {
-        title: "Administrative Staff",
-        items: [
-          { label: "Administration Directory", href: "/staff/administrative" },
-          { label: "Departments", href: "/staff/departments" },
-        ],
-      },
-      {
-        title: "Academic Staff",
-        items: [
-          { label: "Faculty Directory", href: "/staff/academic" },
-          { label: "Research Staff", href: "/staff/research" },
-        ],
-      },
+    items: [
+      { label: "Administrative Staff", href: "/staff/administrative" },
+      { label: "Academic Staff", href: "/staff/academic" },
     ],
   },
-  Research: {
+  Resources: {
     items: [
-      { label: "Research Overview", href: "/research" },
-      { label: "Research Centers", href: "/research/centers" },
-      { label: "Publications", href: "/research/publications" },
-      { label: "Research Projects", href: "/research/projects" },
+      { label: "Campus News", href: "/resources/campus-news" },
+      { label: "Policies", href: "/resources/policies" },
+      { label: "Media Gallery", href: "/resources/media" },
+      { label: "Downloads", href: "/resources/downloads" },
+      { label: "Events", href: "/events" },
     ],
   },
 };
@@ -161,21 +150,24 @@ export default function Navbar() {
         scrolled ? "-translate-y-full" : "translate-y-0"
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-10">
-          {/* Left Side - Quick Links */}
-          <div className="flex items-center gap-6">
+          {/* Left Side - Quick Links (Hidden on mobile) */}
+          <div className="hidden lg:flex items-center gap-6">
             <Link href="/admissions/fees" className="text-xs hover:text-white/80 transition-colors">
               Fees & Tuition
             </Link>
-            <Link href="/news" className="text-xs hover:text-white/80 transition-colors">
+            <Link href="/resources/campus-news" className="text-xs hover:text-white/80 transition-colors">
               Campus News
             </Link>
             <Link href="/opportunities" className="text-xs hover:text-white/80 transition-colors">
               Opportunities
             </Link>
+            <Link href="/research" className="text-xs hover:text-white/80 transition-colors">
+              Research
+            </Link>
           </div>
 
           {/* Right Side - Search & Social Media */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ml-auto">
             {/* Search */}
             <button 
               onClick={() => setSearchOpen(!searchOpen)}

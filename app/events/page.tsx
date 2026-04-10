@@ -1,0 +1,194 @@
+import PageTemplate from "@/components/PageTemplate";
+import Link from "next/link";
+
+export default function EventsPage() {
+  const upcomingEvents = [
+    {
+      id: 1,
+      title: "Open Day 2026",
+      date: "May 15, 2026",
+      time: "9:00 AM - 4:00 PM",
+      location: "Main Campus",
+      category: "Admissions",
+      description: "Join us for a comprehensive tour of our campus and meet our faculty and students.",
+    },
+    {
+      id: 2,
+      title: "Research Symposium",
+      date: "June 10, 2026",
+      time: "10:00 AM - 5:00 PM",
+      location: "Conference Hall",
+      category: "Academic",
+      description: "Annual research symposium showcasing faculty and student research projects.",
+    },
+    {
+      id: 3,
+      title: "Graduation Ceremony",
+      date: "July 20, 2026",
+      time: "2:00 PM - 6:00 PM",
+      location: "Main Auditorium",
+      category: "Ceremony",
+      description: "Celebrating the achievements of our graduating class of 2026.",
+    },
+  ];
+
+  const pastEvents = [
+    {
+      id: 1,
+      title: "Career Fair 2026",
+      date: "March 5, 2026",
+      category: "Career",
+    },
+    {
+      id: 2,
+      title: "International Education Week",
+      date: "February 15-19, 2026",
+      category: "Cultural",
+    },
+  ];
+
+  return (
+    <PageTemplate 
+      title="Events at LGIHE" 
+      subtitle="Stay connected with campus activities and important dates"
+    >
+      <div className="space-y-12">
+        {/* Upcoming Events */}
+        <section>
+          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Upcoming Events</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {upcomingEvents.map((event) => (
+              <div 
+                key={event.id} 
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider">
+                    {event.category}
+                  </span>
+                  <h3 className="text-xl font-bold mt-2">{event.title}</h3>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center text-gray-600">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span className="text-sm">{event.date}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-sm">{event.time}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span className="text-sm">{event.location}</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm mb-4">{event.description}</p>
+                  <button className="w-full bg-[#5B6F8C] text-white py-2 rounded-lg hover:bg-[#4A5D75] transition-colors">
+                    Register
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Academic Calendar */}
+        <section className="bg-gray-50 p-8 rounded-lg">
+          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Academic Calendar</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Semester 1, 2026</h3>
+              <ul className="space-y-3">
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Registration Opens</span>
+                  <span className="font-semibold text-[#5B6F8C]">Aug 1</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Classes Begin</span>
+                  <span className="font-semibold text-[#5B6F8C]">Aug 15</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Mid-term Break</span>
+                  <span className="font-semibold text-[#5B6F8C]">Oct 10-14</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Exams</span>
+                  <span className="font-semibold text-[#5B6F8C]">Dec 5-16</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Semester 2, 2027</h3>
+              <ul className="space-y-3">
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Registration Opens</span>
+                  <span className="font-semibold text-[#5B6F8C]">Jan 5</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Classes Begin</span>
+                  <span className="font-semibold text-[#5B6F8C]">Jan 20</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Mid-term Break</span>
+                  <span className="font-semibold text-[#5B6F8C]">Mar 15-19</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-gray-700">Exams</span>
+                  <span className="font-semibold text-[#5B6F8C]">May 10-21</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Past Events */}
+        <section>
+          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Past Events</h2>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {pastEvents.map((event) => (
+              <div 
+                key={event.id} 
+                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <span className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider">
+                  {event.category}
+                </span>
+                <h3 className="text-lg font-bold text-gray-800 mt-2">{event.title}</h3>
+                <p className="text-sm text-gray-600 mt-1">{event.date}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Subscribe to Events */}
+        <section className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p className="mb-6">
+              Subscribe to our events newsletter to receive updates about upcoming events, 
+              important dates, and campus activities.
+            </p>
+            <div className="flex gap-3 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </PageTemplate>
+  );
+}
