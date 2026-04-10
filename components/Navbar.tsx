@@ -9,9 +9,9 @@ const menuData = {
     items: [
       { label: "History of LGIHE", href: "/about/history" },
       { label: "About LGIHE", href: "/about" },
-      { label: "Governance Structure", href: "/about/governance" },
-      { label: "Board of Directors", href: "/about/board" },
-      { label: "Council", href: "/about/council" },
+      // { label: "Governance Structure", href: "/about/governance" },
+      // { label: "Board of Directors", href: "/about/board" },
+      // { label: "Council", href: "/about/council" },
       { label: "Principal", href: "/about/principal" },
     ],
   },
