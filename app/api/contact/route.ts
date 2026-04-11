@@ -14,8 +14,11 @@ export async function POST(request: NextRequest) {
 
     const { name, email, subject, message } = await request.json();
 
+    console.log('Contact form submission received:', { name, email, subject });
+
     // Validate required fields
     if (!name || !email || !subject || !message) {
+      console.error('Missing required fields');
       return NextResponse.json(
         { success: false, message: 'All fields are required' },
         { status: 400 }
@@ -23,8 +26,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email to info@lgihe.ac.ug
-    await resend.emails.send({
-      from: 'LGIHE Contact Form <noreply@lgihe.ac.ug>',
+    console.log('Attempting to send email to info@lgihe.ac.ug...');
+    const result1 = await resend.emails.send({
+      from: 'LGIHE Contact Form <onboarding@resend.dev>',
       to: 'info@lgihe.ac.ug',
       replyTo: email,
       subject: `Contact Form: ${subject}`,
@@ -77,10 +81,12 @@ export async function POST(request: NextRequest) {
         </div>
       `,
     });
+    console.log('First email sent successfully:', result1);
 
     // Send confirmation email to the person who submitted the form
-    await resend.emails.send({
-      from: 'LGIHE <noreply@lgihe.ac.ug>',
+    console.log('Attempting to send confirmation email to sender...');
+    const result2 = await resend.emails.send({
+      from: 'LGIHE <onboarding@resend.dev>',
       to: email,
       subject: 'We received your message - LGIHE',
       html: `
@@ -128,6 +134,7 @@ export async function POST(request: NextRequest) {
         </div>
       `,
     });
+    console.log('Second email sent successfully:', result2);
 
     return NextResponse.json({ 
       success: true, 

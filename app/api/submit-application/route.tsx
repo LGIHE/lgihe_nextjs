@@ -16,12 +16,17 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.json();
 
+    console.log('Application submission received for:', formData.surname, formData.givenName);
+
     // Generate PDF
+    console.log('Generating PDF...');
     const pdfBuffer = await renderToBuffer(<ApplicationPDF data={formData} />);
+    console.log('PDF generated successfully');
 
     // Email to admissions with PDF attachment
-    await resend.emails.send({
-      from: 'LGIHE Applications <noreply@lgihe.ac.ug>',
+    console.log('Sending email to ar@lgihe.ac.ug...');
+    const result1 = await resend.emails.send({
+      from: 'LGIHE Applications <onboarding@resend.dev>',
       to: 'ar@lgihe.ac.ug',
       subject: `New Application: ${formData.surname} ${formData.givenName} - ${formData.programmeChoice1}`,
       html: `
@@ -56,10 +61,12 @@ export async function POST(request: NextRequest) {
         },
       ],
     });
+    console.log('First email sent successfully:', result1);
 
     // Email to applicant with instructions
-    await resend.emails.send({
-      from: 'LGIHE Admissions <noreply@lgihe.ac.ug>',
+    console.log('Sending confirmation email to applicant...');
+    const result2 = await resend.emails.send({
+      from: 'LGIHE Admissions <onboarding@resend.dev>',
       to: formData.email,
       subject: 'Application Received - Luigi Giussani Institute of Higher Education',
       html: `
@@ -154,6 +161,7 @@ export async function POST(request: NextRequest) {
         </div>
       `,
     });
+    console.log('Second email sent successfully:', result2);
 
     return NextResponse.json({ 
       success: true, 
