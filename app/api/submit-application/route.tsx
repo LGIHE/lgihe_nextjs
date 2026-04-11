@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     // Email to admissions with PDF attachment
     await resend.emails.send({
       from: 'LGIHE Applications <noreply@lgihe.org>',
-      to: 'tech@lgihe.org',
+      to: 'ar@lgihe.ac.ug',
       subject: `New Application: ${formData.surname} ${formData.givenName} - ${formData.programmeChoice1}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
