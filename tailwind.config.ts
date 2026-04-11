@@ -12,6 +12,7 @@ const config: Config = {
         paper: "#F9F7F2",
         navy: "#1A2B3C",
         gold: "#C5A059",
+        primary: "#3d4d6f",
       },
       fontFamily: {
         serif: ["Poppins", "sans-serif"],

@@ -24,14 +24,14 @@ export default function SupportPage() {
             { title: "International Student Office", desc: "Support for international students" },
           ].map((service) => (
             <div key={service.title} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{service.title}</h3>
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{service.title}</h3>
               <p className="text-gray-700 text-sm">{service.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 bg-[#5B6F8C]/10 p-6 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">24/7 Emergency Support</h3>
+        <div className="mt-8 bg-[#3d4d6f]/10 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">24/7 Emergency Support</h3>
           <p className="text-gray-700">
             Campus security and emergency services are available around the clock. 
             Call +123 456 7899 for immediate assistance.

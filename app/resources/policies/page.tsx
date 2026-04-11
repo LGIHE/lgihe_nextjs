@@ -62,7 +62,7 @@ export default function PoliciesPage() {
         {/* Policy Categories */}
         {policyCategories.map((category, index) => (
           <section key={index}>
-            <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">{category.title}</h2>
+            <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">{category.title}</h2>
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               {category.policies.map((policy, policyIndex) => (
                 <div 
@@ -76,7 +76,7 @@ export default function PoliciesPage() {
                     <p className="text-sm text-gray-500">Last updated: {policy.updated}</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <button className="text-[#5B6F8C] hover:text-[#4A5D75] font-semibold text-sm">
+                    <button className="text-[#3d4d6f] hover:text-[#2f3d57] font-semibold text-sm">
                       View PDF
                     </button>
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export default function PoliciesPage() {
         ))}
 
         {/* Quick Links */}
-        <section className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+        <section className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg">
           <h2 className="text-2xl font-bold mb-6">Related Resources</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <Link 
@@ -119,7 +119,7 @@ export default function PoliciesPage() {
 
         {/* Policy Updates */}
         <section className="bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Policy Updates</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Policy Updates</h2>
           <p className="text-gray-700 mb-4">
             Policies are reviewed regularly to ensure they remain current and effective. 
             Subscribe to receive notifications when policies are updated.
@@ -128,9 +128,9 @@ export default function PoliciesPage() {
             <input 
               type="email" 
               placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5B6F8C]"
+              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3d4d6f]"
             />
-            <button className="bg-[#5B6F8C] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#4A5D75] transition-colors">
+            <button className="bg-[#3d4d6f] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#2f3d57] transition-colors">
               Subscribe
             </button>
           </div>

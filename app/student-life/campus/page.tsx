@@ -13,7 +13,7 @@ export default function CampusPage() {
           academic and personal development.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Campus Facilities</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Campus Facilities</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {[
             "Modern lecture halls and classrooms",
@@ -26,7 +26,7 @@ export default function CampusPage() {
             "Computer labs",
           ].map((facility) => (
             <div key={facility} className="bg-gray-50 p-4 rounded-lg flex items-center gap-3">
-              <span className="text-[#5B6F8C] text-xl">✓</span>
+              <span className="text-[#3d4d6f] text-xl">✓</span>
               <span className="text-gray-700">{facility}</span>
             </div>
           ))}

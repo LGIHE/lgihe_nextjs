@@ -16,24 +16,24 @@ export default function AdmissionsPage() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Link href="/academics/certificate" className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
+          <Link href="/academics/certificate" className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
             <h3 className="text-xl font-bold mb-2 text-white">Certificate & Diploma</h3>
             <p className="text-white/90 text-sm">Foundation and professional programmes in education</p>
           </Link>
 
-          <Link href="/academics/undergraduate" className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
+          <Link href="/academics/undergraduate" className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
             <h3 className="text-xl font-bold mb-2 text-white">Bachelor's Degrees</h3>
             <p className="text-white/90 text-sm">Undergraduate teacher education programmes</p>
           </Link>
 
-          <Link href="/academics/postgraduate" className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
+          <Link href="/academics/postgraduate" className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline">
             <h3 className="text-xl font-bold mb-2 text-white">Postgraduate</h3>
             <p className="text-white/90 text-sm">Advanced diplomas for educational professionals</p>
           </Link>
         </div>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Multiple Intake Periods</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Multiple Intake Periods</h3>
           <p className="text-gray-700 mb-3">
             LGIHE operates on flexible intake schedules to accommodate working professionals:
           </p>
@@ -44,7 +44,7 @@ export default function AdmissionsPage() {
           </ul>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Quick Links</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Quick Links</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {[
             { title: "Apply Now", href: "/admissions/apply", featured: true },
@@ -61,8 +61,8 @@ export default function AdmissionsPage() {
               href={link.href} 
               className={`p-4 rounded-lg transition-colors flex justify-between items-center no-underline ${
                 link.featured 
-                  ? 'bg-[#5B6F8C] text-white hover:bg-[#4A5D75] font-bold' 
-                  : 'bg-gray-50 hover:bg-gray-100 text-[#5B6F8C] font-medium'
+                  ? 'bg-[#3d4d6f] text-white hover:bg-[#2f3d57] font-bold' 
+                  : 'bg-gray-50 hover:bg-gray-100 text-[#3d4d6f] font-medium'
               }`}
             >
               <span>{link.title}</span>
@@ -72,7 +72,7 @@ export default function AdmissionsPage() {
         </div>
 
         <div className="mt-10 bg-gray-50 p-8 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Why Choose LGIHE?</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Why Choose LGIHE?</h3>
           <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
             <div>
               <p className="font-semibold mb-1">✓ Accredited Programmes</p>

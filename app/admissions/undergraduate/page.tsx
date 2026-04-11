@@ -26,8 +26,8 @@ export default function UndergraduateAdmissionsPage() {
           level, with flexible study options designed for both fresh graduates and working professionals.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Intake Periods</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Intake Periods</h3>
           <div className="space-y-2 text-sm text-gray-700">
             <p><strong>Session Intakes:</strong> January, May, and August</p>
             <p><strong>Semester Intakes:</strong> February and August</p>
@@ -35,7 +35,7 @@ export default function UndergraduateAdmissionsPage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Available Programmes</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Available Programmes</h2>
         <div className="space-y-3 mb-8">
           {programmes.map((programme) => (
             <Link
@@ -45,16 +45,16 @@ export default function UndergraduateAdmissionsPage() {
             >
               <div className="flex justify-between items-center">
                 <div>
-                  <h3 className="text-lg font-bold text-[#5B6F8C] mb-1">{programme.name}</h3>
+                  <h3 className="text-lg font-bold text-[#3d4d6f] mb-1">{programme.name}</h3>
                   <p className="text-sm text-gray-600">Duration: {programme.duration}</p>
                 </div>
-                <span className="text-[#5B6F8C] font-medium">View Details →</span>
+                <span className="text-[#3d4d6f] font-medium">View Details →</span>
               </div>
             </Link>
           ))}
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">General Entry Requirements</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">General Entry Requirements</h2>
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
           <div className="space-y-4 text-gray-700">
             <div>
@@ -83,14 +83,14 @@ export default function UndergraduateAdmissionsPage() {
           </div>
         </div>
 
-        <div className="bg-[#5B6F8C] text-white p-6 rounded-lg">
+        <div className="bg-[#3d4d6f] text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-3">Ready to Begin?</h3>
           <p className="mb-4">Start your application today and take the first step toward your teaching career.</p>
           <div className="flex gap-4 flex-wrap">
-            <a href="/admissions/portal" className="inline-block bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors no-underline">
+            <a href="/admissions/portal" className="inline-block bg-white text-[#3d4d6f] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors no-underline">
               Apply Now
             </a>
-            <a href="/admissions/requirements" className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#5B6F8C] transition-colors no-underline">
+            <a href="/admissions/requirements" className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#3d4d6f] transition-colors no-underline">
               View Requirements
             </a>
           </div>

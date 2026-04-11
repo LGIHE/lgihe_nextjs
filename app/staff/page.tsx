@@ -14,7 +14,7 @@ export default function StaffPage() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Link href="/staff/academic" className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg hover:shadow-lg transition-shadow">
+          <Link href="/staff/academic" className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg hover:shadow-lg transition-shadow">
             <h3 className="text-2xl font-bold mb-3">Academic Staff</h3>
             <p className="text-white/90 mb-4">
               Faculty members, lecturers, and research staff across all schools and departments
@@ -22,7 +22,7 @@ export default function StaffPage() {
             <span className="text-white font-medium">View Directory →</span>
           </Link>
 
-          <Link href="/staff/administrative" className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg hover:shadow-lg transition-shadow">
+          <Link href="/staff/administrative" className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg hover:shadow-lg transition-shadow">
             <h3 className="text-2xl font-bold mb-3">Administrative Staff</h3>
             <p className="text-white/90 mb-4">
               Support staff in administration, student services, and operations
@@ -32,7 +32,7 @@ export default function StaffPage() {
         </div>
 
         <div className="mt-8 bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Contact Information</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Contact Information</h3>
           <p className="text-gray-700">
             For general inquiries, contact our main office at info@lgihe.edu or call +123 456 7890.
           </p>

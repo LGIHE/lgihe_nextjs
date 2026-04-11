@@ -17,20 +17,20 @@ export default function HowToApplyPage() {
             { step: 6, title: "Track Your Application", desc: "Monitor your application status through the applicant portal." },
           ].map((item) => (
             <div key={item.step} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-6">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#5B6F8C] text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-[#3d4d6f] text-white rounded-full flex items-center justify-center font-bold text-xl">
                 {item.step}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">{item.title}</h3>
                 <p className="text-gray-700">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 bg-[#5B6F8C] text-white p-6 rounded-lg text-center">
+        <div className="mt-8 bg-[#3d4d6f] text-white p-6 rounded-lg text-center">
           <h3 className="text-xl font-bold mb-3">Ready to Apply?</h3>
-          <a href="/admissions/apply" className="inline-block bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <a href="/admissions/apply" className="inline-block bg-white text-[#3d4d6f] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             Start Your Application
           </a>
         </div>

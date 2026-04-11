@@ -71,18 +71,18 @@ export default function FAQsPage() {
             },
           ].map((faq, idx) => (
             <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-3">{faq.q}</h3>
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-3">{faq.q}</h3>
               <p className="text-gray-700">{faq.a}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 bg-[#5B6F8C]/10 p-6 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Still Have Questions?</h3>
+        <div className="mt-8 bg-[#3d4d6f]/10 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Still Have Questions?</h3>
           <p className="text-gray-700 mb-4">
             Our admissions team is here to help. Contact us for more information about our programmes and admissions process.
           </p>
-          <a href="/admissions/contact" className="text-[#5B6F8C] font-medium hover:underline">
+          <a href="/admissions/contact" className="text-[#3d4d6f] font-medium hover:underline">
             Contact Admissions →
           </a>
         </div>

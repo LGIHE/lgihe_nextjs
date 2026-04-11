@@ -15,8 +15,8 @@ export default function ApplyPage() {
       <div className="max-w-4xl mx-auto">
         {!showForm ? (
           <div className="space-y-6">
-            <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6">
-              <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Application Options</h3>
+            <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6">
+              <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Application Options</h3>
               <p className="text-gray-700">
                 Choose how you would like to apply to LGIHE. You can either fill out the online 
                 application form or download the PDF form to complete manually.
@@ -24,19 +24,19 @@ export default function ApplyPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border-2 border-[#5B6F8C] rounded-lg p-6">
+              <div className="bg-white border-2 border-[#3d4d6f] rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <svg className="w-16 h-16 mx-auto text-[#5B6F8C] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-16 h-16 mx-auto text-[#3d4d6f] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">Online Application</h3>
+                  <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">Online Application</h3>
                   <p className="text-gray-600 text-sm mb-4">
                     Fill out the application form online. Your progress will be saved automatically.
                   </p>
                 </div>
                 <button
                   onClick={() => setShowForm(true)}
-                  className="w-full bg-[#5B6F8C] text-white py-3 px-6 rounded-lg hover:bg-[#4A5D75] transition-colors font-semibold"
+                  className="w-full bg-[#3d4d6f] text-white py-3 px-6 rounded-lg hover:bg-[#2f3d57] transition-colors font-semibold"
                 >
                   Start Online Application
                 </button>
@@ -73,7 +73,7 @@ export default function ApplyPage() {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-3">Before You Apply</h3>
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-3">Before You Apply</h3>
               <div className="space-y-2 text-sm text-gray-700">
                 <p className="font-semibold">Please have the following documents ready:</p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
@@ -90,7 +90,7 @@ export default function ApplyPage() {
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
               <p className="text-sm text-gray-700">
                 <strong>Note:</strong> Application fee is required before submission. 
-                Visit our <a href="/admissions/fees" className="text-[#5B6F8C] underline">fees page</a> for payment details.
+                Visit our <a href="/admissions/fees" className="text-[#3d4d6f] underline">fees page</a> for payment details.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function ApplyPage() {
           <div>
             <button
               onClick={() => setShowForm(false)}
-              className="mb-4 text-[#5B6F8C] hover:text-[#4A5D75] flex items-center gap-2"
+              className="mb-4 text-[#3d4d6f] hover:text-[#2f3d57] flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

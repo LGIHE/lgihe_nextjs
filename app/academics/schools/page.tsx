@@ -45,8 +45,8 @@ export default function SchoolsPage() {
           with pedagogical excellence.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-10">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Our Approach</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-10">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Our Approach</h3>
           <p className="text-gray-700">
             Each school offers programmes that integrate theoretical knowledge with practical 
             teaching experience, ensuring our graduates are well-prepared for the challenges 
@@ -65,12 +65,12 @@ export default function SchoolsPage() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl">{school.icon}</div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-[#5B6F8C] mb-2">{school.name}</h3>
+                  <h3 className="text-2xl font-bold text-[#3d4d6f] mb-2">{school.name}</h3>
                   <p className="text-gray-700 mb-3">{school.description}</p>
                   <p className="text-sm text-gray-600 mb-3">
                     <strong>Programmes:</strong> {school.programmes}
                   </p>
-                  <span className="text-[#5B6F8C] font-medium hover:underline">
+                  <span className="text-[#3d4d6f] font-medium hover:underline">
                     Explore School →
                   </span>
                 </div>
@@ -80,7 +80,7 @@ export default function SchoolsPage() {
         </div>
 
         <section className="bg-gray-50 p-8 rounded-lg mb-10">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-6">Why Choose LGIHE?</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-6">Why Choose LGIHE?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold text-gray-800 mb-2">🎓 Quality Education</h3>
@@ -127,16 +127,16 @@ export default function SchoolsPage() {
           </div>
         </section>
 
-        <div className="bg-[#5B6F8C] text-white p-8 rounded-lg text-center">
+        <div className="bg-[#3d4d6f] text-white p-8 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">Ready to Begin Your Journey?</h3>
           <p className="mb-6">
             Explore our schools and find the programme that matches your career goals in education.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="/academics/programmes" className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
+            <a href="/academics/programmes" className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
               View All Programmes
             </a>
-            <a href="/admissions/how-to-apply" className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#5B6F8C] transition-colors no-underline">
+            <a href="/admissions/how-to-apply" className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#3d4d6f] transition-colors no-underline">
               Apply Now
             </a>
           </div>

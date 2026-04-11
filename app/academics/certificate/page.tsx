@@ -34,7 +34,7 @@ export default function CertificatePage() {
             <div key={program.name} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">{program.name}</h3>
+                  <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">{program.name}</h3>
                   <p className="text-sm text-green-600 font-medium">{program.status}</p>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function CertificatePage() {
                   <p className="font-semibold text-gray-800">{program.enrollment}</p>
                 </div>
               </div>
-              <a href={program.link} className="text-[#5B6F8C] font-medium hover:underline">
+              <a href={program.link} className="text-[#3d4d6f] font-medium hover:underline">
                 View Programme Details →
               </a>
             </div>

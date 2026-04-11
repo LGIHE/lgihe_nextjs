@@ -44,15 +44,15 @@ export default function UndergraduatePage() {
           with practical teaching experience.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <p className="text-sm font-semibold text-[#5B6F8C] mb-2">Accreditation</p>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <p className="text-sm font-semibold text-[#3d4d6f] mb-2">Accreditation</p>
           <p className="text-gray-700">All undergraduate programmes are accredited by the National Council for Higher Education (NCHE)</p>
         </div>
 
         <div className="space-y-6">
           {programmes.map((program) => (
             <div key={program.name} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">{program.name}</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">{program.name}</h3>
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div>
                   <p className="text-sm text-gray-600">Duration</p>
@@ -67,7 +67,7 @@ export default function UndergraduatePage() {
                   <p className="font-semibold text-gray-800">{program.enrollment}</p>
                 </div>
               </div>
-              <a href={program.link} className="text-[#5B6F8C] font-medium hover:underline">
+              <a href={program.link} className="text-[#3d4d6f] font-medium hover:underline">
                 View Programme Details →
               </a>
             </div>

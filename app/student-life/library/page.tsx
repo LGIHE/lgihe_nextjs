@@ -12,23 +12,23 @@ export default function LibraryPage() {
           to facilitate your academic success and research endeavors.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Collections</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Collections</h2>
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <p className="text-4xl font-bold text-[#5B6F8C] mb-2">100,000+</p>
+            <p className="text-4xl font-bold text-[#3d4d6f] mb-2">100,000+</p>
             <p className="text-gray-700">Physical Books</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <p className="text-4xl font-bold text-[#5B6F8C] mb-2">50,000+</p>
+            <p className="text-4xl font-bold text-[#3d4d6f] mb-2">50,000+</p>
             <p className="text-gray-700">E-Books</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <p className="text-4xl font-bold text-[#5B6F8C] mb-2">500+</p>
+            <p className="text-4xl font-bold text-[#3d4d6f] mb-2">500+</p>
             <p className="text-gray-700">Journal Subscriptions</p>
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Services</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Services</h2>
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Book borrowing and renewals</li>
@@ -41,7 +41,7 @@ export default function LibraryPage() {
           </ul>
         </div>
 
-        <div className="bg-[#5B6F8C] text-white p-6 rounded-lg">
+        <div className="bg-[#3d4d6f] text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-3">Opening Hours</h3>
           <div className="space-y-2">
             <p>Monday - Friday: 8:00 AM - 10:00 PM</p>

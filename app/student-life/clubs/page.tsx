@@ -22,7 +22,7 @@ export default function ClubsPage() {
             { category: "Religious", clubs: ["Christian Fellowship", "Muslim Students", "Interfaith Dialogue", "Meditation Group"] },
           ].map((group) => (
             <div key={group.category} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-3">{group.category}</h3>
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-3">{group.category}</h3>
               <ul className="space-y-1 text-sm text-gray-700">
                 {group.clubs.map((club) => (
                   <li key={club}>• {club}</li>
@@ -32,10 +32,10 @@ export default function ClubsPage() {
           ))}
         </div>
 
-        <div className="mt-8 bg-[#5B6F8C] text-white p-6 rounded-lg text-center">
+        <div className="mt-8 bg-[#3d4d6f] text-white p-6 rounded-lg text-center">
           <h3 className="text-xl font-bold mb-3">Start Your Own Club</h3>
           <p className="mb-4">Have an idea for a new club? We provide support and funding for student initiatives.</p>
-          <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-[#3d4d6f] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             Learn More
           </button>
         </div>

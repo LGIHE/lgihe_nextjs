@@ -44,7 +44,7 @@ export default function ProjectsPage() {
             },
           ].map((project) => (
             <div key={project.title} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">{project.title}</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">{project.title}</h3>
               <div className="grid md:grid-cols-3 gap-4 mb-3 text-sm">
                 <p className="text-gray-600"><strong>Lead:</strong> {project.lead}</p>
                 <p className="text-gray-600"><strong>Duration:</strong> {project.duration}</p>
@@ -55,13 +55,13 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        <div className="mt-8 bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-6 rounded-lg">
+        <div className="mt-8 bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-3">Research Collaboration</h3>
           <p className="mb-4">
             Interested in partnering on research projects? Contact our research office to 
             explore collaboration opportunities.
           </p>
-          <a href="mailto:research@lgihe.edu" className="inline-block bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <a href="mailto:research@lgihe.edu" className="inline-block bg-white text-[#3d4d6f] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             Get in Touch
           </a>
         </div>

@@ -14,20 +14,20 @@ export default function AboutPage() {
           continuous professional development training workshops held in more than 20 countries.
         </p>
         
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mt-8 mb-4">Our Vision</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Vision</h2>
         <p className="text-gray-700 mb-6">
           To be a leading institution of higher learning that has a transformative impact on society in Uganda 
           and throughout Africa by improving the quality of education and professional development.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mt-8 mb-4">Our Mission</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Mission</h2>
         <p className="text-gray-700 mb-6">
           To create opportunities for professional and personal development starting with the dignity and infinite 
           value of the person, developing one's methods of personal engagement and the meaning of work, targeting 
           teachers, students, parents and other professionals.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mt-8 mb-4">Our Approach</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Approach</h2>
         <p className="text-gray-700 mb-6">
           At LGIHE to educate is not simply to train but to bring out learners’ potentialities both from their 
           point of view and that of their educators. LGIHE, therefore, uses education as a tool to help children 
@@ -41,8 +41,8 @@ export default function AboutPage() {
           live into their own responsibilities.
         </p>
 
-        <div className="bg-[#5B6F8C]/10 p-6 rounded-lg mt-8">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Our Work</h3>
+        <div className="bg-[#3d4d6f]/10 p-6 rounded-lg mt-8">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Our Work</h3>
           <p className="text-gray-700">
             Grooming early childhood professionals, primary school teachers and small scale business entrepreneurs 
             through academic programs, professional development trainings, curriculum development, and comprehensive 

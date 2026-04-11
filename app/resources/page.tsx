@@ -91,7 +91,7 @@ export default function ResourcesPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-gray-700">{category.description}</p>
-                  <div className="mt-4 flex items-center text-[#5B6F8C] font-semibold group-hover:translate-x-2 transition-transform">
+                  <div className="mt-4 flex items-center text-[#3d4d6f] font-semibold group-hover:translate-x-2 transition-transform">
                     <span>Explore</span>
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -104,7 +104,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* Quick Links */}
-        <section className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+        <section className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg">
           <h2 className="text-3xl font-bold mb-6">Quick Links</h2>
           <div className="grid md:grid-cols-4 gap-4">
             <Link 
@@ -141,7 +141,7 @@ export default function ResourcesPage() {
         {/* Help Section */}
         <section className="bg-gray-50 p-8 rounded-lg">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-[#5B6F8C] mb-4">Need Help Finding Something?</h2>
+            <h2 className="text-3xl font-bold text-[#3d4d6f] mb-4">Need Help Finding Something?</h2>
             <p className="text-gray-700 mb-6">
               If you can't find what you're looking for, our support team is here to help. 
               Contact us and we'll assist you in finding the resources you need.
@@ -149,11 +149,11 @@ export default function ResourcesPage() {
             <div className="flex gap-4 justify-center">
               <Link 
                 href="/contact" 
-                className="bg-[#5B6F8C] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#4A5D75] transition-colors"
+                className="bg-[#3d4d6f] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#2f3d57] transition-colors"
               >
                 Contact Support
               </Link>
-              <button className="bg-white text-[#5B6F8C] px-8 py-3 rounded-full font-semibold border-2 border-[#5B6F8C] hover:bg-[#5B6F8C] hover:text-white transition-colors">
+              <button className="bg-white text-[#3d4d6f] px-8 py-3 rounded-full font-semibold border-2 border-[#3d4d6f] hover:bg-[#3d4d6f] hover:text-white transition-colors">
                 Search Resources
               </button>
             </div>

@@ -12,7 +12,7 @@ export default function HealthPage() {
           through comprehensive health services and wellness programs.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Medical Services</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Medical Services</h2>
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>On-campus medical center with qualified doctors and nurses</li>
@@ -23,7 +23,7 @@ export default function HealthPage() {
           </ul>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Mental Health Support</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Mental Health Support</h2>
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Confidential counseling services</li>
@@ -34,13 +34,13 @@ export default function HealthPage() {
           </ul>
         </div>
 
-        <div className="bg-[#5B6F8C] text-white p-6 rounded-lg">
+        <div className="bg-[#3d4d6f] text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-3">Wellness Programs</h3>
           <p className="mb-4">
             Join our wellness initiatives including yoga classes, nutrition workshops, 
             fitness challenges, and mental health awareness campaigns.
           </p>
-          <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-[#3d4d6f] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             View Schedule
           </button>
         </div>

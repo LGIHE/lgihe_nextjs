@@ -72,8 +72,8 @@ export default function DiplomaPage() {
           combine academic study with practical teaching experience.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Programme Features</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Programme Features</h3>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Two-year duration with flexible study modes</li>
             <li>Extensive teaching practice in partner schools</li>
@@ -89,7 +89,7 @@ export default function DiplomaPage() {
             <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div>
-                  <h2 className="text-2xl font-bold text-[#5B6F8C] mb-2">{programme.title}</h2>
+                  <h2 className="text-2xl font-bold text-[#3d4d6f] mb-2">{programme.title}</h2>
                   <div className="flex flex-wrap gap-4 text-sm text-gray-600">
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default function DiplomaPage() {
                 </div>
                 <Link 
                   href={programme.link}
-                  className="mt-4 md:mt-0 inline-block bg-[#5B6F8C] text-white px-6 py-2 rounded-lg hover:bg-[#4A5D75] transition-colors text-sm font-medium"
+                  className="mt-4 md:mt-0 inline-block bg-[#3d4d6f] text-white px-6 py-2 rounded-lg hover:bg-[#2f3d57] transition-colors text-sm font-medium"
                 >
                   View Details
                 </Link>
@@ -117,7 +117,7 @@ export default function DiplomaPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold text-[#5B6F8C] mb-3">Entry Requirements</h3>
+                  <h3 className="font-semibold text-[#3d4d6f] mb-3">Entry Requirements</h3>
                   <ul className="space-y-2 text-sm text-gray-700">
                     {programme.requirements.map((req, idx) => (
                       <li key={idx} className="flex items-start gap-2">
@@ -131,11 +131,11 @@ export default function DiplomaPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-[#5B6F8C] mb-3">Career Opportunities</h3>
+                  <h3 className="font-semibold text-[#3d4d6f] mb-3">Career Opportunities</h3>
                   <ul className="space-y-2 text-sm text-gray-700">
                     {programme.careers.map((career, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <svg className="w-5 h-5 text-[#5B6F8C] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-[#3d4d6f] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         {career}
@@ -150,25 +150,25 @@ export default function DiplomaPage() {
 
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Tuition & Fees</h3>
+            <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Tuition & Fees</h3>
             <p className="text-gray-700 mb-4">
               Our diploma programmes offer excellent value for professional teacher education. 
               View our detailed fee structure and payment options.
             </p>
-            <Link href="/admissions/fees" className="text-[#5B6F8C] font-medium hover:underline">
+            <Link href="/admissions/fees" className="text-[#3d4d6f] font-medium hover:underline">
               View Fees →
             </Link>
           </div>
 
-          <div className="bg-[#5B6F8C]/10 p-6 rounded-lg">
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Ready to Apply?</h3>
+          <div className="bg-[#3d4d6f]/10 p-6 rounded-lg">
+            <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Ready to Apply?</h3>
             <p className="text-gray-700 mb-4">
               Take the next step in your teaching career. Multiple intake periods available 
               throughout the year.
             </p>
             <Link 
               href="/admissions/apply" 
-              className="inline-block bg-[#5B6F8C] text-white px-6 py-2 rounded-lg hover:bg-[#4A5D75] transition-colors font-medium"
+              className="inline-block bg-[#3d4d6f] text-white px-6 py-2 rounded-lg hover:bg-[#2f3d57] transition-colors font-medium"
             >
               Apply Now
             </Link>

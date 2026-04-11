@@ -15,7 +15,7 @@ export default function PrincipalPage() {
       <div className="prose prose-lg max-w-none">
         <div className="flex flex-col md:flex-row gap-8 mb-8">
           <div className="md:w-1/3">
-            <div className="w-full aspect-square bg-[#5B6F8C]/10 rounded-lg overflow-hidden relative">
+            <div className="w-full aspect-square bg-[#3d4d6f]/10 rounded-lg overflow-hidden relative">
               {!imageError && (
                 <Image
                   src="/images/principal.jpg"
@@ -25,13 +25,13 @@ export default function PrincipalPage() {
                   onError={() => setImageError(true)}
                 />
               )}
-              <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-sm">
+              <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
                 Principal Photo
               </div>
             </div>
           </div>
           <div className="md:w-2/3">
-            <h2 className="text-3xl font-bold text-[#5B6F8C] mb-2">Stella Rose Akongo</h2>
+            <h2 className="text-3xl font-bold text-[#3d4d6f] mb-2">Stella Rose Akongo</h2>
             <p className="text-xl text-gray-600 mb-4">Principal, LGIHE</p>
             <p className="text-gray-700 mb-4">
               Stella Rose Akongo brings extensive experience in education leadership and is 
@@ -44,8 +44,8 @@ export default function PrincipalPage() {
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold text-[#5B6F8C] mb-4">Message from the Principal</h3>
-        <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#5B6F8C]">
+        <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Message from the Principal</h3>
+        <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#3d4d6f]">
           <p className="text-gray-700 italic mb-4">
             "Welcome to the Luigi Giussani Institute of Higher Education. We are committed to helping 
             learners and educators discover their identity, self-worth and sense of belonging."

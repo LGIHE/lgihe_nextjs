@@ -119,7 +119,7 @@ export default function AcademicStaffPage() {
             <input 
               type="text" 
               placeholder="Search by name, school, or specialization..." 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#5B6F8C]/30"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#3d4d6f]/30"
             />
           </div>
         </section>
@@ -127,7 +127,7 @@ export default function AcademicStaffPage() {
         {/* Faculty by School */}
         {schools.map((school, index) => (
           <section key={index}>
-            <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">{school.name}</h2>
+            <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">{school.name}</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {school.staff.map((member, memberIndex) => (
                 <div 
@@ -135,18 +135,18 @@ export default function AcademicStaffPage() {
                   className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] rounded-full flex-shrink-0 flex items-center justify-center text-white text-xl font-bold">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] rounded-full flex-shrink-0 flex items-center justify-center text-white text-xl font-bold">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-800 mb-1">{member.name}</h3>
-                      <p className="text-sm font-semibold text-[#5B6F8C] mb-2">{member.title}</p>
+                      <p className="text-sm font-semibold text-[#3d4d6f] mb-2">{member.title}</p>
                       <p className="text-sm text-gray-600 mb-2">
                         <span className="font-medium">Specialization:</span> {member.specialization}
                       </p>
                       <a 
                         href={`mailto:${member.email}`} 
-                        className="text-sm text-[#5B6F8C] hover:underline flex items-center gap-1"
+                        className="text-sm text-[#3d4d6f] hover:underline flex items-center gap-1"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -162,7 +162,7 @@ export default function AcademicStaffPage() {
         ))}
 
         {/* Join Our Team */}
-        <section className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+        <section className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Join Our Academic Team</h2>
             <p className="text-lg mb-6 text-white/90">
@@ -171,7 +171,7 @@ export default function AcademicStaffPage() {
             </p>
             <a 
               href="/jobs" 
-              className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
             >
               View Open Positions
             </a>
@@ -180,7 +180,7 @@ export default function AcademicStaffPage() {
 
         {/* Contact Academic Affairs */}
         <section className="bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Contact Academic Affairs</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Contact Academic Affairs</h2>
           <p className="text-gray-700 mb-4">
             For inquiries about academic programmes, faculty collaboration, or research opportunities, 
             please contact our Academic Affairs Office.
@@ -188,7 +188,7 @@ export default function AcademicStaffPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
               href="mailto:academics@lgihe.ac.ug" 
-              className="inline-flex items-center gap-2 text-[#5B6F8C] font-semibold hover:underline"
+              className="inline-flex items-center gap-2 text-[#3d4d6f] font-semibold hover:underline"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -197,7 +197,7 @@ export default function AcademicStaffPage() {
             </a>
             <a 
               href="tel:+256123456789" 
-              className="inline-flex items-center gap-2 text-[#5B6F8C] font-semibold hover:underline"
+              className="inline-flex items-center gap-2 text-[#3d4d6f] font-semibold hover:underline"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

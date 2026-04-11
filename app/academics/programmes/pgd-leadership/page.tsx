@@ -7,13 +7,13 @@ export default function PGDLeadershipPage() {
       subtitle="Developing strategic leaders for educational institutions"
     >
       <div className="prose prose-lg max-w-none">
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <p className="text-sm font-semibold text-[#5B6F8C] mb-2">Programme Status</p>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <p className="text-sm font-semibold text-[#3d4d6f] mb-2">Programme Status</p>
           <p className="text-gray-700">Accredited by the National Council for Higher Education (NCHE)</p>
         </div>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Programme Description</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Programme Description</h2>
           <p className="text-gray-700 leading-relaxed">
             The Post Graduate Diploma in Educational Leadership and Management delves into critical topics 
             concerning management and planning in today's education landscape. It offers an insightful 
@@ -32,15 +32,15 @@ export default function PGDLeadershipPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Programme Details</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Programme Details</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="font-semibold text-[#5B6F8C] mb-2">Duration</h3>
+              <h3 className="font-semibold text-[#3d4d6f] mb-2">Duration</h3>
               <p className="text-gray-700">1 Year (Professional Study Programme)</p>
               <p className="text-sm text-gray-600 mt-2">9 months (Semester/Weekend mode)</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="font-semibold text-[#5B6F8C] mb-2">Study Mode</h3>
+              <h3 className="font-semibold text-[#3d4d6f] mb-2">Study Mode</h3>
               <p className="text-gray-700">Session/Trimester Basis</p>
               <p className="text-sm text-gray-600 mt-2">Three sessions per academic year</p>
             </div>
@@ -48,7 +48,7 @@ export default function PGDLeadershipPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Target Group</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Target Group</h2>
           <p className="text-gray-700 mb-4">
             The programme targets individuals engaged in or aspiring towards education-related roles:
           </p>
@@ -62,7 +62,7 @@ export default function PGDLeadershipPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Entry Requirements</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Entry Requirements</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>Bachelor's degree or its equivalent from a recognized institution of higher learning</li>
             <li>Institution must be recognised by the National Council for Higher Education (NCHE) of Uganda</li>
@@ -76,9 +76,9 @@ export default function PGDLeadershipPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Programme Structure</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Programme Structure</h2>
           <div className="bg-gray-50 p-6 rounded-lg">
-            <h4 className="font-semibold text-[#5B6F8C] mb-3">Modular System</h4>
+            <h4 className="font-semibold text-[#3d4d6f] mb-3">Modular System</h4>
             <ul className="space-y-2 text-gray-700">
               <li>• Total of 22 modules across three academic sessions</li>
               <li>• Action research component after the first session</li>
@@ -97,7 +97,7 @@ export default function PGDLeadershipPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Career Opportunities</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Career Opportunities</h2>
           <p className="text-gray-700 mb-4">
             Graduates are equipped to pursue roles such as:
           </p>
@@ -112,10 +112,10 @@ export default function PGDLeadershipPage() {
           </ul>
         </section>
 
-        <div className="bg-[#5B6F8C] text-white p-8 rounded-lg text-center">
+        <div className="bg-[#3d4d6f] text-white p-8 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">Ready to Apply?</h3>
           <p className="mb-6">Lead educational transformation with advanced management skills.</p>
-          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
             Apply Now
           </a>
         </div>

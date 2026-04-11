@@ -32,15 +32,15 @@ export default function PostgraduatePage() {
           and management.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <p className="text-sm font-semibold text-[#5B6F8C] mb-2">Accreditation</p>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <p className="text-sm font-semibold text-[#3d4d6f] mb-2">Accreditation</p>
           <p className="text-gray-700">All postgraduate programmes are accredited by the National Council for Higher Education (NCHE)</p>
         </div>
 
         <div className="space-y-6">
           {programmes.map((program) => (
             <div key={program.name} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">{program.name}</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">{program.name}</h3>
               <p className="text-gray-700 mb-4">{program.description}</p>
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div>
@@ -56,7 +56,7 @@ export default function PostgraduatePage() {
                   <p className="font-semibold text-gray-800">{program.enrollment}</p>
                 </div>
               </div>
-              <a href={program.link} className="text-[#5B6F8C] font-medium hover:underline">
+              <a href={program.link} className="text-[#3d4d6f] font-medium hover:underline">
                 View Programme Details →
               </a>
             </div>
@@ -64,7 +64,7 @@ export default function PostgraduatePage() {
         </div>
 
         <div className="mt-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Why Choose LGIHE Postgraduate Programmes?</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Why Choose LGIHE Postgraduate Programmes?</h2>
           <ul className="space-y-3 text-gray-700">
             <li>• Flexible study modes designed for working professionals</li>
             <li>• Experienced faculty with expertise in education</li>

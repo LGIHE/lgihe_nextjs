@@ -55,14 +55,14 @@ export default function EventsPage() {
       <div className="space-y-12">
         {/* Upcoming Events */}
         <section>
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Upcoming Events</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Upcoming Events</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {upcomingEvents.map((event) => (
               <div 
                 key={event.id} 
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-4">
+                <div className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-4">
                   <span className="text-xs font-semibold uppercase tracking-wider">
                     {event.category}
                   </span>
@@ -91,7 +91,7 @@ export default function EventsPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 text-sm mb-4">{event.description}</p>
-                  <button className="w-full bg-[#5B6F8C] text-white py-2 rounded-lg hover:bg-[#4A5D75] transition-colors">
+                  <button className="w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors">
                     Register
                   </button>
                 </div>
@@ -102,47 +102,47 @@ export default function EventsPage() {
 
         {/* Academic Calendar */}
         <section className="bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Academic Calendar</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Academic Calendar</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Semester 1, 2026</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Semester 1, 2026</h3>
               <ul className="space-y-3">
                 <li className="flex justify-between">
                   <span className="text-gray-700">Registration Opens</span>
-                  <span className="font-semibold text-[#5B6F8C]">Aug 1</span>
+                  <span className="font-semibold text-[#3d4d6f]">Aug 1</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Classes Begin</span>
-                  <span className="font-semibold text-[#5B6F8C]">Aug 15</span>
+                  <span className="font-semibold text-[#3d4d6f]">Aug 15</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Mid-term Break</span>
-                  <span className="font-semibold text-[#5B6F8C]">Oct 10-14</span>
+                  <span className="font-semibold text-[#3d4d6f]">Oct 10-14</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Exams</span>
-                  <span className="font-semibold text-[#5B6F8C]">Dec 5-16</span>
+                  <span className="font-semibold text-[#3d4d6f]">Dec 5-16</span>
                 </li>
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Semester 2, 2027</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Semester 2, 2027</h3>
               <ul className="space-y-3">
                 <li className="flex justify-between">
                   <span className="text-gray-700">Registration Opens</span>
-                  <span className="font-semibold text-[#5B6F8C]">Jan 5</span>
+                  <span className="font-semibold text-[#3d4d6f]">Jan 5</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Classes Begin</span>
-                  <span className="font-semibold text-[#5B6F8C]">Jan 20</span>
+                  <span className="font-semibold text-[#3d4d6f]">Jan 20</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Mid-term Break</span>
-                  <span className="font-semibold text-[#5B6F8C]">Mar 15-19</span>
+                  <span className="font-semibold text-[#3d4d6f]">Mar 15-19</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-700">Exams</span>
-                  <span className="font-semibold text-[#5B6F8C]">May 10-21</span>
+                  <span className="font-semibold text-[#3d4d6f]">May 10-21</span>
                 </li>
               </ul>
             </div>
@@ -151,14 +151,14 @@ export default function EventsPage() {
 
         {/* Past Events */}
         <section>
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Past Events</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Past Events</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             {pastEvents.map((event) => (
               <div 
                 key={event.id} 
                 className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
               >
-                <span className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider">
+                <span className="text-xs font-semibold text-[#3d4d6f] uppercase tracking-wider">
                   {event.category}
                 </span>
                 <h3 className="text-lg font-bold text-gray-800 mt-2">{event.title}</h3>
@@ -169,7 +169,7 @@ export default function EventsPage() {
         </section>
 
         {/* Subscribe to Events */}
-        <section className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg">
+        <section className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
             <p className="mb-6">
@@ -182,7 +182,7 @@ export default function EventsPage() {
                 placeholder="Enter your email" 
                 className="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
               />
-              <button className="bg-white text-[#5B6F8C] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <button className="bg-white text-[#3d4d6f] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Subscribe
               </button>
             </div>

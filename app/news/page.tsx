@@ -80,7 +80,7 @@ export default function NewsPage() {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === category
-                  ? "bg-[#5B6F8C] text-white"
+                  ? "bg-[#3d4d6f] text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
@@ -93,7 +93,7 @@ export default function NewsPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredNews.map((item) => (
             <article key={item.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative h-48 bg-[#5B6F8C]/10">
+              <div className="relative h-48 bg-[#3d4d6f]/10">
                 {!imageErrors[item.id] && (
                   <Image
                     src={item.image}
@@ -103,13 +103,13 @@ export default function NewsPage() {
                     onError={() => setImageErrors(prev => ({ ...prev, [item.id]: true }))}
                   />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-sm">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
                   News Image
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold text-[#5B6F8C] bg-[#5B6F8C]/10 px-3 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-[#3d4d6f] bg-[#3d4d6f]/10 px-3 py-1 rounded-full">
                     {item.category}
                   </span>
                   <span className="text-xs text-gray-500">{item.date}</span>
@@ -122,7 +122,7 @@ export default function NewsPage() {
                 </p>
                 <Link 
                   href={`/news/${item.id}`}
-                  className="text-[#5B6F8C] hover:text-[#4a5a70] font-medium text-sm flex items-center gap-1 transition-colors"
+                  className="text-[#3d4d6f] hover:text-[#2f3d57] font-medium text-sm flex items-center gap-1 transition-colors"
                 >
                   Read More
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@ export default function NewsPage() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-12 bg-[#5B6F8C] text-white p-8 rounded-lg">
+        <div className="mt-12 bg-[#3d4d6f] text-white p-8 rounded-lg">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-3">Stay Informed</h3>
             <p className="mb-6">
@@ -149,7 +149,7 @@ export default function NewsPage() {
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-white text-[#5B6F8C] rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                className="px-6 py-3 bg-white text-[#3d4d6f] rounded-lg font-medium hover:bg-gray-100 transition-colors"
               >
                 Subscribe
               </button>

@@ -41,10 +41,10 @@ export default function CampusGallery() {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="max-w-2xl mb-12 text-center mx-auto">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5B6F8C] font-medium mb-3">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#3d4d6f] font-medium mb-3">
             Our Campus
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-[#5B6F8C] leading-tight mb-4">
+          <h2 className="font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-[#3d4d6f] leading-tight mb-4">
             A Place to Learn and Grow
           </h2>
           <p className="text-gray-600 text-lg">
@@ -63,7 +63,7 @@ export default function CampusGallery() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#5B6F8C]/10 cursor-pointer"
+              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#3d4d6f]/10 cursor-pointer"
             >
               <div className="relative w-full h-full">
                 <Image
@@ -77,7 +77,7 @@ export default function CampusGallery() {
                   }}
                 />
                 {/* Placeholder text */}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-sm">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
                   {image.title}
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function CampusGallery() {
         <div className="mt-12 text-center">
           <a 
             href="/contact" 
-            className="inline-block px-8 py-3 bg-[#5B6F8C] text-white rounded-full font-medium hover:bg-[#4A5D75] transition-colors"
+            className="inline-block px-8 py-3 bg-[#3d4d6f] text-white rounded-full font-medium hover:bg-[#2f3d57] transition-colors"
           >
             Visit Our Campus
           </a>

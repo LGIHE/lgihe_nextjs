@@ -177,7 +177,7 @@ export default function Hero() {
             >
               <Link
                 href={slide.cta1.link}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#5B6F8C] text-white text-sm font-medium hover:bg-[#4A5D75] transition-colors duration-200"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#3d4d6f] text-white text-sm font-medium hover:bg-[#2f3d57] transition-colors duration-200"
               >
                 {slide.cta1.text}
               </Link>

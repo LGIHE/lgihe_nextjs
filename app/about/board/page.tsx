@@ -17,12 +17,12 @@ export default function BoardPage() {
           and education to guide the strategic direction of LGIHE.
         </p>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-6">Founders</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-6">Founders</h2>
 
         <div className="space-y-6 mb-12">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
-              <div className="w-32 h-32 bg-[#5B6F8C]/10 rounded-full flex-shrink-0 overflow-hidden relative">
+              <div className="w-32 h-32 bg-[#3d4d6f]/10 rounded-full flex-shrink-0 overflow-hidden relative">
                 {!imageErrors['rose'] && (
                   <Image
                     src="/images/rose-busingye.jpg"
@@ -32,12 +32,12 @@ export default function BoardPage() {
                     onError={() => setImageErrors(prev => ({ ...prev, rose: true }))}
                   />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-xs text-center">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-xs text-center">
                   Photo
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">Rose Busingye</h3>
+                <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">Rose Busingye</h3>
                 <p className="text-gray-600 font-medium mb-3">Founder & Director of Meeting Point International (MPI)</p>
                 <p className="text-gray-700">
                   A nurse by profession, Rose founded Meeting Point International in June 2003 with the aim of 
@@ -50,7 +50,7 @@ export default function BoardPage() {
 
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
-              <div className="w-32 h-32 bg-[#5B6F8C]/10 rounded-full flex-shrink-0 overflow-hidden relative">
+              <div className="w-32 h-32 bg-[#3d4d6f]/10 rounded-full flex-shrink-0 overflow-hidden relative">
                 {!imageErrors['vincenzo'] && (
                   <Image
                     src="/images/vincenzo-silvano.jpg"
@@ -60,12 +60,12 @@ export default function BoardPage() {
                     onError={() => setImageErrors(prev => ({ ...prev, vincenzo: true }))}
                   />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-xs text-center">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-xs text-center">
                   Photo
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">Vincenzo Silvano</h3>
+                <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">Vincenzo Silvano</h3>
                 <p className="text-gray-600 font-medium mb-3">President of Villa Brea Foundation, SS. Natale Pre Primary, Primary and Secondary School</p>
                 <p className="text-gray-700">
                   An educationalist by profession, and an exceptional human resource expert with remarkable 
@@ -77,7 +77,7 @@ export default function BoardPage() {
 
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
-              <div className="w-32 h-32 bg-[#5B6F8C]/10 rounded-full flex-shrink-0 overflow-hidden relative">
+              <div className="w-32 h-32 bg-[#3d4d6f]/10 rounded-full flex-shrink-0 overflow-hidden relative">
                 {!imageErrors['george'] && (
                   <Image
                     src="/images/george-pariyo.jpg"
@@ -87,12 +87,12 @@ export default function BoardPage() {
                     onError={() => setImageErrors(prev => ({ ...prev, george: true }))}
                   />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-xs text-center">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-xs text-center">
                   Photo
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">Dr. George Pariyo</h3>
+                <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">Dr. George Pariyo</h3>
                 <p className="text-gray-600 font-medium mb-3">Board Member</p>
                 <p className="text-gray-700">
                   A highbrow in the health sector has previously worked as an Associate Professor in Makerere University. 

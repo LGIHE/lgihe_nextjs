@@ -146,7 +146,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Navigation Bar - Visible when not scrolling, hidden when scrolling */}
-      <div className={`fixed top-0 left-0 right-0 z-50 bg-[#5B6F8C] text-white transition-transform duration-300 ${
+      <div className={`fixed top-0 left-0 right-0 z-50 bg-[#3d4d6f] text-white transition-transform duration-300 ${
         scrolled ? "-translate-y-full" : "translate-y-0"
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-10">
@@ -232,7 +232,7 @@ export default function Navbar() {
 
       {/* Search Bar (Expandable) */}
       {searchOpen && (
-        <div className={`fixed left-0 right-0 z-50 bg-white border-b border-[#5B6F8C]/10 transition-all duration-300 ${
+        <div className={`fixed left-0 right-0 z-50 bg-white border-b border-[#3d4d6f]/10 transition-all duration-300 ${
           scrolled ? "top-0" : "top-10"
         }`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
@@ -240,12 +240,12 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search LGIHE..."
-                className="flex-1 px-4 py-2 border border-[#5B6F8C]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5B6F8C]/30"
+                className="flex-1 px-4 py-2 border border-[#3d4d6f]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d4d6f]/30"
                 autoFocus
               />
               <button 
                 onClick={() => setSearchOpen(false)}
-                className="text-[#5B6F8C] hover:text-[#4a5a70] transition-colors"
+                className="text-[#3d4d6f] hover:text-[#2f3d57] transition-colors"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -264,7 +264,7 @@ export default function Navbar() {
             : "top-10 bg-white/90 backdrop-blur-sm"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 md:h-20 border-b border-[#5B6F8C]/10">
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 md:h-20 border-b border-[#3d4d6f]/10">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image 
@@ -286,7 +286,7 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter(menuKey)}
               onMouseLeave={handleMouseLeave}
             >
-              <button className="text-sm font-medium text-[#5B6F8C]/80 hover:text-[#5B6F8C] transition-colors duration-200 px-3 py-2 flex items-center gap-1">
+              <button className="text-sm font-medium text-[#3d4d6f]/80 hover:text-[#3d4d6f] transition-colors duration-200 px-3 py-2 flex items-center gap-1">
                 {menuKey}
                 <svg
                   className={`w-4 h-4 transition-transform duration-200 ${
@@ -303,14 +303,14 @@ export default function Navbar() {
               {/* Dropdown Menu */}
               {activeDropdown === menuKey && (
                 <div className="absolute top-full left-0 pt-2 min-w-[200px]">
-                  <div className="bg-white rounded-lg shadow-xl border border-[#5B6F8C]/10 py-4 px-2">
+                  <div className="bg-white rounded-lg shadow-xl border border-[#3d4d6f]/10 py-4 px-2">
                     {'columns' in menuData[menuKey as keyof typeof menuData] ? (
                       <div className={`grid gap-6 ${
                         (menuData[menuKey as keyof typeof menuData] as any).columns.length === 2 ? "grid-cols-2" : "grid-cols-3"
                       } min-w-[500px]`}>
                         {(menuData[menuKey as keyof typeof menuData] as any).columns.map((column: any, idx: number) => (
                           <div key={idx} className="px-3">
-                            <h3 className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider mb-3">
+                            <h3 className="text-xs font-semibold text-[#3d4d6f] uppercase tracking-wider mb-3">
                               {column.title}
                             </h3>
                             <ul className="space-y-2">
@@ -318,7 +318,7 @@ export default function Navbar() {
                                 <li key={item.label}>
                                   <Link
                                     href={item.href}
-                                    className="block text-sm text-[#5B6F8C]/70 hover:text-[#5B6F8C] hover:bg-[#5B6F8C]/5 px-2 py-1.5 rounded transition-colors duration-150"
+                                    className="block text-sm text-[#3d4d6f]/70 hover:text-[#3d4d6f] hover:bg-[#3d4d6f]/5 px-2 py-1.5 rounded transition-colors duration-150"
                                   >
                                     {item.label}
                                   </Link>
@@ -334,7 +334,7 @@ export default function Navbar() {
                           <li key={item.label}>
                             <Link
                               href={item.href}
-                              className="block text-sm text-[#5B6F8C]/70 hover:text-[#5B6F8C] hover:bg-[#5B6F8C]/5 px-3 py-2 rounded transition-colors duration-150"
+                              className="block text-sm text-[#3d4d6f]/70 hover:text-[#3d4d6f] hover:bg-[#3d4d6f]/5 px-3 py-2 rounded transition-colors duration-150"
                             >
                               {item.label}
                             </Link>
@@ -350,7 +350,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/contact"
-              className="text-sm font-medium text-[#5B6F8C]/80 hover:text-[#5B6F8C] transition-colors duration-200 px-3 py-2"
+              className="text-sm font-medium text-[#3d4d6f]/80 hover:text-[#3d4d6f] transition-colors duration-200 px-3 py-2"
             >
               Contact Us
             </Link>
@@ -361,7 +361,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <Link
             href="/admissions/apply"
-            className="text-sm font-medium px-6 py-2.5 rounded-full bg-[#5B6F8C] text-white hover:bg-[#4A5D75] transition-all duration-200 shadow-sm hover:shadow-md"
+            className="text-sm font-medium px-6 py-2.5 rounded-full bg-[#3d4d6f] text-white hover:bg-[#2f3d57] transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Apply Now
           </Link>
@@ -374,17 +374,17 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-[#5B6F8C] transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[#3d4d6f] transition-transform duration-300 ${
               menuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#5B6F8C] transition-opacity duration-300 ${
+            className={`block w-6 h-0.5 bg-[#3d4d6f] transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#5B6F8C] transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[#3d4d6f] transition-transform duration-300 ${
               menuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
@@ -393,12 +393,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-[#5B6F8C]/10 px-6 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-[#3d4d6f]/10 px-6 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
           {Object.keys(menuData).map((menuKey) => (
-            <div key={menuKey} className="border-b border-[#5B6F8C]/10 py-3">
+            <div key={menuKey} className="border-b border-[#3d4d6f]/10 py-3">
               <button
                 onClick={() => toggleMobileMenu(menuKey)}
-                className="w-full flex items-center justify-between text-base font-medium text-[#5B6F8C] py-2"
+                className="w-full flex items-center justify-between text-base font-medium text-[#3d4d6f] py-2"
               >
                 {menuKey}
                 <svg
@@ -419,7 +419,7 @@ export default function Navbar() {
                     <div className="space-y-4">
                       {(menuData[menuKey as keyof typeof menuData] as any).columns.map((column: any, idx: number) => (
                         <div key={idx}>
-                          <h3 className="text-xs font-semibold text-[#5B6F8C] uppercase tracking-wider mb-2">
+                          <h3 className="text-xs font-semibold text-[#3d4d6f] uppercase tracking-wider mb-2">
                             {column.title}
                           </h3>
                           <ul className="space-y-2">
@@ -428,7 +428,7 @@ export default function Navbar() {
                                 <Link
                                   href={item.href}
                                   onClick={() => setMenuOpen(false)}
-                                  className="block text-sm text-[#5B6F8C]/70 hover:text-[#5B6F8C] py-1"
+                                  className="block text-sm text-[#3d4d6f]/70 hover:text-[#3d4d6f] py-1"
                                 >
                                   {item.label}
                                 </Link>
@@ -445,7 +445,7 @@ export default function Navbar() {
                           <Link
                             href={item.href}
                             onClick={() => setMenuOpen(false)}
-                            className="block text-sm text-[#5B6F8C]/70 hover:text-[#5B6F8C] py-1"
+                            className="block text-sm text-[#3d4d6f]/70 hover:text-[#3d4d6f] py-1"
                           >
                             {item.label}
                           </Link>
@@ -461,7 +461,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="block text-base font-medium text-[#5B6F8C] py-2"
+              className="block text-base font-medium text-[#3d4d6f] py-2"
             >
               Contact Us
             </Link>
@@ -469,7 +469,7 @@ export default function Navbar() {
           <Link
             href="/admissions/apply"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 block text-sm font-medium px-5 py-2.5 rounded-full bg-[#5B6F8C] text-white text-center hover:bg-[#4A5D75] transition-all duration-200"
+            className="mt-4 block text-sm font-medium px-5 py-2.5 rounded-full bg-[#3d4d6f] text-white text-center hover:bg-[#2f3d57] transition-all duration-200"
           >
             Apply Now
           </Link>

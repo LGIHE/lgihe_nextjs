@@ -14,7 +14,7 @@ export default function HistoryPage() {
         
         <div className="space-y-8">
           <div>
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">The Beginning</h3>
+            <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">The Beginning</h3>
             <p className="text-gray-700">
               LGIHE was established to provide quality education and foster academic excellence. 
               Our founders envisioned an institution that would nurture minds and shape futures.
@@ -22,7 +22,7 @@ export default function HistoryPage() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Growth and Development</h3>
+            <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Growth and Development</h3>
             <p className="text-gray-700">
               Over the years, we have expanded our academic programs, enhanced our facilities, 
               and built a strong community of scholars, researchers, and students.
@@ -30,7 +30,7 @@ export default function HistoryPage() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Today</h3>
+            <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Today</h3>
             <p className="text-gray-700">
               Today, LGIHE stands as a beacon of educational excellence, continuing to innovate 
               and adapt to meet the evolving needs of our students and society.

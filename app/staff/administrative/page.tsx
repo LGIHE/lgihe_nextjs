@@ -24,7 +24,7 @@ export default function AdministrativeStaffPage() {
             { dept: "Facilities Management", staff: ["Facilities Manager", "Maintenance Staff", "Security Team"] },
           ].map((department) => (
             <div key={department.dept} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">{department.dept}</h3>
+              <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">{department.dept}</h3>
               <div className="grid md:grid-cols-3 gap-3">
                 {department.staff.map((role) => (
                   <div key={role} className="bg-gray-50 p-3 rounded">

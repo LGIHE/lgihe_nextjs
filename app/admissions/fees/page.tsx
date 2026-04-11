@@ -128,8 +128,8 @@ export default function FeesPage() {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 font-semibold transition-colors border-b-2 ${
                 selectedCategory === category.id
-                  ? 'border-[#5B6F8C] text-[#5B6F8C]'
-                  : 'border-transparent text-gray-600 hover:text-[#5B6F8C]'
+                  ? 'border-[#3d4d6f] text-[#3d4d6f]'
+                  : 'border-transparent text-gray-600 hover:text-[#3d4d6f]'
               }`}
             >
               {category.label}
@@ -138,7 +138,7 @@ export default function FeesPage() {
         </div>
 
         {/* Fee Information Notice */}
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-4 mb-6">
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-4 mb-6">
           <p className="text-sm text-gray-700">
             <strong>Note:</strong> Tuition fees cover instruction and academic services. 
             Functional fees cover registration, examinations, library, ICT, and other student services.
@@ -149,7 +149,7 @@ export default function FeesPage() {
         <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-[#5B6F8C] text-white">
+              <thead className="bg-[#3d4d6f] text-white">
                 <tr>
                   <th className="px-6 py-4 text-left font-semibold">Programme</th>
                   <th className="px-6 py-4 text-right font-semibold">Tuition</th>
@@ -168,7 +168,7 @@ export default function FeesPage() {
                     </td>
                     <td className="px-6 py-4 text-right text-gray-700">{programme.tuition}</td>
                     <td className="px-6 py-4 text-right text-gray-700">{programme.functional}</td>
-                    <td className="px-6 py-4 text-right font-semibold text-[#5B6F8C]">{programme.total}</td>
+                    <td className="px-6 py-4 text-right font-semibold text-[#3d4d6f]">{programme.total}</td>
                   </tr>
                 ))}
               </tbody>
@@ -178,7 +178,7 @@ export default function FeesPage() {
 
         {/* Additional Fees */}
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">One-Time Fees</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">One-Time Fees</h3>
           <div className="space-y-3 text-gray-700">
             <div className="flex justify-between">
               <span>Application Fee</span>
@@ -197,7 +197,7 @@ export default function FeesPage() {
 
         {/* Payment Information */}
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Payment Information</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Payment Information</h3>
           <div className="space-y-3 text-gray-700">
             <p><strong>Payment Options:</strong></p>
             <ul className="list-disc list-inside space-y-2 ml-4">
@@ -216,8 +216,8 @@ export default function FeesPage() {
         </div>
 
         {/* Financial Aid */}
-        <div className="bg-[#5B6F8C]/10 p-6 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">Financial Aid & Payment Plans</h3>
+        <div className="bg-[#3d4d6f]/10 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">Financial Aid & Payment Plans</h3>
           <p className="text-gray-700 mb-4">
             LGIHE offers various payment plans and financial assistance options to deserving students. 
             These include installment payment plans, need-based bursaries, and special grants for students 
@@ -225,7 +225,7 @@ export default function FeesPage() {
           </p>
           <a 
             href="/admissions/contact" 
-            className="inline-block bg-[#5B6F8C] text-white px-6 py-2 rounded-lg hover:bg-[#4A5D75] transition-colors"
+            className="inline-block bg-[#3d4d6f] text-white px-6 py-2 rounded-lg hover:bg-[#2f3d57] transition-colors"
           >
             Contact Admissions for More Info
           </a>

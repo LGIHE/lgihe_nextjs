@@ -24,8 +24,8 @@ export default function ArtsSchoolPage() {
           critical thinking, creativity, and cultural understanding.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Programme</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Programme</h3>
           <p className="text-gray-700 mb-3">
             <strong>Bachelor of Arts with Education (Secondary)</strong>
           </p>
@@ -33,20 +33,20 @@ export default function ArtsSchoolPage() {
             3-year degree programme combining arts and humanities subjects with professional 
             teacher training for secondary education.
           </p>
-          <a href="/academics/programmes/bachelor-arts-secondary" className="inline-block mt-4 text-[#5B6F8C] font-medium hover:underline">
+          <a href="/academics/programmes/bachelor-arts-secondary" className="inline-block mt-4 text-[#3d4d6f] font-medium hover:underline">
             View Programme Details →
           </a>
         </div>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Teaching Subjects</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Teaching Subjects</h2>
           <p className="text-gray-700 mb-6">
             Students specialize in teaching combinations of the following subjects:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {subjects.map((subject) => (
               <div key={subject.name} className="bg-white border border-gray-200 rounded-lg p-5">
-                <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{subject.name}</h3>
+                <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{subject.name}</h3>
                 <p className="text-sm text-gray-700">{subject.description}</p>
               </div>
             ))}
@@ -54,7 +54,7 @@ export default function ArtsSchoolPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Programme Features</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Programme Features</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="font-semibold text-gray-800 mb-2">Subject Mastery</h3>
@@ -88,7 +88,7 @@ export default function ArtsSchoolPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Career Opportunities</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Career Opportunities</h2>
           <p className="text-gray-700 mb-4">
             Graduates are qualified to work as:
           </p>
@@ -101,10 +101,10 @@ export default function ArtsSchoolPage() {
           </ul>
         </section>
 
-        <div className="bg-[#5B6F8C] text-white p-8 rounded-lg text-center">
+        <div className="bg-[#3d4d6f] text-white p-8 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">Become an Arts & Humanities Educator</h3>
           <p className="mb-6">Inspire the next generation through arts and humanities education.</p>
-          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
+          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
             Apply Now
           </a>
         </div>

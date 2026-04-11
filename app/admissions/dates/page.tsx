@@ -7,23 +7,23 @@ export default function DatesPage() {
       subtitle="Key deadlines and academic calendar"
     >
       <div className="prose prose-lg max-w-none">
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Application Deadlines 2026</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Application Deadlines 2026</h2>
         <div className="space-y-4 mb-8">
-          <div className="bg-white border-l-4 border-[#5B6F8C] p-4">
-            <h3 className="font-bold text-[#5B6F8C]">Undergraduate Early Decision</h3>
+          <div className="bg-white border-l-4 border-[#3d4d6f] p-4">
+            <h3 className="font-bold text-[#3d4d6f]">Undergraduate Early Decision</h3>
             <p className="text-gray-700">Deadline: November 1, 2026</p>
           </div>
-          <div className="bg-white border-l-4 border-[#5B6F8C] p-4">
-            <h3 className="font-bold text-[#5B6F8C]">Undergraduate Regular Decision</h3>
+          <div className="bg-white border-l-4 border-[#3d4d6f] p-4">
+            <h3 className="font-bold text-[#3d4d6f]">Undergraduate Regular Decision</h3>
             <p className="text-gray-700">Deadline: January 15, 2027</p>
           </div>
-          <div className="bg-white border-l-4 border-[#5B6F8C] p-4">
-            <h3 className="font-bold text-[#5B6F8C]">Postgraduate Applications</h3>
+          <div className="bg-white border-l-4 border-[#3d4d6f] p-4">
+            <h3 className="font-bold text-[#3d4d6f]">Postgraduate Applications</h3>
             <p className="text-gray-700">Rolling admissions - Apply anytime</p>
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Academic Calendar 2026-2027</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Academic Calendar 2026-2027</h2>
         <div className="bg-gray-50 p-6 rounded-lg">
           <div className="space-y-3">
             <div className="flex justify-between">

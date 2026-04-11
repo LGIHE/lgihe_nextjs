@@ -20,11 +20,11 @@ export default function PublicationsPage() {
           />
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Recent Publications</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">Recent Publications</h2>
         <div className="space-y-4">
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">
                 Research Paper Title {i}: An Investigation into [Topic]
               </h3>
               <p className="text-sm text-gray-600 mb-2">
@@ -34,20 +34,20 @@ export default function PublicationsPage() {
                 Abstract: This research explores important aspects of the field and presents 
                 significant findings that contribute to our understanding...
               </p>
-              <a href="#" className="text-[#5B6F8C] text-sm font-medium hover:underline">
+              <a href="#" className="text-[#3d4d6f] text-sm font-medium hover:underline">
                 Read Full Paper →
               </a>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 bg-[#5B6F8C]/10 p-6 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-3">LGIHE Research Journal</h3>
+        <div className="mt-8 bg-[#3d4d6f]/10 p-6 rounded-lg">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-3">LGIHE Research Journal</h3>
           <p className="text-gray-700 mb-4">
             Our institutional journal publishes peer-reviewed research across all disciplines. 
             Submit your manuscript or access past issues.
           </p>
-          <button className="bg-[#5B6F8C] text-white px-6 py-3 rounded-full font-medium hover:bg-[#4A5D75] transition-colors">
+          <button className="bg-[#3d4d6f] text-white px-6 py-3 rounded-full font-medium hover:bg-[#2f3d57] transition-colors">
             Visit Journal
           </button>
         </div>

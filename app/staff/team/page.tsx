@@ -54,7 +54,7 @@ export default function TeamPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-center">
-              <div className="w-32 h-32 bg-[#5B6F8C]/10 rounded-full mx-auto mb-4 overflow-hidden relative">
+              <div className="w-32 h-32 bg-[#3d4d6f]/10 rounded-full mx-auto mb-4 overflow-hidden relative">
                 {!imageErrors[member.name] && (
                   <Image
                     src={member.image}
@@ -64,11 +64,11 @@ export default function TeamPage() {
                     onError={() => setImageErrors(prev => ({ ...prev, [member.name]: true }))}
                   />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5B6F8C]/40 text-xs">
+                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-xs">
                   Photo
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-[#5B6F8C] mb-1">{member.name}</h3>
+              <h3 className="text-lg font-bold text-[#3d4d6f] mb-1">{member.name}</h3>
               <p className="text-sm text-gray-600">{member.position}</p>
             </div>
           ))}

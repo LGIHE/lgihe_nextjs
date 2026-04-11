@@ -172,7 +172,7 @@ export default function ApplicationForm() {
   ];
 
   const renderField = (fieldName: keyof FormData) => {
-    const commonClasses = "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B6F8C] focus:border-transparent";
+    const commonClasses = "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3d4d6f] focus:border-transparent";
     
     switch (fieldName) {
       case 'gender':
@@ -300,7 +300,7 @@ export default function ApplicationForm() {
               name="declaration"
               checked={formData.declaration}
               onChange={handleChange}
-              className="mt-1 w-5 h-5 text-[#5B6F8C] border-gray-300 rounded focus:ring-[#5B6F8C]"
+              className="mt-1 w-5 h-5 text-[#3d4d6f] border-gray-300 rounded focus:ring-[#3d4d6f]"
               required
             />
             <label className="text-sm text-gray-700">
@@ -413,7 +413,7 @@ export default function ApplicationForm() {
       {/* Header */}
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-[#5B6F8C]">Application Form</h2>
+          <h2 className="text-2xl font-bold text-[#3d4d6f]">Application Form</h2>
           {savedMessage && (
             <span className="text-sm text-green-600 flex items-center gap-1">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -427,7 +427,7 @@ export default function ApplicationForm() {
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
           <div 
-            className="bg-[#5B6F8C] h-2 rounded-full transition-all duration-300"
+            className="bg-[#3d4d6f] h-2 rounded-full transition-all duration-300"
             style={{ width: `${((currentSection + 1) / sections.length) * 100}%` }}
           />
         </div>
@@ -436,7 +436,7 @@ export default function ApplicationForm() {
           {sections.map((section, index) => (
             <span 
               key={index}
-              className={`${index === currentSection ? 'font-bold text-[#5B6F8C]' : ''}`}
+              className={`${index === currentSection ? 'font-bold text-[#3d4d6f]' : ''}`}
             >
               {index + 1}. {section.title}
             </span>
@@ -447,7 +447,7 @@ export default function ApplicationForm() {
       <form onSubmit={handleSubmit}>
         {/* Current Section */}
         <div className="space-y-4 mb-6">
-          <h3 className="text-xl font-semibold text-[#5B6F8C] mb-4">
+          <h3 className="text-xl font-semibold text-[#3d4d6f] mb-4">
             {sections[currentSection].title}
           </h3>
           
@@ -491,7 +491,7 @@ export default function ApplicationForm() {
               <button
                 type="button"
                 onClick={() => setCurrentSection(prev => prev + 1)}
-                className="px-6 py-2 bg-[#5B6F8C] text-white rounded-lg hover:bg-[#4A5D75] transition-colors"
+                className="px-6 py-2 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors"
               >
                 Next
               </button>

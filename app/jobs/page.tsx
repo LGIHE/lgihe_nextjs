@@ -48,8 +48,8 @@ export default function JobsPage() {
           talented individuals who share our vision of transforming education in Uganda and throughout Africa.
         </p>
 
-        <div className="bg-[#5B6F8C]/5 border-l-4 border-[#5B6F8C] p-6 rounded-r-lg mb-8">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-2">Why Work at LGIHE?</h3>
+        <div className="bg-[#3d4d6f]/5 border-l-4 border-[#3d4d6f] p-6 rounded-r-lg mb-8">
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-2">Why Work at LGIHE?</h3>
           <ul className="space-y-2 text-gray-700">
             <li>• Be part of a mission-driven institution focused on educational transformation</li>
             <li>• Work with dedicated professionals committed to excellence</li>
@@ -58,7 +58,7 @@ export default function JobsPage() {
           </ul>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-6">Current Openings</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-6">Current Openings</h2>
 
         <div className="space-y-6">
           {jobListings.map((job) => (
@@ -81,14 +81,14 @@ export default function JobsPage() {
                     </span>
                   </div>
                 </div>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#5B6F8C]/10 text-[#5B6F8C]">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#3d4d6f]/10 text-[#3d4d6f]">
                   Deadline: {job.deadline}
                 </span>
               </div>
               <p className="text-gray-700 mb-4">{job.description}</p>
               <Link 
                 href={`/jobs/${job.id}`}
-                className="inline-flex items-center gap-2 text-[#5B6F8C] hover:text-[#4a5a70] font-medium transition-colors"
+                className="inline-flex items-center gap-2 text-[#3d4d6f] hover:text-[#2f3d57] font-medium transition-colors"
               >
                 View Details & Apply
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,14 +100,14 @@ export default function JobsPage() {
         </div>
 
         <div className="mt-12 bg-gray-50 p-8 rounded-lg">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Don't See a Position That Fits?</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Don't See a Position That Fits?</h3>
           <p className="text-gray-700 mb-4">
             We're always interested in hearing from talented individuals who are passionate about education. 
             Send us your CV and cover letter for future opportunities.
           </p>
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B6F8C] text-white rounded-lg hover:bg-[#4a5a70] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors"
           >
             Contact HR Department
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -36,8 +36,8 @@ export default function ProgrammesPage() {
           All our programmes are designed to meet the needs of aspiring and practicing educators.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <p className="text-sm font-semibold text-[#5B6F8C] mb-2">Accreditation</p>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <p className="text-sm font-semibold text-[#3d4d6f] mb-2">Accreditation</p>
           <p className="text-gray-700">
             Certificate programmes are approved by the Ministry of Education and Sports (MoES). 
             Diploma, Bachelor's, and Postgraduate programmes are accredited by the National Council 
@@ -46,7 +46,7 @@ export default function ProgrammesPage() {
         </div>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Certificate Programmes</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Certificate Programmes</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {certificateProgrammes.map((program) => (
               <a 
@@ -54,7 +54,7 @@ export default function ProgrammesPage() {
                 href={program.link}
                 className="block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{program.name}</h3>
+                <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{program.name}</h3>
                 <p className="text-sm text-gray-600">Duration: {program.duration}</p>
               </a>
             ))}
@@ -62,7 +62,7 @@ export default function ProgrammesPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Diploma Programmes</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Diploma Programmes</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {diplomaProgrammes.map((program) => (
               <a 
@@ -70,7 +70,7 @@ export default function ProgrammesPage() {
                 href={program.link}
                 className="block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{program.name}</h3>
+                <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{program.name}</h3>
                 <p className="text-sm text-gray-600">Duration: {program.duration}</p>
               </a>
             ))}
@@ -78,7 +78,7 @@ export default function ProgrammesPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Bachelor's Programmes</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Bachelor's Programmes</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {bachelorProgrammes.map((program) => (
               <a 
@@ -86,7 +86,7 @@ export default function ProgrammesPage() {
                 href={program.link}
                 className="block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{program.name}</h3>
+                <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{program.name}</h3>
                 <p className="text-sm text-gray-600">Duration: {program.duration}</p>
               </a>
             ))}
@@ -94,7 +94,7 @@ export default function ProgrammesPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-[#5B6F8C] mb-6">Postgraduate Programmes</h2>
+          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Postgraduate Programmes</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {postgraduateProgrammes.map((program) => (
               <a 
@@ -102,21 +102,21 @@ export default function ProgrammesPage() {
                 href={program.link}
                 className="block bg-white border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-lg font-bold text-[#5B6F8C] mb-2">{program.name}</h3>
+                <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{program.name}</h3>
                 <p className="text-sm text-gray-600">Duration: {program.duration}</p>
               </a>
             ))}
           </div>
         </section>
 
-        <div className="bg-[#5B6F8C] text-white p-8 rounded-lg text-center">
+        <div className="bg-[#3d4d6f] text-white p-8 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h3>
           <p className="mb-6">Explore our programmes and find the perfect fit for your educational goals.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
+            <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
               Apply Now
             </a>
-            <a href="/admissions/prospectus" className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#5B6F8C] transition-colors no-underline">
+            <a href="/admissions/prospectus" className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#3d4d6f] transition-colors no-underline">
               Download Prospectus
             </a>
           </div>

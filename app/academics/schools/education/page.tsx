@@ -48,8 +48,8 @@ export default function EducationSchoolPage() {
           covering early childhood, primary, and secondary education, as well as educational leadership.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-[#5B6F8C] p-6 mb-8">
-          <h3 className="text-lg font-semibold text-[#5B6F8C] mb-2">Our Mission</h3>
+        <div className="bg-blue-50 border-l-4 border-[#3d4d6f] p-6 mb-8">
+          <h3 className="text-lg font-semibold text-[#3d4d6f] mb-2">Our Mission</h3>
           <p className="text-gray-700">
             To develop competent, reflective, and innovative educators who are equipped with 
             contemporary pedagogical skills, ethical values, and a commitment to educational excellence.
@@ -58,7 +58,7 @@ export default function EducationSchoolPage() {
 
         {programmes.map((section) => (
           <section key={section.category} className="mb-10">
-            <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">{section.category}</h2>
+            <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">{section.category}</h2>
             <div className="space-y-3">
               {section.items.map((program) => (
                 <a
@@ -68,10 +68,10 @@ export default function EducationSchoolPage() {
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-lg font-bold text-[#5B6F8C] mb-1">{program.name}</h3>
+                      <h3 className="text-lg font-bold text-[#3d4d6f] mb-1">{program.name}</h3>
                       <p className="text-sm text-gray-600">{program.level} Programme</p>
                     </div>
-                    <span className="text-[#5B6F8C] font-medium">View Details →</span>
+                    <span className="text-[#3d4d6f] font-medium">View Details →</span>
                   </div>
                 </a>
               ))}
@@ -80,7 +80,7 @@ export default function EducationSchoolPage() {
         ))}
 
         <div className="bg-gray-50 p-8 rounded-lg mt-10">
-          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Key Features</h3>
+          <h3 className="text-xl font-bold text-[#3d4d6f] mb-4">Key Features</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-gray-800 mb-2">Practical Experience</h4>
@@ -113,10 +113,10 @@ export default function EducationSchoolPage() {
           </div>
         </div>
 
-        <div className="bg-[#5B6F8C] text-white p-8 rounded-lg text-center mt-10">
+        <div className="bg-[#3d4d6f] text-white p-8 rounded-lg text-center mt-10">
           <h3 className="text-2xl font-bold mb-4">Join Our School of Education</h3>
           <p className="mb-6">Transform lives through quality education. Start your journey today.</p>
-          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#5B6F8C] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
+          <a href="/admissions/how-to-apply" className="inline-block bg-white text-[#3d4d6f] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors no-underline">
             Apply Now
           </a>
         </div>

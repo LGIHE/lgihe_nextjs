@@ -12,15 +12,15 @@ export default function HandbookPage() {
           conduct, campus resources, and your rights and responsibilities as an LGIHE student.
         </p>
 
-        <div className="bg-gradient-to-br from-[#5B6F8C] to-[#4A5D75] text-white p-8 rounded-lg text-center mb-8">
+        <div className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg text-center mb-8">
           <h3 className="text-2xl font-bold mb-4">Download the Handbook</h3>
           <p className="mb-6">Academic Year 2026-2027</p>
-          <button className="bg-white text-[#5B6F8C] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-[#3d4d6f] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
             Download PDF
           </button>
         </div>
 
-        <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">What's Inside</h2>
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4">What's Inside</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {[
             "Academic policies and procedures",
@@ -35,7 +35,7 @@ export default function HandbookPage() {
             "Grievance procedures",
           ].map((item) => (
             <div key={item} className="bg-gray-50 p-4 rounded-lg flex items-center gap-3">
-              <span className="text-[#5B6F8C]">📄</span>
+              <span className="text-[#3d4d6f]">📄</span>
               <span className="text-gray-700">{item}</span>
             </div>
           ))}

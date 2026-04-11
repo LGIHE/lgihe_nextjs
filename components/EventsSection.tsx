@@ -47,12 +47,12 @@ export default function EventsSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-4xl font-serif font-bold text-[#5B6F8C] mb-2">Upcoming Events</h2>
+            <h2 className="text-4xl font-serif font-bold text-[#3d4d6f] mb-2">Upcoming Events</h2>
             <p className="text-gray-600">Join us for these exciting events and activities</p>
           </div>
           <Link 
             href="/events" 
-            className="text-[#5B6F8C] hover:text-[#4a5a70] font-medium flex items-center gap-2 transition-colors"
+            className="text-[#3d4d6f] hover:text-[#2f3d57] font-medium flex items-center gap-2 transition-colors"
           >
             View All Events
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@ export default function EventsSection() {
             >
               <div className="flex gap-6">
                 {/* Date Box */}
-                <div className="flex-shrink-0 w-20 h-20 bg-[#5B6F8C] text-white rounded-lg flex flex-col items-center justify-center">
+                <div className="flex-shrink-0 w-20 h-20 bg-[#3d4d6f] text-white rounded-lg flex flex-col items-center justify-center">
                   <span className="text-2xl font-bold">
                     {new Date(event.date).getDate()}
                   </span>
@@ -81,7 +81,7 @@ export default function EventsSection() {
                 {/* Event Details */}
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold text-[#5B6F8C] bg-[#5B6F8C]/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-[#3d4d6f] bg-[#3d4d6f]/10 px-3 py-1 rounded-full">
                       {event.category}
                     </span>
                   </div>
@@ -108,7 +108,7 @@ export default function EventsSection() {
                   </div>
                   <Link 
                     href={`/events/${event.id}`}
-                    className="inline-flex items-center gap-1 text-[#5B6F8C] hover:text-[#4a5a70] font-medium text-sm mt-3 transition-colors"
+                    className="inline-flex items-center gap-1 text-[#3d4d6f] hover:text-[#2f3d57] font-medium text-sm mt-3 transition-colors"
                   >
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
