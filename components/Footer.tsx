@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <h3 className="font-serif text-lg font-semibold mb-4">LGIHE</h3>
+            <div className="mb-4">
+              <Image 
+                src="/logo_white.png" 
+                alt="LGIHE Logo" 
+                width={120} 
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
             <p className="text-sm text-white/80 mb-4">
               Luigi Giussani Institute of Higher Education - Empowering minds, shaping futures through excellence in education and research.
             </p>
