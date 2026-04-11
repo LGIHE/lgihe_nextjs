@@ -93,8 +93,8 @@ export default function Hero() {
             src={slide.image}
             alt={slide.title}
             fill
-            priority={currentSlide === 0} // Priority load first slide only
-            quality={75} // Reduce quality slightly for better performance
+            priority={currentSlide === 0}
+            quality={75}
             sizes="100vw"
             className="object-cover object-center"
             placeholder="blur"

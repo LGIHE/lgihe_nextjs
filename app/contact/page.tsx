@@ -112,7 +112,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4">Find Us on the Map</h2>
           <div className="w-full h-96 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7571234567!2d32.6234567!3d0.3234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTknMjQuNCJOIDMywrAzNycyNC40IkU!5e0!3m2!1sen!2sug!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2012.8048418027981!2d32.64299794855396!3d0.305360678833195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbf93de39c2d9%3A0x2fc1d9ea01f13935!2sLuigi%20Giussani%20Institute%20of%20Higher%20Education!5e0!3m2!1sen!2sus!4v1775920147797!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -131,12 +131,11 @@ export default function ContactPage() {
         <h2 className="text-2xl font-bold text-[#5B6F8C] mb-4 mt-8">Department Contacts</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { dept: "Admissions", email: "admissions@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "Student Services", email: "studentservices@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Admissions", email: "ar@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Student Services", email: "dean@lgihe.ac.ug", phone: "(+256) 414 222 517" },
             { dept: "Finance Office", email: "finance@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "IT Support", email: "itsupport@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "IT Support", email: "tech@lgihe.ac.ug", phone: "(+256) 414 222 517" },
             { dept: "Library", email: "library@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "Research Office", email: "research@lgihe.ac.ug", phone: "(+256) 414 222 517" },
           ].map((contact) => (
             <div key={contact.dept} className="bg-gray-50 p-4 rounded-lg">
               <h3 className="font-bold text-[#5B6F8C] mb-2">{contact.dept}</h3>
