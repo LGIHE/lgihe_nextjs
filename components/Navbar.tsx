@@ -76,7 +76,6 @@ const menuData = {
         title: "About Student Life",
         items: [
           { label: "Campus Life", href: "/student-life/campus" },
-          { label: "Accommodation", href: "/student-life/accommodation" },
           { label: "Student Support", href: "/student-life/support" },
           { label: "Health & Wellbeing", href: "/student-life/health" },
         ],
@@ -84,10 +83,8 @@ const menuData = {
       {
         title: "In This Section",
         items: [
-          { label: "Clubs & Societies", href: "/student-life/clubs" },
-          { label: "Sports & Recreation", href: "/student-life/sports" },
           { label: "Events & Activities", href: "/student-life/events" },
-          { label: "Student Union", href: "/student-life/union" },
+          { label: "Student Guild", href: "/student-life/union" },
         ],
       },
       {
@@ -95,7 +92,6 @@ const menuData = {
         items: [
           { label: "Student Portal", href: "/student-life/portal" },
           { label: "Library Services", href: "/student-life/library" },
-          { label: "Career Services", href: "/student-life/careers" },
           { label: "Student Handbook", href: "/student-life/handbook" },
         ],
       },

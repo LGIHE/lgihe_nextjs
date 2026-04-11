@@ -17,7 +17,7 @@ export default function StudentLifePage() {
             { title: "Clubs & Societies", desc: "Over 50 student organizations", icon: "🎭" },
             { title: "Sports & Recreation", desc: "State-of-the-art facilities", icon: "⚽" },
             { title: "Cultural Events", desc: "Year-round activities", icon: "🎨" },
-            { title: "Student Union", desc: "Your voice on campus", icon: "🗣️" },
+            { title: "Student Guild", desc: "Your voice on campus", icon: "🗣️" },
             { title: "Accommodation", desc: "Comfortable on-campus housing", icon: "🏠" },
             { title: "Health & Wellbeing", desc: "Comprehensive support services", icon: "💚" },
           ].map((item) => (

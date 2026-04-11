@@ -17,11 +17,7 @@ export default function SupportPage() {
             { title: "Academic Advising", desc: "Guidance on course selection and academic planning" },
             { title: "Counseling Services", desc: "Confidential mental health support" },
             { title: "Disability Services", desc: "Accommodations and accessibility support" },
-            { title: "Financial Aid Office", desc: "Assistance with scholarships and financial planning" },
             { title: "Career Services", desc: "Job search support and career counseling" },
-            { title: "Tutoring Center", desc: "Free academic tutoring in all subjects" },
-            { title: "Writing Center", desc: "Help with essays and research papers" },
-            { title: "International Student Office", desc: "Support for international students" },
           ].map((service) => (
             <div key={service.title} className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-lg font-bold text-[#3d4d6f] mb-2">{service.title}</h3>
