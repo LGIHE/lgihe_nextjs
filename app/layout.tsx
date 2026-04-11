@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Luigi Giussani Institute of Higher Education",
   description:
     "Excellence in higher education, research, and community transformation.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
