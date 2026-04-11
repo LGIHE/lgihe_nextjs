@@ -8,8 +8,10 @@ export default function AboutPage() {
     >
       <div className="prose prose-lg max-w-none">
         <p className="text-lg text-gray-700 mb-6">
-          The Luigi Giussani Institute of Higher Education (LGIHE) addresses educational shortcomings in quality, 
-          school management, accountability and teaching efficiency in Uganda and throughout Africa.
+          Luigi Giussani Institute of Higher Education (LGIHE) is an academic institution accredited by the 
+          National Council for Higher Education (NCHE). Its major focus is to respond to the educational challenges 
+          in the region. Since 2005, LGIHE has trained over 30,000 educators and other professionals, in over 600 
+          continuous professional development training workshops held in more than 20 countries.
         </p>
         
         <h2 className="text-2xl font-bold text-[#5B6F8C] mt-8 mb-4">Our Vision</h2>
@@ -27,9 +29,16 @@ export default function AboutPage() {
 
         <h2 className="text-2xl font-bold text-[#5B6F8C] mt-8 mb-4">Our Approach</h2>
         <p className="text-gray-700 mb-6">
-          We embrace an education philosophy that seeks to help learners and educators discover their identity, 
-          self-worth and sense of belonging. Exploring a child's growth in self-awareness, their understanding 
-          of the world, and development of competences needed to face life's challenges.
+          At LGIHE to educate is not simply to train but to bring out learners’ potentialities both from their 
+          point of view and that of their educators. LGIHE, therefore, uses education as a tool to help children 
+          develop their identity, self-worth and sense of belonging.
+        </p>
+
+        <p>
+          LGIHE also believes that every person and community represent a potential resource, no matter how vulnerable 
+          they are. This means to value the tradition, experiences, and relationships of every person. This principle originates 
+          from a positive approach to reality and helps individuals recognize their intrinsic value and dignity and to 
+          live into their own responsibilities.
         </p>
 
         <div className="bg-[#5B6F8C]/10 p-6 rounded-lg mt-8">
