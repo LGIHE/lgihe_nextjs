@@ -100,9 +100,10 @@ npm run dev
 The system automatically shows applicants these required documents:
 
 1. ✅ **Application Fee Payment Slip** (UGX 50,000)
-   - Bank: Stanbic Bank Uganda
+   - Bank: Bank Of Africa
    - Account: Luigi Giussani Institute of Higher Education
-   - Account Number: 9030006791234
+   - Account Number: 9133750003
+   - Branch: Luzira
 
 2. ✅ **Academic Certificates**
    - O-Level certificates (certified copies)

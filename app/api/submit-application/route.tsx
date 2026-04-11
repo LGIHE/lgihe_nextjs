@@ -16,18 +16,13 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.json();
 
-    console.log('Application submission received for:', formData.surname, formData.givenName);
-
     // Generate PDF
-    console.log('Generating PDF...');
     const pdfBuffer = await renderToBuffer(<ApplicationPDF data={formData} />);
-    console.log('PDF generated successfully');
 
     // Email to admissions with PDF attachment
-    console.log('Sending email to ar@lgihe.ac.ug...');
-    const result1 = await resend.emails.send({
-      from: 'LGIHE Applications <onboarding@resend.dev>',
-      to: 'ar@lgihe.ac.ug',
+    await resend.emails.send({
+      from: 'LGIHE Applications <noreply@lgihe.org>',
+      to: 'tech@lgihe.org',
       subject: `New Application: ${formData.surname} ${formData.givenName} - ${formData.programmeChoice1}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -61,12 +56,10 @@ export async function POST(request: NextRequest) {
         },
       ],
     });
-    console.log('First email sent successfully:', result1);
 
     // Email to applicant with instructions
-    console.log('Sending confirmation email to applicant...');
-    const result2 = await resend.emails.send({
-      from: 'LGIHE Admissions <onboarding@resend.dev>',
+    await resend.emails.send({
+      from: 'LGIHE Admissions <noreply@lgihe.org>',
       to: formData.email,
       subject: 'Application Received - Luigi Giussani Institute of Higher Education',
       html: `
@@ -112,10 +105,10 @@ export async function POST(request: NextRequest) {
               <p><strong>Amount:</strong> UGX 50,000</p>
               <p><strong>Bank Details:</strong></p>
               <ul style="list-style: none; padding-left: 0;">
-                <li>Bank: Stanbic Bank Uganda</li>
+                <li>Bank: Bank Of Africa</li>
                 <li>Account Name: Luigi Giussani Institute of Higher Education</li>
-                <li>Account Number: 9030006791234</li>
-                <li>Branch: Kampala Road</li>
+                <li>Account Number: 9133750003</li>
+                <li>Branch: Luzira</li>
               </ul>
               <p style="color: #d32f2f; font-weight: bold;">
                 ⚠️ Important: Please keep your payment slip and submit it with your documents
@@ -161,7 +154,6 @@ export async function POST(request: NextRequest) {
         </div>
       `,
     });
-    console.log('Second email sent successfully:', result2);
 
     return NextResponse.json({ 
       success: true, 

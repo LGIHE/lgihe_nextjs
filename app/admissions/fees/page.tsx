@@ -207,10 +207,10 @@ export default function FeesPage() {
             </ul>
             <p className="mt-4"><strong>Bank Details:</strong></p>
             <div className="bg-white p-4 rounded border border-gray-200 mt-2">
-              <p>Bank: [Bank Name]</p>
+              <p>Bank: Bank Of Africa</p>
               <p>Account Name: Luigi Giussani Institute of Higher Education</p>
-              <p>Account Number: [Account Number]</p>
-              <p>Branch: [Branch Name]</p>
+              <p>Account Number: 9133750003</p>
+              <p>Branch: Luzira</p>
             </div>
           </div>
         </div>

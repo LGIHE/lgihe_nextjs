@@ -568,9 +568,10 @@ export default function ApplicationForm() {
                 <h3 className="font-bold text-green-900 mb-2">💰 Payment Details</h3>
                 <div className="text-sm text-green-800 space-y-1">
                   <p><strong>Amount:</strong> UGX 50,000</p>
-                  <p><strong>Bank:</strong> Stanbic Bank Uganda</p>
+                  <p><strong>Bank:</strong> Bank Of Africa</p>
                   <p><strong>Account Name:</strong> Luigi Giussani Institute of Higher Education</p>
-                  <p><strong>Account Number:</strong> 9030006791234</p>
+                  <p><strong>Account Number:</strong> 9133750003</p>
+                  <p><strong>Branch:</strong> Luzira</p>
                   <p className="text-red-600 font-bold mt-2">⚠️ Keep your payment slip for submission!</p>
                 </div>
               </div>

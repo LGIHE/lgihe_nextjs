@@ -48,10 +48,10 @@ Use this checklist to ensure everything is set up correctly before going live.
 ### 6. Document Requirements
 - [ ] Verified application fee amount (UGX 50,000)
 - [ ] Confirmed bank details are correct:
-  - [ ] Bank name: Stanbic Bank Uganda
+  - [ ] Bank name: Bank Of Africa
   - [ ] Account name: Luigi Giussani Institute of Higher Education
-  - [ ] Account number: 9030006791234
-  - [ ] Branch: Kampala Road
+  - [ ] Account number: 9133750003
+  - [ ] Branch: Luzira
 - [ ] Verified document list is complete
 - [ ] Confirmed submission address is correct
 - [ ] Verified office hours are accurate

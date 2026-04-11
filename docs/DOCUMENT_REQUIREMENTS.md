@@ -8,10 +8,10 @@ This document lists all the required documents that applicants need to submit af
 - **Amount:** UGX 50,000
 - **Payment Method:** Bank deposit or transfer
 - **Bank Details:**
-  - Bank: Stanbic Bank Uganda
+  - Bank: Bank Of Africa
   - Account Name: Luigi Giussani Institute of Higher Education
-  - Account Number: 9030006791234
-  - Branch: Kampala Road
+  - Account Number: 9133750003
+  - Branch: Luzira
 - **Important:** Keep the original payment slip for submission
 
 ### 2. Academic Certificates

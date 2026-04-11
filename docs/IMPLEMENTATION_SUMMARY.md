@@ -50,9 +50,10 @@ When a student submits an application:
     - Other qualifications (if applicable)
     - Employer letter (if employed)
   - **Payment details:**
-    - Bank: Stanbic Bank Uganda
+    - Bank: Bank Of Africa
     - Account: Luigi Giussani Institute of Higher Education
-    - Account Number: 9030006791234
+    - Account Number: 9133750003
+    - Branch: Luzira
   - **Submission location:**
     - LGIHE Admissions Office
     - Sentamu Road 822-829, Luzira
