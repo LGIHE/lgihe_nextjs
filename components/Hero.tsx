@@ -224,7 +224,7 @@ export default function Hero() {
             <p className="text-sm text-white/80 mt-1">Graduates</p>
           </div>
           <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4 border border-white/20">
-            <p className="text-3xl font-bold text-white">15+</p>
+            <p className="text-3xl font-bold text-white">10+</p>
             <p className="text-sm text-white/80 mt-1">Academic Programs</p>
           </div>
         </motion.div>
