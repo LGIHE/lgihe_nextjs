@@ -177,40 +177,20 @@ export default function FeesPage() {
         </div>
 
         {/* Additional Fees */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">One-Time Fees</h3>
-            <div className="space-y-3 text-gray-700">
-              <div className="flex justify-between">
-                <span>Application Fee</span>
-                <span className="font-semibold">UGX 50,000</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Admission Fee</span>
-                <span className="font-semibold">UGX 100,000</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Caution Fee (Refundable)</span>
-                <span className="font-semibold">UGX 200,000</span>
-              </div>
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+          <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">One-Time Fees</h3>
+          <div className="space-y-3 text-gray-700">
+            <div className="flex justify-between">
+              <span>Application Fee</span>
+              <span className="font-semibold">UGX 50,000</span>
             </div>
-          </div>
-
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-[#5B6F8C] mb-4">Other Costs (Estimated)</h3>
-            <div className="space-y-3 text-gray-700">
-              <div className="flex justify-between">
-                <span>Accommodation (per semester)</span>
-                <span className="font-semibold">UGX 600,000 - 1,000,000</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Books & Materials (per year)</span>
-                <span className="font-semibold">UGX 300,000 - 500,000</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Meals (per semester)</span>
-                <span className="font-semibold">UGX 800,000 - 1,200,000</span>
-              </div>
+            <div className="flex justify-between">
+              <span>Admission Fee</span>
+              <span className="font-semibold">UGX 100,000</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Caution Fee (Refundable)</span>
+              <span className="font-semibold">UGX 200,000</span>
             </div>
           </div>
         </div>
