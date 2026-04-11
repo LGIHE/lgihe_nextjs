@@ -15,7 +15,7 @@ export default function Footer() {
                 alt="LGIHE Logo" 
                 width={120} 
                 height={40}
-                className="h-10 w-auto"
+                style={{ width: 'auto', height: '40px' }}
               />
             </div>
             <p className="text-sm text-white/80 mb-4">
