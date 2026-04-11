@@ -1,193 +1,175 @@
-# Quick Start Guide
+# Quick Start Guide - Email Functionality
 
-## What Was Built
+Get the email functionality up and running in 5 minutes!
 
-✅ **Online Application System** - Complete multi-step form with offline capabilities
-✅ **Updated Fees Page** - Interactive fee breakdown by programme category  
-✅ **PDF Download Option** - Alternative manual application method
-✅ **Navigation Updates** - "Apply Now" links added throughout the site
+## Step 1: Install Dependencies (Already Done)
 
-## How to Test
+The required packages are already installed:
+- `resend` - Email sending service
+- `@react-pdf/renderer` - PDF generation
 
-### 1. Start the Development Server
+## Step 2: Get Your Resend API Key
+
+1. Go to https://resend.com and sign up (it's free!)
+2. Verify your email address
+3. Go to https://resend.com/api-keys
+4. Click "Create API Key"
+5. Give it a name (e.g., "LGIHE Development")
+6. Copy the API key (starts with `re_`)
+
+## Step 3: Set Up Environment Variable
+
+1. Create a `.env.local` file in the root of your project:
+   ```bash
+   touch .env.local
+   ```
+
+2. Add your API key to `.env.local`:
+   ```
+   RESEND_API_KEY=re_your_actual_api_key_here
+   ```
+
+3. Save the file
+
+## Step 4: Start the Development Server
 
 ```bash
-cd lgihe
 npm run dev
 ```
 
-Visit: `http://localhost:3000`
+## Step 5: Test It Out!
 
-### 2. Test the Application Page
+### Test Application Form
+1. Open http://localhost:3000/admissions/apply
+2. Fill out the form
+3. Submit it
+4. Check your Resend dashboard at https://resend.com/emails
+5. You should see two emails:
+   - One to ar@lgihe.ac.ug (with PDF attachment)
+   - One to the email you entered in the form
 
-**URL:** `http://localhost:3000/admissions/apply`
+### Test Contact Form
+1. Open http://localhost:3000/contact
+2. Fill out the form
+3. Submit it
+4. Check your Resend dashboard
+5. You should see two emails:
+   - One to info@lgihe.ac.ug
+   - One to the email you entered in the form
 
-- Click "Start Online Application" to test the form
-- Click "Download PDF Form" to download the PDF
-- Fill out some fields and refresh the page to test auto-save
-- Navigate through all 6 sections
-- Try submitting the form
+## That's It! 🎉
 
-### 3. Test the Fees Page
+You now have fully functional email sending for both forms!
 
-**URL:** `http://localhost:3000/admissions/fees`
-
-- Click through the different programme category tabs
-- Verify fees display correctly for each category
-- Check the payment information section
-
-### 4. Test Navigation
-
-- Click "Apply Now" button in the top navigation
-- Check "Admissions" dropdown menu has "Apply Now" link
-- Visit `/admissions` page and click "Apply Now" in quick links
-
-## Key Features
+## What Happens When You Submit?
 
 ### Application Form
-- **38 form fields** across 6 sections
-- **Auto-save** every 1 second
-- **Offline capable** - works without internet
-- **Progress tracking** - visual progress bar
-- **Form validation** - required field checking
-- **Clear draft** option
+1. Form data is sent to `/api/submit-application`
+2. A PDF is generated with all the application data
+3. Email #1 is sent to ar@lgihe.ac.ug with the PDF attached
+4. Email #2 is sent to the applicant with:
+   - Confirmation of submission
+   - List of required documents
+   - Payment details
+   - Next steps
+5. Success modal shows with all the information
 
-### Fees Page
-- **4 programme categories** with tab navigation
-- **11 programmes** with detailed fee breakdowns
-- **One-time fees** section
-- **Additional costs** estimates
-- **Payment information** and bank details
-- **Financial aid** information
+### Contact Form
+1. Form data is sent to `/api/contact`
+2. Email #1 is sent to info@lgihe.ac.ug with the message
+3. Email #2 is sent to the sender with confirmation
+4. Success message shows at the top of the page
 
-## Files Created/Modified
+## Viewing Sent Emails
 
-### New Files
-```
-app/admissions/apply/page.tsx
-components/ApplicationForm.tsx
-APPLICATION_FEATURES.md
-TODO_UPDATE_WITH_PDF_DATA.md
-TESTING_GUIDE.md
-IMPLEMENTATION_SUMMARY.md
-NAVIGATION_STRUCTURE.md
-QUICK_START.md (this file)
-```
+During development, all emails are captured in your Resend dashboard:
 
-### Modified Files
-```
-app/admissions/fees/page.tsx
-app/admissions/page.tsx
-components/Navbar.tsx
-```
-
-## What Needs to Be Updated
-
-### Priority 1 (Before Launch)
-1. **Update fees** with actual amounts from PDF document
-2. **Verify form fields** match the PDF application form exactly
-3. **Add bank details** in the fees page
-4. **Test thoroughly** using the testing guide
-
-### Priority 2 (Phase 2)
-1. Backend API integration for form submission
-2. Email confirmation system
-3. File upload functionality
-4. Payment gateway integration
-
-## Important Notes
-
-⚠️ **Current Limitations:**
-- Form submission logs to console (no backend yet)
-- Fees are placeholder values (need updating)
-- Bank details section is empty (needs filling)
-- No file upload capability yet
-
-✅ **What Works:**
-- Complete form with all fields
-- Auto-save to localStorage
-- Offline functionality
-- Form validation
-- Interactive fees page
-- PDF download
-- Responsive design
+1. Go to https://resend.com/emails
+2. Click on any email to view:
+   - Email content (HTML preview)
+   - Recipients
+   - Delivery status
+   - Attachments (for application emails)
 
 ## Next Steps
 
-1. **Read the documentation:**
-   - `APPLICATION_FEATURES.md` - Detailed feature documentation
-   - `TESTING_GUIDE.md` - Complete testing scenarios
-   - `TODO_UPDATE_WITH_PDF_DATA.md` - What needs updating
+### For Production Deployment
 
-2. **Update with actual data:**
-   - Open the PDF documents in `/public/resources/`
-   - Update fees in `/app/admissions/fees/page.tsx`
-   - Verify form fields in `/components/ApplicationForm.tsx`
+1. **Verify Your Domain**
+   - Go to https://resend.com/domains
+   - Add lgihe.ac.ug
+   - Add the DNS records to your domain
+   - Wait for verification
 
-3. **Test everything:**
-   - Follow the testing guide
-   - Test on multiple browsers
-   - Test on mobile devices
-   - Verify all functionality works
+2. **Update Email Addresses**
+   - Edit `app/api/submit-application/route.ts`
+   - Edit `app/api/contact/route.ts`
+   - Change `from` addresses to use your verified domain
 
-4. **Deploy:**
-   - Once testing is complete
-   - After data is updated
-   - When ready for production
+3. **Deploy to Vercel**
+   - See `VERCEL_DEPLOYMENT.md` for detailed instructions
+   - Add `RESEND_API_KEY` to Vercel environment variables
+   - Deploy!
 
-## Getting Help
+## Troubleshooting
 
-### Documentation Files
-- **APPLICATION_FEATURES.md** - Technical details and features
-- **TESTING_GUIDE.md** - How to test everything
-- **TODO_UPDATE_WITH_PDF_DATA.md** - Update checklist
-- **IMPLEMENTATION_SUMMARY.md** - Complete overview
-- **NAVIGATION_STRUCTURE.md** - Site navigation details
+### "RESEND_API_KEY is not defined"
+- Make sure `.env.local` exists in the root directory
+- Make sure the API key is correct
+- Restart the development server
 
-### Common Issues
+### Emails Not Showing in Dashboard
+- Check that you're logged into the correct Resend account
+- Verify the API key is correct
+- Check the browser console for errors
 
-**Q: Form data not saving?**
-A: Check browser console for errors. Ensure localStorage is enabled.
+### PDF Not Generating
+- Check the browser console for errors
+- Make sure all required form fields are filled
+- Check the server terminal for errors
 
-**Q: PDF not downloading?**
-A: Verify the PDF file exists at `/public/resources/LGIHE APPLICATION FORM 2026.pdf`
+## Need Help?
 
-**Q: Fees not displaying?**
-A: Check browser console for JavaScript errors.
+- Read `EMAIL_SETUP.md` for detailed setup instructions
+- Read `IMPLEMENTATION_SUMMARY.md` for technical details
+- Check Resend documentation: https://resend.com/docs
+- Contact: tech@lgihe.ac.ug
 
-**Q: Form won't submit?**
-A: This is expected - backend not yet implemented. Check console for logged data.
+## Testing Checklist
 
-## Quick Commands
+- [ ] Created `.env.local` file
+- [ ] Added RESEND_API_KEY
+- [ ] Started development server
+- [ ] Tested application form
+- [ ] Received email to ar@lgihe.ac.ug
+- [ ] Received email to applicant
+- [ ] PDF attachment is correct
+- [ ] Tested contact form
+- [ ] Received email to info@lgihe.ac.ug
+- [ ] Received confirmation email
+- [ ] All emails display correctly
 
-```bash
-# Install dependencies
-npm install
+## Pro Tips
 
-# Start development server
-npm run dev
+1. **Use Test Emails**
+   - During development, use your own email addresses
+   - This way you can see exactly what applicants will receive
 
-# Build for production
-npm run build
+2. **Check Spam Folders**
+   - Sometimes emails might go to spam
+   - Mark them as "Not Spam" to improve deliverability
 
-# Start production server
-npm start
-```
+3. **Monitor Your Dashboard**
+   - Keep an eye on your Resend dashboard
+   - Check for any delivery issues
+   - Monitor your usage (free tier: 100 emails/day)
 
-## Browser Support
-
-Tested and working on:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers
-
-## Contact
-
-For questions or issues, contact the development team.
+4. **Test Thoroughly**
+   - Test with different form data
+   - Test with long messages
+   - Test with special characters
+   - Make sure everything looks good!
 
 ---
 
-**Status: ✅ Ready for Testing & Content Updates**
-
-Last Updated: April 10, 2026
+**Ready to go?** Start your development server and test it out! 🚀

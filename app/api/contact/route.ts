@@ -3,6 +3,15 @@ import { resend } from '@/lib/resend';
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate API key at runtime
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'placeholder_for_build') {
+      console.error('RESEND_API_KEY is not configured');
+      return NextResponse.json(
+        { success: false, message: 'Email service is not configured' },
+        { status: 500 }
+      );
+    }
+
     const { name, email, subject, message } = await request.json();
 
     // Validate required fields

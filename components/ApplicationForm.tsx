@@ -145,14 +145,19 @@ export default function ApplicationForm() {
     if (name === 'programmeType') {
       setFormData(prev => ({
         ...prev,
-        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+        [name]: value,
         programmeChoice1: '',
         programmeChoice2: ''
+      }));
+    } else if (type === 'checkbox') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: (e.target as HTMLInputElement).checked
       }));
     } else {
       setFormData(prev => ({
         ...prev,
-        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+        [name]: value
       }));
     }
   };

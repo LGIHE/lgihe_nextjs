@@ -2,14 +2,22 @@ import { NextRequest, NextResponse } from 'next/server';
 import { resend } from '@/lib/resend';
 import { renderToBuffer } from '@react-pdf/renderer';
 import { ApplicationPDF } from '@/lib/pdf-generator';
-import React from 'react';
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate API key at runtime
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'placeholder_for_build') {
+      console.error('RESEND_API_KEY is not configured');
+      return NextResponse.json(
+        { success: false, message: 'Email service is not configured' },
+        { status: 500 }
+      );
+    }
+
     const formData = await request.json();
 
     // Generate PDF
-    const pdfBuffer = await renderToBuffer(React.createElement(ApplicationPDF, { data: formData }));
+    const pdfBuffer = await renderToBuffer(<ApplicationPDF data={formData} />);
 
     // Email to admissions with PDF attachment
     await resend.emails.send({

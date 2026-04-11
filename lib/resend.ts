@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
-if (!process.env.RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY is not defined in environment variables');
-}
+// For build time, use a placeholder if the API key is not set
+// The actual API key will be required at runtime
+const apiKey = process.env.RESEND_API_KEY || 'placeholder_for_build';
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+export const resend = new Resend(apiKey);

@@ -6,11 +6,11 @@ import { GraduationCap, BookOpen, Award, Users, ArrowRight, CheckCircle } from "
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: (delay = 0) => ({
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut", delay },
-  }),
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const },
+  },
 };
 
 const programLevels = [
