@@ -272,7 +272,7 @@ export default function Navbar() {
             alt="LGIHE Logo" 
             width={150} 
             height={60}
-            className="h-12 w-auto"
+            className="h-[80px] w-auto"
             priority
           />
         </Link>
