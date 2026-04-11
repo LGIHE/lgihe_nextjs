@@ -215,7 +215,7 @@ export default function Hero() {
           className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4 border border-white/20">
-            <p className="text-3xl font-bold text-white">15+</p>
+            <p className="text-3xl font-bold text-white">20+</p>
             <p className="text-sm text-white/80 mt-1">Years of Impact</p>
           </div>
           <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4 border border-white/20">
@@ -223,8 +223,8 @@ export default function Hero() {
             <p className="text-sm text-white/80 mt-1">Graduates</p>
           </div>
           <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4 border border-white/20">
-            <p className="text-3xl font-bold text-white">50+</p>
-            <p className="text-sm text-white/80 mt-1">Partner Schools</p>
+            <p className="text-3xl font-bold text-white">15+</p>
+            <p className="text-sm text-white/80 mt-1">Academic Programs</p>
           </div>
         </motion.div>
 
