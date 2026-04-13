@@ -28,6 +28,7 @@ export default function BoardPage() {
                     src="/images/rose-busingye.jpg"
                     alt="Rose Busingye"
                     fill
+                    sizes="128px"
                     className="object-cover"
                     onError={() => setImageErrors(prev => ({ ...prev, rose: true }))}
                   />
@@ -56,6 +57,7 @@ export default function BoardPage() {
                     src="/images/vincenzo-silvano.jpg"
                     alt="Vincenzo Silvano"
                     fill
+                    sizes="128px"
                     className="object-cover"
                     onError={() => setImageErrors(prev => ({ ...prev, vincenzo: true }))}
                   />
@@ -83,6 +85,7 @@ export default function BoardPage() {
                     src="/images/george-pariyo.jpg"
                     alt="Dr. George Pariyo"
                     fill
+                    sizes="128px"
                     className="object-cover"
                     onError={() => setImageErrors(prev => ({ ...prev, george: true }))}
                   />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import ImageWithLoader from "./ImageWithLoader";
 
 const campusImages = [
   {
@@ -65,22 +65,13 @@ export default function CampusGallery() {
               viewport={{ once: true, margin: "-60px" }}
               className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#3d4d6f]/10 cursor-pointer"
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-                {/* Placeholder text */}
-                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
-                  {image.title}
-                </div>
-              </div>
+              <ImageWithLoader
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-110"
+              />
               
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

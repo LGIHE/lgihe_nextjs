@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import ImageWithLoader from "./ImageWithLoader";
 
 const newsItems = [
   {
@@ -32,8 +31,6 @@ const newsItems = [
 ];
 
 export default function NewsSection() {
-  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
-
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -57,18 +54,13 @@ export default function NewsSection() {
           {newsItems.map((item) => (
             <article key={item.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative h-48 bg-[#3d4d6f]/10">
-                {!imageErrors[item.id] && (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    onError={() => setImageErrors(prev => ({ ...prev, [item.id]: true }))}
-                  />
-                )}
-                <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
-                  News Image
-                </div>
+                <ImageWithLoader
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">

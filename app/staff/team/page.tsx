@@ -60,6 +60,7 @@ export default function TeamPage() {
                     src={member.image}
                     alt={member.name}
                     fill
+                    sizes="128px"
                     className="object-cover"
                     onError={() => setImageErrors(prev => ({ ...prev, [member.name]: true }))}
                   />

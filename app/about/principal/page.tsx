@@ -21,13 +21,11 @@ export default function PrincipalPage() {
                   src="/images/principal.jpg"
                   alt="Stella Rose Akongo - Principal"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                   onError={() => setImageError(true)}
                 />
               )}
-              <div className="absolute inset-0 flex items-center justify-center text-[#3d4d6f]/40 text-sm">
-                Principal Photo
-              </div>
             </div>
           </div>
           <div className="md:w-2/3">
