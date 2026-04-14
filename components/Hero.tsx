@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    title: "Helping Learners and Educators Discover Their",
+    title: "Supporting Learners and Educators Discover Their",
     highlight: "Identity, Self-Worth",
     subtitle: "and Sense of Belonging",
     description: "Addressing educational shortcomings in quality, school management, accountability and teaching efficiency through professional development and academic excellence.",
