@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import PageTemplate from "@/components/PageTemplate";
 import { eventsApi, type Event } from "@/lib/api-client";
 
@@ -110,9 +111,12 @@ export default function EventsPage() {
                       )}
                     </div>
                     <p className="text-gray-700 text-sm mb-4 line-clamp-3">{event.description}</p>
-                    <button className="w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors">
+                    <Link 
+                      href={`/events/${event.id}`}
+                      className="block w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors text-center"
+                    >
                       Learn More
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
