@@ -1,42 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import PageTemplate from "@/components/PageTemplate";
 import Link from "next/link";
-
-const tenderListings = [
-  {
-    id: 1,
-    title: "Supply of Office Furniture and Equipment",
-    reference: "LGIHE/TENDER/2026/001",
-    category: "Procurement",
-    deadline: "June 15, 2026",
-    description: "LGIHE invites qualified suppliers to submit bids for the supply and installation of office furniture and equipment for the new administrative block.",
-  },
-  {
-    id: 2,
-    title: "Construction of Student Accommodation Facility",
-    reference: "LGIHE/TENDER/2026/002",
-    category: "Construction",
-    deadline: "July 10, 2026",
-    description: "Tender for the construction of a modern student accommodation facility with capacity for 200 students.",
-  },
-  {
-    id: 3,
-    title: "Library Books and Digital Resources",
-    reference: "LGIHE/TENDER/2026/003",
-    category: "Procurement",
-    deadline: "May 30, 2026",
-    description: "Supply of academic books, journals, and digital learning resources for the LGIHE library.",
-  },
-  {
-    id: 4,
-    title: "ICT Infrastructure Upgrade",
-    reference: "LGIHE/TENDER/2026/004",
-    category: "Technology",
-    deadline: "June 20, 2026",
-    description: "Upgrade of campus-wide ICT infrastructure including network equipment, servers, and computer laboratory equipment.",
-  },
-];
+import { tendersApi, type Tender } from "@/lib/api-client";
 
 export default function TendersPage() {
+  const [tenderListings, setTenderListings] = useState<Tender[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTenders() {
+      try {
+        setLoading(true);
+        const data = await tendersApi.getAll(1, 20);
+        // Filter only open tenders
+        const openTenders = data.data.filter(tender => tender.status === 'open');
+        setTenderListings(openTenders);
+      } catch (error) {
+        console.error('Failed to fetch tenders:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchTenders();
+  }, []);
+
   return (
     <PageTemplate 
       title="Tender Opportunities" 
@@ -62,47 +52,82 @@ export default function TendersPage() {
 
         <h2 className="text-2xl font-bold text-[#3d4d6f] mb-6">Active Tenders</h2>
 
-        <div className="space-y-6">
-          {tenderListings.map((tender) => (
-            <div key={tender.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#3d4d6f]/10 text-[#3d4d6f]">
-                      {tender.category}
-                    </span>
-                    <span className="text-sm text-gray-500">Ref: {tender.reference}</span>
+        {loading ? (
+          <div className="space-y-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="animate-pulse bg-white border border-gray-200 rounded-lg p-6">
+                <div className="bg-gray-200 h-4 rounded w-1/4 mb-3"></div>
+                <div className="bg-gray-200 h-6 rounded w-2/3 mb-4"></div>
+                <div className="bg-gray-200 h-4 rounded w-full mb-2"></div>
+                <div className="bg-gray-200 h-4 rounded w-5/6"></div>
+              </div>
+            ))}
+          </div>
+        ) : tenderListings.length > 0 ? (
+          <div className="space-y-6">
+            {tenderListings.map((tender) => (
+              <div key={tender.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      {tender.reference_number && (
+                        <span className="text-sm text-gray-500">Ref: {tender.reference_number}</span>
+                      )}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tender.title}</h3>
+                    <p className="text-gray-700 mb-4 line-clamp-3">{tender.description}</p>
+                    {tender.deadline && (
+                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="font-medium">
+                          Deadline: {new Date(tender.deadline).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{tender.title}</h3>
-                  <p className="text-gray-700 mb-4">{tender.description}</p>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span className="font-medium">Deadline: {tender.deadline}</span>
+                  <div className="flex flex-col gap-2">
+                    <Link 
+                      href={`/tenders/${tender.id}`}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors text-sm font-medium"
+                    >
+                      View Details
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                    {tender.document_url && (
+                      <a 
+                        href={tender.document_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-[#3d4d6f] text-[#3d4d6f] rounded-lg hover:bg-[#3d4d6f]/5 transition-colors text-sm font-medium"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Download
+                      </a>
+                    )}
                   </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Link 
-                    href={`/tenders/${tender.id}`}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors text-sm font-medium"
-                  >
-                    View Details
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                  <button className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-[#3d4d6f] text-[#3d4d6f] rounded-lg hover:bg-[#3d4d6f]/5 transition-colors text-sm font-medium">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    Download
-                  </button>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-gray-50 rounded-lg">
+            <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <p className="text-gray-600 text-lg mb-2">No active tenders at this time</p>
+            <p className="text-gray-500 text-sm">Check back soon for new procurement opportunities!</p>
+          </div>
+        )}
 
         {/* Contact Information */}
         <div className="mt-12 bg-gray-50 p-8 rounded-lg">

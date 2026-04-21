@@ -1,51 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import PageTemplate from "@/components/PageTemplate";
-import Link from "next/link";
+import { eventsApi, type Event } from "@/lib/api-client";
 
 export default function EventsPage() {
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "Open Day 2026",
-      date: "May 15, 2026",
-      time: "9:00 AM - 4:00 PM",
-      location: "Main Campus",
-      category: "Admissions",
-      description: "Join us for a comprehensive tour of our campus and meet our faculty and students.",
-    },
-    {
-      id: 2,
-      title: "Research Symposium",
-      date: "June 10, 2026",
-      time: "10:00 AM - 5:00 PM",
-      location: "Conference Hall",
-      category: "Academic",
-      description: "Annual research symposium showcasing faculty and student research projects.",
-    },
-    {
-      id: 3,
-      title: "Graduation Ceremony",
-      date: "July 20, 2026",
-      time: "2:00 PM - 6:00 PM",
-      location: "Main Auditorium",
-      category: "Ceremony",
-      description: "Celebrating the achievements of our graduating class of 2026.",
-    },
-  ];
+  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const pastEvents = [
-    {
-      id: 1,
-      title: "Career Fair 2026",
-      date: "March 5, 2026",
-      category: "Career",
-    },
-    {
-      id: 2,
-      title: "International Education Week",
-      date: "February 15-19, 2026",
-      category: "Cultural",
-    },
-  ];
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        setLoading(true);
+        const data = await eventsApi.getAll(1, 20);
+        
+        // Separate upcoming and past events
+        const now = new Date();
+        const upcoming = data.data.filter(event => 
+          new Date(event.start_date) >= now && event.status === 'upcoming'
+        );
+        const past = data.data.filter(event => 
+          new Date(event.start_date) < now || event.status === 'completed'
+        );
+        
+        setUpcomingEvents(upcoming);
+        setPastEvents(past);
+      } catch (error) {
+        console.error('Failed to fetch events:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchEvents();
+  }, []);
 
   return (
     <PageTemplate 
@@ -56,48 +45,86 @@ export default function EventsPage() {
         {/* Upcoming Events */}
         <section>
           <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Upcoming Events</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {upcomingEvents.map((event) => (
-              <div 
-                key={event.id} 
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider">
-                    {event.category}
-                  </span>
-                  <h3 className="text-xl font-bold mt-2">{event.title}</h3>
-                </div>
-                <div className="p-6">
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span className="text-sm">{event.date}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-sm">{event.time}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="text-sm">{event.location}</span>
-                    </div>
+          
+          {loading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="bg-gray-200 h-32 rounded-t-lg"></div>
+                  <div className="bg-white border border-gray-200 rounded-b-lg p-6">
+                    <div className="bg-gray-200 h-4 rounded w-2/3 mb-4"></div>
+                    <div className="bg-gray-200 h-4 rounded w-full mb-2"></div>
+                    <div className="bg-gray-200 h-4 rounded w-3/4"></div>
                   </div>
-                  <p className="text-gray-700 text-sm mb-4">{event.description}</p>
-                  <button className="w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors">
-                    Register
-                  </button>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : upcomingEvents.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {upcomingEvents.map((event) => (
+                <div 
+                  key={event.id} 
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-4">
+                    <span className="text-xs font-semibold uppercase tracking-wider">
+                      {event.category || 'Event'}
+                    </span>
+                    <h3 className="text-xl font-bold mt-2">{event.title}</h3>
+                  </div>
+                  <div className="p-6">
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-gray-600">
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="text-sm">
+                          {new Date(event.start_date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                      {event.end_date && (
+                        <div className="flex items-center text-gray-600">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-sm">
+                            Until {new Date(event.end_date).toLocaleDateString('en-US', { 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                      )}
+                      {event.location && (
+                        <div className="flex items-center text-gray-600">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span className="text-sm">{event.location}</span>
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-gray-700 text-sm mb-4 line-clamp-3">{event.description}</p>
+                    <button className="w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors">
+                      Learn More
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-gray-50 rounded-lg">
+              <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-gray-600">No upcoming events at this time. Check back soon!</p>
+            </div>
+          )}
         </section>
 
         {/* Academic Calendar */}
@@ -150,23 +177,31 @@ export default function EventsPage() {
         </section>
 
         {/* Past Events */}
-        <section>
-          <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Past Events</h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {pastEvents.map((event) => (
-              <div 
-                key={event.id} 
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
-              >
-                <span className="text-xs font-semibold text-[#3d4d6f] uppercase tracking-wider">
-                  {event.category}
-                </span>
-                <h3 className="text-lg font-bold text-gray-800 mt-2">{event.title}</h3>
-                <p className="text-sm text-gray-600 mt-1">{event.date}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {pastEvents.length > 0 && (
+          <section>
+            <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Past Events</h2>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {pastEvents.slice(0, 8).map((event) => (
+                <div 
+                  key={event.id} 
+                  className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                >
+                  <span className="text-xs font-semibold text-[#3d4d6f] uppercase tracking-wider">
+                    {event.category || 'Event'}
+                  </span>
+                  <h3 className="text-lg font-bold text-gray-800 mt-2 line-clamp-2">{event.title}</h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {new Date(event.start_date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'short', 
+                      day: 'numeric' 
+                    })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Subscribe to Events */}
         <section className="bg-gradient-to-br from-[#3d4d6f] to-[#2f3d57] text-white p-8 rounded-lg">
