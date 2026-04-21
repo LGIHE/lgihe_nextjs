@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/storage/**",
+      },
+      {
+        protocol: "https",
+        hostname: "admin.lgihe.org",
+        pathname: "/storage/**",
+      },
     ],
     formats: ['image/avif', 'image/webp'], // Modern formats for better compression
     deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Responsive breakpoints
