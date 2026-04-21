@@ -28,7 +28,7 @@ export default function NewsPage() {
   }, []);
 
   // Get unique categories from the news data
-  const categories = ["All", ...Array.from(new Set(allNews.map(item => item.category).filter(Boolean)))];
+  const categories: string[] = ["All", ...Array.from(new Set(allNews.map(item => item.category).filter(Boolean))) as string[]];
 
   const filteredNews = selectedCategory === "All" 
     ? allNews 
