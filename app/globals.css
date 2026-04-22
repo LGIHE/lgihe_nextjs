@@ -19,3 +19,176 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Job Description HTML Content Styling */
+.job-description-content p,
+.job-responsibilities-content p,
+.job-requirements-content p,
+.job-purpose-content p,
+.job-competencies-content p,
+.job-application-requirements-content p,
+.job-application-process-content p,
+.job-disclaimer-content p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.job-description-content p:last-child,
+.job-responsibilities-content p:last-child,
+.job-requirements-content p:last-child,
+.job-purpose-content p:last-child,
+.job-competencies-content p:last-child,
+.job-application-requirements-content p:last-child,
+.job-application-process-content p:last-child,
+.job-disclaimer-content p:last-child {
+  margin-bottom: 0;
+}
+
+.job-description-content strong,
+.job-responsibilities-content strong,
+.job-requirements-content strong,
+.job-purpose-content strong,
+.job-competencies-content strong,
+.job-application-requirements-content strong,
+.job-application-process-content strong,
+.job-disclaimer-content strong {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.job-description-content ul,
+.job-responsibilities-content ul,
+.job-requirements-content ul,
+.job-purpose-content ul,
+.job-competencies-content ul,
+.job-application-requirements-content ul,
+.job-application-process-content ul,
+.job-disclaimer-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.job-description-content ol,
+.job-responsibilities-content ol,
+.job-requirements-content ol,
+.job-purpose-content ol,
+.job-competencies-content ol,
+.job-application-requirements-content ol,
+.job-application-process-content ol,
+.job-disclaimer-content ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.job-description-content li,
+.job-responsibilities-content li,
+.job-requirements-content li,
+.job-purpose-content li,
+.job-competencies-content li,
+.job-application-requirements-content li,
+.job-application-process-content li,
+.job-disclaimer-content li {
+  margin-bottom: 0.5rem;
+}
+
+.job-description-content ul ul,
+.job-description-content ol ul,
+.job-responsibilities-content ul ul,
+.job-responsibilities-content ol ul,
+.job-requirements-content ul ul,
+.job-requirements-content ol ul,
+.job-purpose-content ul ul,
+.job-purpose-content ol ul,
+.job-competencies-content ul ul,
+.job-competencies-content ol ul,
+.job-application-requirements-content ul ul,
+.job-application-requirements-content ol ul,
+.job-application-process-content ul ul,
+.job-application-process-content ol ul,
+.job-disclaimer-content ul ul,
+.job-disclaimer-content ol ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+}
+
+.job-description-content h1,
+.job-description-content h2,
+.job-description-content h3,
+.job-description-content h4,
+.job-responsibilities-content h1,
+.job-responsibilities-content h2,
+.job-responsibilities-content h3,
+.job-responsibilities-content h4,
+.job-requirements-content h1,
+.job-requirements-content h2,
+.job-requirements-content h3,
+.job-requirements-content h4,
+.job-purpose-content h1,
+.job-purpose-content h2,
+.job-purpose-content h3,
+.job-purpose-content h4,
+.job-competencies-content h1,
+.job-competencies-content h2,
+.job-competencies-content h3,
+.job-competencies-content h4,
+.job-application-requirements-content h1,
+.job-application-requirements-content h2,
+.job-application-requirements-content h3,
+.job-application-requirements-content h4,
+.job-application-process-content h1,
+.job-application-process-content h2,
+.job-application-process-content h3,
+.job-application-process-content h4,
+.job-disclaimer-content h1,
+.job-disclaimer-content h2,
+.job-disclaimer-content h3,
+.job-disclaimer-content h4 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.job-description-content a,
+.job-responsibilities-content a,
+.job-requirements-content a,
+.job-purpose-content a,
+.job-competencies-content a,
+.job-application-requirements-content a,
+.job-application-process-content a,
+.job-disclaimer-content a {
+  color: #3d4d6f;
+  text-decoration: underline;
+}
+
+.job-description-content a:hover,
+.job-responsibilities-content a:hover,
+.job-requirements-content a:hover,
+.job-purpose-content a:hover,
+.job-competencies-content a:hover,
+.job-application-requirements-content a:hover,
+.job-application-process-content a:hover,
+.job-disclaimer-content a:hover {
+  color: #2f3d57;
+}
+
+/* Job excerpt/preview text - strip HTML formatting */
+.job-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Application process content in Ready to Apply section - white text override */
+.job-application-process-content.text-white p,
+.job-application-process-content.text-white li,
+.job-application-process-content.text-white strong {
+  color: white !important;
+}
+

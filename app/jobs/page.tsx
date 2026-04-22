@@ -5,6 +5,12 @@ import PageTemplate from "@/components/PageTemplate";
 import Link from "next/link";
 import { jobsApi, type Job } from "@/lib/api-client";
 
+// Helper function to strip HTML tags and get plain text
+function stripHtml(html: string): string {
+  if (!html) return '';
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 export default function JobsPage() {
   const [jobListings, setJobListings] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
@@ -77,12 +83,12 @@ export default function JobsPage() {
                           {job.department}
                         </span>
                       )}
-                      {job.type && (
+                      {job.employment_type && (
                         <span className="flex items-center gap-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          {job.type}
+                          <span className="capitalize">{job.employment_type.replace('-', ' ')}</span>
                         </span>
                       )}
                       {job.location && (
@@ -95,9 +101,9 @@ export default function JobsPage() {
                       )}
                     </div>
                   </div>
-                  {job.deadline && (
+                  {job.application_deadline && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#3d4d6f]/10 text-[#3d4d6f]">
-                      Deadline: {new Date(job.deadline).toLocaleDateString('en-US', { 
+                      Deadline: {new Date(job.application_deadline).toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'short', 
                         day: 'numeric' 
@@ -105,7 +111,9 @@ export default function JobsPage() {
                     </span>
                   )}
                 </div>
-                <p className="text-gray-700 mb-4 line-clamp-3">{job.description}</p>
+                <p className="text-gray-700 mb-4 line-clamp-3">
+                  {stripHtml(job.purpose_of_role || job.description)}
+                </p>
                 <Link 
                   href={`/jobs/${job.id}`}
                   className="inline-flex items-center gap-2 text-[#3d4d6f] hover:text-[#2f3d57] font-medium transition-colors"

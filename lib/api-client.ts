@@ -102,17 +102,41 @@ export const newsApi = {
 export interface Job {
   id: number;
   title: string;
+  slug: string;
   department?: string;
   location?: string;
-  type?: string; // full-time, part-time, contract
+  employment_type?: string; // full-time, part-time, contract
   description: string;
+  purpose_of_role?: string;
   requirements?: string;
   responsibilities?: string;
+  core_competencies?: string;
+  application_requirements?: string;
+  application_process?: string;
+  disclaimer?: string;
   salary_range?: string;
-  deadline?: string;
+  application_deadline?: string;
+  apply_here?: string | null;
   status: 'active' | 'closed' | 'draft';
+  published_at?: string;
+  created_by?: number;
+  updated_by?: number;
   created_at: string;
   updated_at: string;
+  deleted_at?: string | null;
+  reports_to?: string;
+  supervises_who?: string;
+  document_path?: string | null;
+  document_name?: string | null;
+  document_type?: string | null;
+  document_size?: number | null;
+  has_document: boolean;
+  document_download_url?: string | null;
+  formatted_file_size?: string | null;
+  creator?: {
+    id: number;
+    name: string;
+  };
 }
 
 export const jobsApi = {
