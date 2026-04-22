@@ -122,11 +122,24 @@ class AnalyticsService {
 
   private trackPageLoad(metrics: PageLoadMetrics) {
     if (typeof window !== 'undefined') {
+      // Send to both local API (for immediate dashboard) and backend
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL;
+      
+      // Send to local API
       fetch('/api/analytics/pageload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(metrics),
       }).catch(console.error);
+
+      // Send to backend if configured
+      if (backendUrl) {
+        fetch(`${backendUrl}/analytics/pageload`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(metrics),
+        }).catch(console.error);
+      }
     }
   }
 
@@ -156,17 +169,31 @@ class AnalyticsService {
   logError(error: ErrorLog) {
     this.errorLogs.push(error);
     
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL;
+    
     // Send to API endpoint
     if (typeof window !== 'undefined') {
+      const errorData = {
+        ...error,
+        userAgent: navigator.userAgent,
+        url: window.location.href,
+      };
+
+      // Send to local API
       fetch('/api/analytics/error', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...error,
-          userAgent: navigator.userAgent,
-          url: window.location.href,
-        }),
+        body: JSON.stringify(errorData),
       }).catch(console.error);
+
+      // Send to backend if configured
+      if (backendUrl) {
+        fetch(`${backendUrl}/analytics/error`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(errorData),
+        }).catch(console.error);
+      }
     }
 
     // Log to console in development
@@ -201,13 +228,25 @@ class AnalyticsService {
     
     this.events.push(eventWithTimestamp);
 
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL;
+
     // Send to API endpoint
     if (typeof window !== 'undefined') {
+      // Send to local API
       fetch('/api/analytics/event', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(eventWithTimestamp),
       }).catch(console.error);
+
+      // Send to backend if configured
+      if (backendUrl) {
+        fetch(`${backendUrl}/analytics/event`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(eventWithTimestamp),
+        }).catch(console.error);
+      }
     }
   }
 
