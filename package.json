@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "ANALYZE=true next build",
+    "optimize-images": "./scripts/optimize-images.sh"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.4.1",

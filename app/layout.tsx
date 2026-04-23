@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +8,14 @@ import AnalyticsProvider from "@/components/AnalyticsProvider";
 import ConsentBanner from "@/components/ConsentBanner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// Optimize font loading with Next.js
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lgihe.ac.ug'),
@@ -73,12 +82,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={poppins.variable}>
       <head>
         <link rel="canonical" href="https://lgihe.ac.ug" />
+        <link rel="preconnect" href="https://admin.lgihe.org" />
+        <link rel="dns-prefetch" href="https://admin.lgihe.org" />
         <StructuredData />
       </head>
-      <body className="bg-paper text-navy antialiased">
+      <body className={`${poppins.className} bg-paper text-navy antialiased`}>
         <AnalyticsProvider>
           <Navbar />
           <div className="pt-[104px]">
