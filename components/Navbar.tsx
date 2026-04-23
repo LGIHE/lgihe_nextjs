@@ -154,11 +154,14 @@ export default function Navbar() {
             <Link href="/resources/campus-news" className="text-xs hover:text-white/80 transition-colors">
               Campus News
             </Link>
-            <Link href="/opportunities" className="text-xs hover:text-white/80 transition-colors">
-              Opportunities
-            </Link>
             <Link href="/research" className="text-xs hover:text-white/80 transition-colors">
               Research
+            </Link>
+            <Link href="/jobs" className="text-xs hover:text-white/80 transition-colors">
+              Careers
+            </Link>
+            <Link href="/tenders" className="text-xs hover:text-white/80 transition-colors">
+              Tenders
             </Link>
           </div>
 
