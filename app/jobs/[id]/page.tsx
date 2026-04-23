@@ -202,40 +202,6 @@ export default function JobDetailPage() {
           </div>
         </div>
 
-        {/* Download Job Description Document */}
-        {job.has_document && job.document_download_url && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <div className="flex items-start gap-4">
-              <svg className="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Detailed Job Description Available</h3>
-                <p className="text-gray-700 mb-4">
-                  Download the complete job description document for detailed information about this position.
-                </p>
-                {job.document_name && (
-                  <p className="text-sm text-gray-600 mb-3">
-                    <span className="font-semibold">File:</span> {job.document_name}
-                    {job.formatted_file_size && <span className="ml-2">({job.formatted_file_size})</span>}
-                  </p>
-                )}
-                <a
-                  href={job.document_download_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Job Description
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Job Description */}
         {job.description && (
           <div className="prose prose-lg max-w-none mb-8">
@@ -302,21 +268,8 @@ export default function JobDetailPage() {
           </div>
         )}
 
-        {/* Disclaimer */}
-        {job.disclaimer && (
-          <div className="prose prose-lg max-w-none mb-8">
-            <div className="bg-gray-50 border-l-4 border-gray-400 p-6 rounded-r-lg">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">Disclaimer</h3>
-              <div 
-                className="text-gray-600 text-sm job-disclaimer-content"
-                dangerouslySetInnerHTML={{ __html: job.disclaimer }}
-              />
-            </div>
-          </div>
-        )}
-
         {/* Download Button (if document available and not shown at top) */}
-        {job.has_document && job.document_download_url && (
+        {/* {job.has_document && job.document_download_url && (
           <div className="mb-8">
             <a
               href={job.document_download_url}
@@ -330,6 +283,53 @@ export default function JobDetailPage() {
               Download Complete Job Description
               {job.document_name && <span className="text-sm opacity-90">({job.document_name})</span>}
             </a>
+          </div>
+        )} */}
+
+        {/* Download Job Description Document */}
+        {job.has_document && job.document_download_url && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+            <div className="flex items-start gap-4">
+              <svg className="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Detailed Job Description Available</h3>
+                <p className="text-gray-700 mb-4">
+                  Download the complete job description document for detailed information about this position.
+                </p>
+                {job.document_name && (
+                  <p className="text-sm text-gray-600 mb-3">
+                    <span className="font-semibold">File:</span> {job.document_name}
+                    {job.formatted_file_size && <span className="ml-2">({job.formatted_file_size})</span>}
+                  </p>
+                )}
+                <a
+                  href={job.document_download_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Job Description
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Disclaimer */}
+        {job.disclaimer && (
+          <div className="prose prose-lg max-w-none mb-8">
+            <div className="bg-gray-50 border-l-4 border-gray-400 p-6 rounded-r-lg">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Disclaimer</h3>
+              <div 
+                className="text-gray-600 text-sm job-disclaimer-content"
+                dangerouslySetInnerHTML={{ __html: job.disclaimer }}
+              />
+            </div>
           </div>
         )}
 
