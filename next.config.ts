@@ -28,8 +28,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Enable SWC minification for faster builds
-  swcMinify: true,
   // Optimize production builds
   productionBrowserSourceMaps: false,
   // Reduce bundle size
