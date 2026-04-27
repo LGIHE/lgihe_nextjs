@@ -160,8 +160,8 @@ export default function Navbar() {
             <Link href="/jobs" className="text-xs hover:text-white/80 transition-colors">
               Careers
             </Link>
-            <Link href="/tenders" className="text-xs hover:text-white/80 transition-colors">
-              Tenders
+            <Link href="https://elearning.lgihe.ac.ug" className="text-xs hover:text-white/80 transition-colors">
+              E-learning
             </Link>
           </div>
 
