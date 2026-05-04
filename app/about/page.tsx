@@ -16,15 +16,25 @@ export default function AboutPage() {
         
         <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Vision</h2>
         <p className="text-gray-700 mb-6">
-          To be a leading institution of higher learning that has a transformative impact on society in Uganda 
-          and throughout Africa by improving the quality of education and professional development.
+          LGIHE's vision is to improve the quality of education and professional development by being a leading 
+          institution of higher education with a transformative impact on society in Uganda and throughout Africa.
         </p>
 
         <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Mission</h2>
         <p className="text-gray-700 mb-6">
-          To create opportunities for professional and personal development starting with the dignity and infinite 
-          value of the person, developing one's methods of personal engagement and the meaning of work, targeting 
-          teachers, students, parents and other professionals.
+          LGIHE's mission is to create opportunities for professional and personal development, which start from 
+          the dignity and infinite value of the person and are developed through a method of personal engagement 
+          with one's life and the meaning of one's work, targeting teachers, other professionals, parents and students.
+        </p>
+
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Motto</h2>
+        <p className="text-gray-700 mb-6 italic">
+          Omnia Possum in Eo Qui Me Confortat
+        </p>
+
+        <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Values</h2>
+        <p className="text-gray-700 mb-6">
+          Truthfulness, Resilience, Hope, Wonder, Self-awareness, Responsibility, Openness
         </p>
 
         <h2 className="text-2xl font-bold text-[#3d4d6f] mt-8 mb-4">Our Approach</h2>
