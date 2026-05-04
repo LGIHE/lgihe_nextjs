@@ -75,7 +75,13 @@ export default function JobDetailPage() {
 
   const isActive = job.status === 'active';
   const deadline = job.application_deadline ? new Date(job.application_deadline) : null;
-  const isExpired = deadline && deadline < new Date();
+  // Job remains open until the end of the deadline day (23:59:59)
+  const isExpired = deadline && (() => {
+    const now = new Date();
+    const deadlineEndOfDay = new Date(deadline);
+    deadlineEndOfDay.setHours(23, 59, 59, 999);
+    return deadlineEndOfDay < now;
+  })();
 
   return (
     <PageTemplate 
