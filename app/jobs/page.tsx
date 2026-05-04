@@ -14,8 +14,12 @@ function stripHtml(html: string): string {
   textarea.innerHTML = html;
   const decoded = textarea.value;
   
-  // Then strip HTML tags and normalize whitespace
-  return decoded.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  // Strip HTML tags, replace non-breaking spaces with regular spaces, and normalize whitespace
+  return decoded
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\u00A0/g, ' ')  // Replace non-breaking spaces (Unicode U+00A0)
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 export default function JobsPage() {
