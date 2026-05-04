@@ -5,10 +5,17 @@ import PageTemplate from "@/components/PageTemplate";
 import Link from "next/link";
 import { jobsApi, type Job } from "@/lib/api-client";
 
-// Helper function to strip HTML tags and get plain text
+// Helper function to strip HTML tags and decode HTML entities
 function stripHtml(html: string): string {
   if (!html) return '';
-  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  
+  // First, decode HTML entities
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = html;
+  const decoded = textarea.value;
+  
+  // Then strip HTML tags and normalize whitespace
+  return decoded.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 export default function JobsPage() {
