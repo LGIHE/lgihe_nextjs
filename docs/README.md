@@ -1,59 +1,48 @@
 # LGIHE Website Documentation
 
-This folder contains technical documentation for the LGIHE website features and systems.
+Welcome to the LGIHE website technical documentation. This guide covers all major features and systems.
 
-## Available Documentation
+## 📚 Documentation Index
 
-### Abuse Reporting System
+### Getting Started
+- **[Quick Start Guide](./QUICK_START.md)** - Get up and running quickly
+- **[Deployment Guide](./DEPLOYMENT.md)** - Deploy to production
 
-A confidential platform for reporting incidents of abuse, harassment, and safety concerns.
+### System Documentation
+- **[Architecture Overview](./ARCHITECTURE.md)** - System design and component interactions
+- **[Backend Integration](./BACKEND_INTEGRATION.md)** - API integration guide
 
-#### Getting Started
-- **[Implementation Summary](./IMPLEMENTATION-SUMMARY.md)** ⭐ - Start here! Quick overview of what was created and next steps
-- **[Deployment Checklist](./DEPLOYMENT-CHECKLIST.md)** - Step-by-step guide for deploying to production
+### Feature Documentation
+- **[Analytics System](./ANALYTICS.md)** - Event tracking and monitoring
+- **[Abuse Reporting](./ABUSE_REPORTING.md)** - Confidential reporting system
 
-#### Technical Documentation
-- **[Full Documentation](./abuse-reporting-system.md)** - Comprehensive guide covering architecture, implementation, testing, and maintenance
-- **[Backend Quick Start](./abuse-reporting-backend-quickstart.md)** - Quick reference for backend developers implementing the API
-- **[Laravel Backend Example](./laravel-backend-example.md)** - Complete Laravel code examples (controller, model, migration, email template)
-- **[Flow Diagrams](./abuse-reporting-flow-diagram.md)** - Visual representations of system flows and data processing
-- **[UI Guide](./abuse-reporting-ui-guide.md)** - Visual design, user experience, and accessibility features
+## 🏗️ Project Structure
 
-#### Quick Links
-- Frontend: `/app/report-abuse/page.tsx`
-- API Route: `/app/api/report-abuse/route.ts`
-- Live Page: `https://lgihe.ac.ug/report-abuse`
+```
+lgihe_nextjs/
+├── app/                    # Next.js pages and routes
+├── components/             # Reusable React components
+├── lib/                    # Utilities and services
+├── public/                 # Static assets
+└── docs/                   # This documentation
+```
 
----
+## 🚀 Quick Links
 
-## Documentation Standards
+- **Live Site**: https://lgihe.ac.ug
+- **Admin Dashboard**: /dashboard/analytics
+- **Report Abuse**: /report-abuse
 
-When adding new documentation:
-
-1. **Create descriptive filenames** using kebab-case (e.g., `feature-name-guide.md`)
-2. **Include a table of contents** for documents longer than 3 sections
-3. **Add code examples** where applicable
-4. **Document all API endpoints** with request/response formats
-5. **Include troubleshooting sections** for common issues
-6. **Update this README** with links to new documentation
-
----
-
-## Contributing
+## 📝 Contributing
 
 When updating documentation:
+- Keep it concise and accurate
+- Include code examples where helpful
+- Update the date at the bottom
+- Test all code examples
 
-- Keep technical accuracy as the top priority
-- Use clear, concise language
-- Include practical examples
-- Update version numbers and dates
-- Test all code examples before documenting
+## 📧 Contact
 
----
-
-## Contact
-
-For documentation questions or updates:
 - **IT Department**: tech@lgihe.ac.ug
 - **Development Team**: dev@lgihe.ac.ug
 

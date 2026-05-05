@@ -110,7 +110,7 @@ export default function TendersPage() {
                       </svg>
                     </Link>
                     {/* Show download button if documents are available */}
-                    {(tender.has_rfp_document && tender.rfp_download_url) || 
+                    {/* {(tender.has_rfp_document && tender.rfp_download_url) || 
                      (tender.has_tor_document && tender.tor_download_url) || 
                      (tender.documents && tender.documents.length > 0) || 
                      tender.document_url ? (
@@ -129,7 +129,7 @@ export default function TendersPage() {
                         </svg>
                         Download
                       </a>
-                    ) : null}
+                    ) : null} */}
                   </div>
                 </div>
               </div>

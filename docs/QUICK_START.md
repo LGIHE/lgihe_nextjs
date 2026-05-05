@@ -1,103 +1,134 @@
-# Quick Start Guide - Tender Documents
+# Quick Start Guide
 
-## 🎯 What's New
+## 🚀 Getting Started
 
-1. **RFP & ToR Documents** - Tenders now show separate Request for Proposal and Terms of Reference documents
-2. **HTML Content** - Descriptions and requirements can include formatted HTML
-3. **Smart Display** - Automatically shows the right UI based on available documents
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
-## 🔍 How It Works
+### Installation
 
-### Backend Sends This:
-```json
-{
-  "has_rfp_document": true,
-  "rfp_download_url": "http://localhost:8000/api/v1/tenders/1/download-rfp",
-  "rfp_document_name": "tender_rfp.docx",
-  "rfp_document_size": 126980,
-  "has_tor_document": true,
-  "tor_download_url": "http://localhost:8000/api/v1/tenders/1/download-tor",
-  "tor_document_name": "tender_tor.docx",
-  "tor_document_size": 193460
-}
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd lgihe_nextjs
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Edit `.env.local` with your configuration
+
+4. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open browser**
+   Visit `http://localhost:3000`
+
+## 📁 Project Structure
+
+```
+lgihe_nextjs/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── layout.tsx         # Root layout
+│   ├── api/               # API routes
+│   └── [features]/        # Feature pages
+├── components/            # React components
+├── lib/                   # Utilities and services
+├── public/                # Static assets
+└── docs/                  # Documentation
 ```
 
-### Frontend Shows This:
+## 🎯 Key Features
+
+### Analytics
+Track user behavior automatically:
+```typescript
+import { trackButtonClick } from '@/lib/analytics';
+
+<button onClick={() => trackButtonClick('CTA', 'Homepage')}>
+  Click Me
+</button>
 ```
-┌─────────────────────────────────────────┐
-│ 📄 Request for Proposal (RFP)          │
-│    tender_rfp.docx • 124 KB [Download] │
-└─────────────────────────────────────────┘
 
-┌─────────────────────────────────────────┐
-│ 📄 Terms of Reference (ToR)            │
-│    tender_tor.docx • 188.93 KB [Download]│
-└─────────────────────────────────────────┘
+### Image Loading
+Use optimized images with loading states:
+```typescript
+import ImageWithLoader from '@/components/ImageWithLoader';
+
+<ImageWithLoader 
+  src="/image.jpg" 
+  alt="Description" 
+  fill 
+/>
 ```
 
-## ✅ Checklist for Backend
+### Abuse Reporting
+Confidential reporting system at `/report-abuse`
 
-Make sure your backend response includes:
+## 🔧 Common Tasks
 
-- [ ] `has_rfp_document: true` when RFP exists
-- [ ] `rfp_download_url` with download link
-- [ ] `rfp_document_name` with file name
-- [ ] `rfp_document_size` in bytes
-- [ ] `has_tor_document: true` when ToR exists
-- [ ] `tor_download_url` with download link
-- [ ] `tor_document_name` with file name
-- [ ] `tor_document_size` in bytes
+### Add a New Page
+1. Create `app/your-page/page.tsx`
+2. Export default React component
+3. Add metadata for SEO
 
-## 🎨 What Users See
+### Add API Route
+1. Create `app/api/your-route/route.ts`
+2. Export GET, POST, etc. handlers
+3. Return Response objects
 
-### Both Documents Available
-Two separate download buttons with clear labels
+### Update Styles
+- Global styles: `app/globals.css`
+- Component styles: Tailwind classes
+- Custom styles: CSS modules
 
-### One Document Available
-Single download button
+## 📊 Available Scripts
 
-### No Documents
-Document section is hidden
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+```
 
-## 🔧 Troubleshooting
+## 🐛 Troubleshooting
 
-**Documents not showing?**
-- Check `has_rfp_document` is `true`
-- Check `rfp_download_url` is provided
-- Same for ToR document
+**Port already in use?**
+```bash
+# Kill process on port 3000
+lsof -ti:3000 | xargs kill -9
+```
 
-**HTML not rendering?**
-- HTML is automatically detected
-- No special configuration needed
-- Dangerous tags are removed automatically
+**Dependencies not installing?**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
 
-**File size not showing?**
-- Provide size in bytes
-- Frontend converts to KB/MB automatically
+**Build errors?**
+```bash
+# Clear Next.js cache
+rm -rf .next
+npm run build
+```
 
-## 📱 Responsive Design
+## 📚 Next Steps
 
-Works perfectly on:
-- Desktop computers
-- Tablets
-- Mobile phones
+- Read [Architecture](./ARCHITECTURE.md) for system design
+- See [Deployment](./DEPLOYMENT.md) for production setup
+- Check [Backend Integration](./BACKEND_INTEGRATION.md) for API details
 
-## 🔐 Security
+---
 
-- HTML is sanitized automatically
-- Scripts and iframes are removed
-- Event handlers are stripped
-- Safe content is preserved
-
-## 🚀 No Setup Required
-
-- Works immediately with backend data
-- No configuration needed
-- No environment variables
-- No database changes
-
-## 📖 More Information
-
-- **Backend Integration:** See `docs/BACKEND_INTEGRATION.md`
-- **Visual Examples:** See `docs/VISUAL_EXAMPLES.md`
-- **Complete Summary:** See `docs/FINAL_SUMMARY.md`
+**Last Updated**: May 5, 2026

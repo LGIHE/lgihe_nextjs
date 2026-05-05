@@ -1,16 +1,15 @@
-# Deploying LGIHE Website to Vercel
+# Deployment Guide
 
-## Quick Deployment Steps
+## 🚀 Deploy to Vercel (Recommended)
 
-### Method 1: Deploy via Vercel Dashboard (Easiest)
+### Method 1: Via Vercel Dashboard
 
-1. **Create a Vercel Account**
-   - Go to [vercel.com](https://vercel.com)
-   - Sign up with GitHub, GitLab, or Bitbucket (recommended) or email
+1. **Create Vercel Account**
+   - Visit [vercel.com](https://vercel.com)
+   - Sign up with GitHub (recommended)
 
-2. **Push Your Code to Git** (if not already done)
+2. **Push Code to GitHub**
    ```bash
-   cd lgihe
    git init
    git add .
    git commit -m "Initial commit"
@@ -19,99 +18,171 @@
    git push -u origin main
    ```
 
-3. **Import Project to Vercel**
-   - Click "Add New Project" in Vercel dashboard
-   - Import your Git repository
-   - Vercel will auto-detect Next.js settings
+3. **Import to Vercel**
+   - Click "Add New Project"
+   - Import your repository
+   - Vercel auto-detects Next.js
    - Click "Deploy"
 
-4. **Done!** 
-   - Your site will be live in ~2 minutes
-   - You'll get a URL like: `your-project.vercel.app`
+4. **Done!** Site live in ~2 minutes at `your-project.vercel.app`
 
-### Method 2: Deploy via Vercel CLI
+### Method 2: Via Vercel CLI
 
-1. **Install Vercel CLI**
-   ```bash
-   npm install -g vercel
-   ```
+```bash
+# Install Vercel CLI
+npm install -g vercel
 
-2. **Login to Vercel**
-   ```bash
-   vercel login
-   ```
+# Login
+vercel login
 
-3. **Deploy from Project Directory**
-   ```bash
-   cd lgihe
-   vercel
-   ```
+# Deploy
+cd lgihe_nextjs
+vercel
 
-4. **Follow the prompts:**
-   - Set up and deploy? **Y**
-   - Which scope? Select your account
-   - Link to existing project? **N**
-   - Project name? Press Enter (uses folder name)
-   - Directory? Press Enter (current directory)
-   - Override settings? **N**
+# Deploy to production
+vercel --prod
+```
 
-5. **Deploy to Production**
-   ```bash
-   vercel --prod
-   ```
+## 🌐 Custom Domain Setup
 
-## Custom Domain Setup
+1. Go to Project Settings → Domains
+2. Add your domain (e.g., `lgihe.ac.ug`)
+3. Configure DNS records as instructed
+4. SSL certificate auto-generated
 
-After deployment, you can add your custom domain:
+## 🔐 Environment Variables
 
-1. Go to your project in Vercel dashboard
-2. Click "Settings" → "Domains"
-3. Add your domain (e.g., `lgihe.edu` or `www.lgihe.edu`)
-4. Follow DNS configuration instructions
-5. Vercel provides free SSL certificates automatically
+If using API keys or secrets:
 
-## Environment Variables (if needed later)
-
-If you add API keys or secrets:
 1. Go to Project Settings → Environment Variables
-2. Add variables for Production, Preview, and Development
+2. Add variables for each environment:
+   - Production
+   - Preview
+   - Development
 3. Redeploy for changes to take effect
 
-## Automatic Deployments
+**Example variables:**
+```
+NEXT_PUBLIC_API_URL=https://api.lgihe.ac.ug
+ADMIN_EMAIL=admin@lgihe.ac.ug
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+```
+
+## 🔄 Automatic Deployments
 
 Once connected to Git:
-- **Every push to main branch** = automatic production deployment
-- **Pull requests** = automatic preview deployments
-- **Rollback** = one-click in Vercel dashboard
+- **Push to main** → Production deployment
+- **Pull requests** → Preview deployments
+- **Rollback** → One-click in dashboard
 
-## Troubleshooting
+## 🏗️ Build Configuration
 
-### Build Fails
-- Check build logs in Vercel dashboard
-- Ensure `npm run build` works locally first
-- Verify all dependencies are in `package.json`
+Vercel automatically detects Next.js settings:
 
-### Images Not Loading
-- Ensure images are in `/public` folder
-- Check `next.config.ts` image domains are correct
-- Use Next.js `<Image>` component for optimization
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "framework": "nextjs"
+}
+```
 
-### 404 Errors
-- Vercel automatically handles Next.js routing
-- Check file names match route structure
-- Ensure `page.tsx` files exist in route folders
+## ⚡ Performance Features
 
-## Performance Tips
-
-Your site will automatically get:
+Automatic optimizations:
 - ✅ Global CDN distribution
 - ✅ Automatic HTTPS/SSL
 - ✅ Image optimization
 - ✅ Edge caching
-- ✅ Automatic compression
+- ✅ Compression (Brotli/Gzip)
+- ✅ HTTP/2 & HTTP/3
 
-## Support
+## 🐛 Troubleshooting
 
-- Vercel Docs: https://vercel.com/docs
-- Next.js Docs: https://nextjs.org/docs
-- Community: https://github.com/vercel/next.js/discussions
+### Build Fails
+1. Check build logs in Vercel dashboard
+2. Verify `npm run build` works locally
+3. Ensure all dependencies in `package.json`
+4. Check Node.js version compatibility
+
+### Images Not Loading
+1. Images must be in `/public` folder
+2. Check `next.config.ts` image domains
+3. Use Next.js `<Image>` component
+
+### 404 Errors
+1. Verify file structure matches routes
+2. Ensure `page.tsx` files exist
+3. Check dynamic route syntax `[id]`
+
+### Environment Variables Not Working
+1. Redeploy after adding variables
+2. Use `NEXT_PUBLIC_` prefix for client-side variables
+3. Check variable names match exactly
+
+## 📊 Monitoring
+
+### Vercel Dashboard
+- Build logs
+- Deployment history
+- Performance metrics
+- Error tracking
+
+### Analytics
+- Visit `/dashboard/analytics` for custom analytics
+- Vercel Analytics for visitor stats
+- Speed Insights for performance
+
+## 🔒 Security Checklist
+
+Before going live:
+- [ ] Environment variables configured
+- [ ] Custom domain with SSL
+- [ ] API routes secured
+- [ ] Rate limiting enabled
+- [ ] Error logging configured
+- [ ] Backup strategy in place
+
+## 🎯 Pre-Deployment Checklist
+
+- [ ] All tests passing
+- [ ] Build succeeds locally
+- [ ] Environment variables documented
+- [ ] Database migrations ready (if applicable)
+- [ ] API endpoints tested
+- [ ] Images optimized
+- [ ] SEO metadata complete
+- [ ] Analytics configured
+- [ ] Error tracking setup
+
+## 📈 Post-Deployment
+
+1. **Verify deployment**
+   - Test all major pages
+   - Check forms and submissions
+   - Verify API endpoints
+   - Test on mobile devices
+
+2. **Monitor performance**
+   - Check Lighthouse scores
+   - Review Core Web Vitals
+   - Monitor error rates
+   - Track user analytics
+
+3. **Set up alerts**
+   - Deployment failures
+   - Error spikes
+   - Performance degradation
+
+## 🆘 Support Resources
+
+- **Vercel Docs**: https://vercel.com/docs
+- **Next.js Docs**: https://nextjs.org/docs
+- **Community**: https://github.com/vercel/next.js/discussions
+- **LGIHE IT**: tech@lgihe.ac.ug
+
+---
+
+**Last Updated**: May 5, 2026
