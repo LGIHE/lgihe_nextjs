@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
               <p>If you have any questions, please contact our admissions office:</p>
               <p>
                 <strong>Email:</strong> ar@lgihe.ac.ug<br>
-                <strong>Phone:</strong> (+256) 414 222 517
+                <strong>Phone:</strong> (+256) 764 078712
               </p>
             </div>
             
@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 12px; color: #666;">
             <p>Luigi Giussani Institute of Higher Education</p>
-            <p>Sentamu Road 822-829, Luzira | (+256) 414 222 517 | info@lgihe.ac.ug</p>
+            <p>Sentamu Road 822-829, Luzira | (+256) 764 078712 | info@lgihe.ac.ug</p>
             <p>www.lgihe.ac.ug</p>
           </div>
         </div>

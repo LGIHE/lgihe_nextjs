@@ -591,7 +591,7 @@ export default function ApplicationForm() {
                 <h3 className="font-bold text-blue-900 mb-2">📞 Need Help?</h3>
                 <div className="text-sm text-blue-800">
                   <p><strong>Email:</strong> ar@lgihe.ac.ug</p>
-                  <p><strong>Phone:</strong> (+256) 414 222 517</p>
+                  <p><strong>Phone:</strong> (+256) 764 078712</p>
                 </div>
               </div>
 

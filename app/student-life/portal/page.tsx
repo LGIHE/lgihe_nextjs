@@ -177,7 +177,7 @@ export default function StudentPortalPage() {
             <div className="bg-white/10 p-4 rounded-lg">
               <h4 className="font-bold mb-2">General Inquiries</h4>
               <p className="text-sm text-white/80">
-                Email info@lgihe.ac.ug or call (+256) 414 222 517
+                Email info@lgihe.ac.ug or call (+256) 764 078712
               </p>
             </div>
           </div>

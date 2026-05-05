@@ -157,7 +157,7 @@ export default function ReportAbusePage() {
             <p className="mb-2"><strong>If you are in immediate danger, please contact:</strong></p>
             <ul className="space-y-1 mb-0">
               <li>• <strong>Police Emergency:</strong> 999 or 112</li>
-              <li>• <strong>LGIHE Security:</strong> (+256) 414 222 517</li>
+              <li>• <strong>LGIHE Security:</strong> (+256) 764 078712</li>
               <li>• <strong>Safeguarding Officer:</strong> safeguarding@lgihe.ac.ug</li>
             </ul>
           </div>

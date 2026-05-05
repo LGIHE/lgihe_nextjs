@@ -330,7 +330,7 @@ export const ApplicationPDF = ({ data }: { data: ApplicationData }) => (
       {/* Footer */}
       <View style={styles.footer}>
         <Text>Luigi Giussani Institute of Higher Education</Text>
-        <Text>Sentamu Road 822-829, Luzira | (+256) 414 222 517 | info@lgihe.ac.ug</Text>
+        <Text>Sentamu Road 822-829, Luzira | (+256) 764 078712 | info@lgihe.ac.ug</Text>
       </View>
     </Page>
   </Document>

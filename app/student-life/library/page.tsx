@@ -48,7 +48,7 @@ export default function LibraryPage() {
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="text-white/70">Phone:</span>
-                    <span className="text-white font-medium">(+256) 414 222 517</span>
+                    <span className="text-white font-medium">(+256) 764 078712</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="text-white/70">Location:</span>
@@ -203,7 +203,7 @@ export default function LibraryPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600 mb-1">Phone</p>
-                <p className="text-gray-800 font-medium">(+256) 414 222 517</p>
+                <p className="text-gray-800 font-medium">(+256) 764 078712</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600 mb-1">Location</p>

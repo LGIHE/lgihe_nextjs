@@ -94,7 +94,7 @@ export default function ContactPage() {
                 </svg>
                 <div>
                   <p className="font-semibold text-gray-700">Phone</p>
-                  <p className="text-gray-600 text-sm">(+256) 414 222 517</p>
+                  <p className="text-gray-600 text-sm">(+256) 764 078712</p>
                 </div>
               </div>
 
@@ -215,11 +215,11 @@ export default function ContactPage() {
         <h2 className="text-2xl font-bold text-[#3d4d6f] mb-4 mt-8">Department Contacts</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { dept: "Admissions", email: "ar@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "Student Services", email: "dean@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "Finance Office", email: "finance@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "IT Support", email: "tech@lgihe.ac.ug", phone: "(+256) 414 222 517" },
-            { dept: "Library", email: "library@lgihe.ac.ug", phone: "(+256) 414 222 517" },
+            { dept: "Admissions", email: "ar@lgihe.ac.ug", phone: "(+256) 764 078712" },
+            { dept: "Student Services", email: "dean@lgihe.ac.ug", phone: "(+256) 764 078712" },
+            { dept: "Finance Office", email: "finance@lgihe.ac.ug", phone: "(+256) 764 078712" },
+            { dept: "IT Support", email: "tech@lgihe.ac.ug", phone: "(+256) 764 078712" },
+            { dept: "Library", email: "library@lgihe.ac.ug", phone: "(+256) 764 078712" },
           ].map((contact) => (
             <div key={contact.dept} className="bg-gray-50 p-4 rounded-lg">
               <h3 className="font-bold text-[#3d4d6f] mb-2">{contact.dept}</h3>
