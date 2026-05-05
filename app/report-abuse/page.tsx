@@ -47,7 +47,8 @@ export default function ReportAbusePage() {
     setShowError(false);
 
     try {
-      const response = await fetch('/api/report-abuse', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+      const response = await fetch(`${apiUrl}/report-abuse`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ export default function ReportAbusePage() {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
         setShowSuccess(true);
         setFormData({
           reporterName: '',

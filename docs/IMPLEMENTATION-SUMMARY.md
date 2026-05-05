@@ -18,17 +18,20 @@ A comprehensive abuse reporting form with:
 **Live URL**: `https://lgihe.ac.ug/report-abuse`
 
 ### 2. Backend API
-**Location**: `/app/api/report-abuse/route.ts`
+**Location**: Laravel Backend - `{NEXT_PUBLIC_API_URL}/report-abuse`
 
-API endpoint that:
-- Validates all required fields
-- Generates unique report IDs
-- Sends formatted emails to safeguarding team
-- Handles anonymous and identified reports
-- Returns appropriate success/error responses
-- Logs submissions (without sensitive data)
+**Note**: The form submits directly to your Laravel backend API, not a Next.js API route.
 
-**Endpoint**: `POST /api/report-abuse`
+Your Laravel backend should:
+- Accept POST requests at `/api/v1/report-abuse`
+- Validate all required fields
+- Generate unique report IDs
+- Send formatted emails to safeguarding team
+- Handle anonymous and identified reports
+- Return appropriate success/error responses
+- Log submissions (without sensitive data)
+
+**Endpoint**: `POST {NEXT_PUBLIC_API_URL}/report-abuse`
 
 ### 3. Footer Link
 **Location**: `components/Footer.tsx`
@@ -50,7 +53,8 @@ Four comprehensive documentation files:
 
 ### API Endpoint
 ```
-POST /api/report-abuse
+POST {NEXT_PUBLIC_API_URL}/report-abuse
+Default: http://localhost:8000/api/v1/report-abuse
 Content-Type: application/json
 ```
 
@@ -106,7 +110,16 @@ Example: ABR-1715234567890-ABC123XYZ
 
 ### Environment Variable Required
 ```env
-RESEND_API_KEY=your_resend_api_key_here
+# Frontend (.env.local)
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+
+# Laravel Backend (.env)
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-username
+MAIL_PASSWORD=your-password
+MAIL_FROM_ADDRESS=noreply@lgihe.org
 ```
 
 ---
@@ -114,8 +127,12 @@ RESEND_API_KEY=your_resend_api_key_here
 ## 📋 Backend Implementation Checklist
 
 ### Immediate Tasks
-- [ ] Verify `RESEND_API_KEY` is set in environment variables
-- [ ] Confirm sender domain (`noreply@lgihe.org`) is verified in Resend
+- [ ] Verify `NEXT_PUBLIC_API_URL` is set in frontend environment
+- [ ] Create Laravel controller at `App\Http\Controllers\Api\V1\AbuseReportController`
+- [ ] Add route in Laravel `routes/api.php`
+- [ ] Configure CORS in Laravel to allow frontend domain
+- [ ] Set up email service in Laravel backend
+- [ ] Create email template in `resources/views/emails/abuse-report.blade.php`
 - [ ] Set up `safeguarding@lgihe.ac.ug` email account
 - [ ] Test email delivery end-to-end
 - [ ] Configure email forwarding to appropriate staff
@@ -151,7 +168,7 @@ RESEND_API_KEY=your_resend_api_key_here
 ### Test the Backend
 ```bash
 # Test with cURL
-curl -X POST http://localhost:3000/api/report-abuse \
+curl -X POST http://localhost:8000/api/v1/report-abuse \
   -H "Content-Type: application/json" \
   -d '{
     "anonymousReport": true,
@@ -257,8 +274,7 @@ Expected response:
 ## 📊 Files Created
 
 ```
-✅ app/report-abuse/page.tsx                    (Frontend page)
-✅ app/api/report-abuse/route.ts                (Backend API)
+✅ app/report-abuse/page.tsx                    (Frontend page - sends to Laravel backend)
 ✅ components/Footer.tsx                         (Updated with link)
 ✅ docs/abuse-reporting-system.md               (Full documentation)
 ✅ docs/abuse-reporting-backend-quickstart.md   (Quick reference)

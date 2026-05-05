@@ -15,6 +15,7 @@ A confidential platform for reporting incidents of abuse, harassment, and safety
 #### Technical Documentation
 - **[Full Documentation](./abuse-reporting-system.md)** - Comprehensive guide covering architecture, implementation, testing, and maintenance
 - **[Backend Quick Start](./abuse-reporting-backend-quickstart.md)** - Quick reference for backend developers implementing the API
+- **[Laravel Backend Example](./laravel-backend-example.md)** - Complete Laravel code examples (controller, model, migration, email template)
 - **[Flow Diagrams](./abuse-reporting-flow-diagram.md)** - Visual representations of system flows and data processing
 - **[UI Guide](./abuse-reporting-ui-guide.md)** - Visual design, user experience, and accessibility features
 

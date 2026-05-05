@@ -15,11 +15,11 @@ Use this checklist to ensure the abuse reporting system is properly configured a
 - [ ] Verify error handling is comprehensive
 
 ### ✅ Environment Configuration
-- [ ] Set `RESEND_API_KEY` in production environment variables
-- [ ] Verify environment variable is not exposed to client
-- [ ] Test that API key is valid and active
-- [ ] Confirm sender domain is verified in Resend dashboard
-- [ ] Check rate limits on Resend account
+- [ ] Set `NEXT_PUBLIC_API_URL` in frontend environment variables
+- [ ] Verify environment variable is accessible to client-side code
+- [ ] Configure Laravel backend `.env` with mail settings
+- [ ] Test that API endpoint is accessible from frontend
+- [ ] Verify CORS is configured correctly in Laravel
 
 ### ✅ Email Setup
 - [ ] Create `safeguarding@lgihe.ac.ug` email account
@@ -77,8 +77,21 @@ Use this checklist to ensure the abuse reporting system is properly configured a
 
 ### Step 1: Environment Variables
 ```bash
-# Add to production environment
-RESEND_API_KEY=your_production_api_key_here
+# Frontend - Add to .env.local (development)
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+
+# Frontend - Add to production environment
+NEXT_PUBLIC_API_URL=https://admin.lgihe.org/api/v1
+
+# Laravel Backend - Add to .env
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-username
+MAIL_PASSWORD=your-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@lgihe.org
+MAIL_FROM_NAME="LGIHE Safeguarding"
 ```
 
 ### Step 2: Deploy Code

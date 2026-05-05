@@ -8,9 +8,12 @@ This is a condensed guide for implementing the backend processing of abuse repor
 
 ## API Endpoint
 
-**URL**: `/api/report-abuse`  
+**URL**: `{NEXT_PUBLIC_API_URL}/report-abuse`  
+**Default**: `http://localhost:8000/api/v1/report-abuse`  
 **Method**: `POST`  
 **Content-Type**: `application/json`
+
+**Note**: The frontend sends data to your Laravel backend API, not a Next.js API route.
 
 ---
 
@@ -134,61 +137,131 @@ const reportId = `ABR-${Date.now()}-${Math.random().toString(36).substr(2, 9).to
 ## Environment Variables Required
 
 ```env
-RESEND_API_KEY=your_resend_api_key_here
+# Frontend (.env.local)
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+
+# Production
+NEXT_PUBLIC_API_URL=https://admin.lgihe.org/api/v1
+```
+
+```env
+# Laravel Backend (.env)
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-username
+MAIL_PASSWORD=your-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@lgihe.org
+MAIL_FROM_NAME="LGIHE Safeguarding"
 ```
 
 ---
 
 ## Backend Processing Steps
 
-1. **Receive POST request** with JSON body
-2. **Validate required fields**:
+1. **Receive POST request** from Next.js frontend with JSON body
+2. **Validate required fields** in Laravel controller:
    - `incidentType`
    - `incidentDate`
    - `incidentLocation`
    - `personsInvolved`
    - `detailedDescription`
-3. **Generate unique Report ID**
+3. **Generate unique Report ID** (format: `ABR-[timestamp]-[random]`)
 4. **Determine if anonymous** (check `anonymousReport` or missing contact info)
-5. **Build email HTML** with all report details
-6. **Send email** to safeguarding team
-7. **Log submission** (without sensitive details)
-8. **Return success response** with Report ID
+5. **Store in database** (optional - recommended for tracking)
+6. **Build email HTML** with all report details
+7. **Send email** to safeguarding team using Laravel Mail
+8. **Log submission** (without sensitive details)
+9. **Return JSON response** with success status and Report ID
 
 ---
 
-## Database Schema (Optional)
+## Database Schema (Recommended for Laravel)
 
-If you want to store reports in a database:
+Laravel migration for storing abuse reports:
 
-```sql
-CREATE TABLE abuse_reports (
-  id VARCHAR(255) PRIMARY KEY,
-  report_id VARCHAR(50) UNIQUE NOT NULL,
-  reporter_name VARCHAR(255),
-  reporter_email VARCHAR(255),
-  reporter_phone VARCHAR(50),
-  reporter_relationship VARCHAR(50),
-  incident_type VARCHAR(50) NOT NULL,
-  incident_date DATE NOT NULL,
-  incident_location TEXT NOT NULL,
-  persons_involved TEXT NOT NULL,
-  detailed_description TEXT NOT NULL,
-  witnesses_present TEXT,
-  previously_reported TEXT,
-  evidence_available TEXT,
-  preferred_contact VARCHAR(20),
-  anonymous_report BOOLEAN DEFAULT FALSE,
-  status VARCHAR(20) DEFAULT 'pending',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+```php
+<?php
 
--- Index for quick lookups
-CREATE INDEX idx_report_id ON abuse_reports(report_id);
-CREATE INDEX idx_incident_type ON abuse_reports(incident_type);
-CREATE INDEX idx_status ON abuse_reports(status);
-CREATE INDEX idx_created_at ON abuse_reports(created_at);
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('abuse_reports', function (Blueprint $table) {
+            $table->id();
+            $table->string('report_id')->unique();
+            $table->string('reporter_name')->nullable();
+            $table->string('reporter_email')->nullable();
+            $table->string('reporter_phone')->nullable();
+            $table->string('reporter_relationship')->nullable();
+            $table->string('incident_type');
+            $table->date('incident_date');
+            $table->text('incident_location');
+            $table->text('persons_involved');
+            $table->text('detailed_description');
+            $table->text('witnesses_present')->nullable();
+            $table->text('previously_reported')->nullable();
+            $table->text('evidence_available')->nullable();
+            $table->string('preferred_contact')->nullable();
+            $table->boolean('anonymous_report')->default(false);
+            $table->string('status')->default('pending');
+            $table->timestamps();
+            
+            // Indexes for quick lookups
+            $table->index('report_id');
+            $table->index('incident_type');
+            $table->index('status');
+            $table->index('created_at');
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('abuse_reports');
+    }
+};
+```
+
+Laravel Model:
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class AbuseReport extends Model
+{
+    protected $fillable = [
+        'report_id',
+        'reporter_name',
+        'reporter_email',
+        'reporter_phone',
+        'reporter_relationship',
+        'incident_type',
+        'incident_date',
+        'incident_location',
+        'persons_involved',
+        'detailed_description',
+        'witnesses_present',
+        'previously_reported',
+        'evidence_available',
+        'preferred_contact',
+        'anonymous_report',
+        'status',
+    ];
+
+    protected $casts = [
+        'incident_date' => 'date',
+        'anonymous_report' => 'boolean',
+    ];
+}
 ```
 
 ---
@@ -212,7 +285,7 @@ CREATE INDEX idx_created_at ON abuse_reports(created_at);
 
 ### Test with cURL
 ```bash
-curl -X POST http://localhost:3000/api/report-abuse \
+curl -X POST http://localhost:8000/api/v1/report-abuse \
   -H "Content-Type: application/json" \
   -d '{
     "anonymousReport": true,
@@ -224,9 +297,9 @@ curl -X POST http://localhost:3000/api/report-abuse \
   }'
 ```
 
-### Test with JavaScript
+### Test with JavaScript (from browser console on your site)
 ```javascript
-fetch('/api/report-abuse', {
+fetch(process.env.NEXT_PUBLIC_API_URL + '/report-abuse', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -246,51 +319,38 @@ fetch('/api/report-abuse', {
 
 ## Email Service Alternatives
 
-### Current: Resend
-```typescript
-import { resend } from '@/lib/resend';
-
-await resend.emails.send({
-  from: 'LGIHE Safeguarding <noreply@lgihe.org>',
-  to: 'safeguarding@lgihe.ac.ug',
-  subject: `🚨 URGENT: Abuse Report [${reportId}]`,
-  html: emailHtml,
+### Current: Laravel Mail with SMTP
+```php
+// In Laravel controller
+Mail::send('emails.abuse-report', $data, function ($message) {
+    $message->to('safeguarding@lgihe.ac.ug')
+           ->subject('🚨 URGENT: Abuse Report')
+           ->from('noreply@lgihe.org', 'LGIHE Safeguarding');
 });
 ```
 
-### Alternative: Nodemailer
-```typescript
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: 587,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
-
-await transporter.sendMail({
-  from: 'noreply@lgihe.org',
-  to: 'safeguarding@lgihe.ac.ug',
-  subject: `🚨 URGENT: Abuse Report [${reportId}]`,
-  html: emailHtml,
-});
+### Alternative: Mailgun
+```env
+MAIL_MAILER=mailgun
+MAILGUN_DOMAIN=your-domain.com
+MAILGUN_SECRET=your-mailgun-secret
 ```
 
 ### Alternative: SendGrid
-```typescript
-import sgMail from '@sendgrid/mail';
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=587
+MAIL_USERNAME=apikey
+MAIL_PASSWORD=your-sendgrid-api-key
+```
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
-await sgMail.send({
-  from: 'noreply@lgihe.org',
-  to: 'safeguarding@lgihe.ac.ug',
-  subject: `🚨 URGENT: Abuse Report [${reportId}]`,
-  html: emailHtml,
-});
+### Alternative: AWS SES
+```env
+MAIL_MAILER=ses
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_DEFAULT_REGION=us-east-1
 ```
 
 ---

@@ -25,14 +25,13 @@ The Abuse Reporting System is a confidential platform that allows students, staf
 ### Components
 
 - **Frontend Page**: `/app/report-abuse/page.tsx`
-- **API Route**: `/app/api/report-abuse/route.ts`
+- **Backend API**: `http://localhost:8000/api/v1/report-abuse` (Laravel backend)
 - **Footer Link**: Added to `components/Footer.tsx`
-- **Email Service**: Uses Resend API (via `/lib/resend`)
 
 ### Data Flow
 
 ```
-User fills form → Frontend validation → POST to /api/report-abuse → 
+User fills form → Frontend validation → POST to Laravel backend /api/v1/report-abuse → 
 Backend validation → Generate Report ID → Send email to safeguarding team → 
 Return success/error response → Display confirmation to user
 ```
@@ -84,7 +83,9 @@ Return success/error response → Display confirmation to user
 ## Backend API
 
 ### Endpoint
-**POST** `/api/report-abuse`
+**POST** `{NEXT_PUBLIC_API_URL}/report-abuse`
+
+Default: `http://localhost:8000/api/v1/report-abuse`
 
 ### Request Headers
 ```
@@ -240,174 +241,215 @@ Example: `ABR-1715234567890-ABC123XYZ`
 
 ### Prerequisites
 
-1. **Email Service Configuration**
-   - Resend API key configured in environment variables
-   - Verified sender domain (`noreply@lgihe.org`)
+1. **Laravel Backend API**
+   - Backend API running at the URL specified in `NEXT_PUBLIC_API_URL`
+   - Endpoint `/api/v1/report-abuse` configured to accept POST requests
+   - Email service configured in Laravel backend
    - Safeguarding email address (`safeguarding@lgihe.ac.ug`) set up
 
 2. **Environment Variables**
    ```env
-   RESEND_API_KEY=your_resend_api_key_here
+   NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+   ```
+   Or for production:
+   ```env
+   NEXT_PUBLIC_API_URL=https://admin.lgihe.org/api/v1
    ```
 
-3. **Resend Library**
-   - Ensure `/lib/resend.ts` is properly configured
-   - Example configuration:
-   ```typescript
-   import { Resend } from 'resend';
-   
-   export const resend = new Resend(process.env.RESEND_API_KEY);
-   ```
+3. **CORS Configuration**
+   - Ensure Laravel backend allows requests from your Next.js frontend domain
+   - Configure CORS headers in Laravel `config/cors.php`
 
 ### Implementation Steps
 
-#### Step 1: Verify Email Service
-```bash
-# Test that Resend is working
-curl -X POST https://api.resend.com/emails \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "from": "noreply@lgihe.org",
-    "to": "test@example.com",
-    "subject": "Test",
-    "html": "<p>Test email</p>"
-  }'
+#### Step 1: Configure Environment Variables
+```env
+# In .env.local (development)
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+
+# In production environment
+NEXT_PUBLIC_API_URL=https://admin.lgihe.org/api/v1
 ```
 
-#### Step 2: Set Up Safeguarding Email
-- Create `safeguarding@lgihe.ac.ug` email account
-- Configure email forwarding to appropriate staff
-- Set up auto-responder (optional)
-- Test email delivery
+#### Step 2: Create Laravel Backend Endpoint
 
-#### Step 3: Configure Email Alerts (Optional)
-Consider setting up:
-- SMS alerts for urgent reports
-- Slack/Teams notifications
-- Multiple recipient emails
-- Escalation procedures
+Create a controller in your Laravel backend:
 
-#### Step 4: Database Integration (Optional Enhancement)
+```php
+<?php
 
-If you want to store reports in a database:
+namespace App\Http\Controllers\Api\V1;
 
-```typescript
-// Example Prisma schema
-model AbuseReport {
-  id                    String   @id @default(cuid())
-  reportId              String   @unique
-  reporterName          String?
-  reporterEmail         String?
-  reporterPhone         String?
-  reporterRelationship  String?
-  incidentType          String
-  incidentDate          DateTime
-  incidentLocation      String
-  personsInvolved       String
-  detailedDescription   String
-  witnessesPresent      String?
-  previouslyReported    String?
-  evidenceAvailable     String?
-  preferredContact      String?
-  anonymousReport       Boolean  @default(false)
-  status                String   @default("pending")
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+
+class AbuseReportController extends Controller
+{
+    public function store(Request $request)
+    {
+        // Validate required fields
+        $validator = Validator::make($request->all(), [
+            'incidentType' => 'required|string',
+            'incidentDate' => 'required|date',
+            'incidentLocation' => 'required|string',
+            'personsInvolved' => 'required|string',
+            'detailedDescription' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Required fields are missing',
+                'errors' => $validator->errors()
+            ], 400);
+        }
+
+        try {
+            // Generate unique report ID
+            $reportId = 'ABR-' . time() . '-' . strtoupper(substr(md5(uniqid()), 0, 9));
+            
+            // Determine if anonymous
+            $isAnonymous = $request->anonymousReport || 
+                          (!$request->reporterName && !$request->reporterEmail);
+            
+            // Store in database (optional)
+            // AbuseReport::create([...]);
+            
+            // Send email to safeguarding team
+            Mail::send('emails.abuse-report', [
+                'reportId' => $reportId,
+                'formData' => $request->all(),
+                'isAnonymous' => $isAnonymous,
+                'submissionDate' => now()->format('F j, Y, g:i a')
+            ], function ($message) use ($request, $reportId) {
+                $message->to('safeguarding@lgihe.ac.ug')
+                       ->subject("🚨 URGENT: Abuse Report [{$reportId}] - {$request->incidentType}")
+                       ->from('noreply@lgihe.org', 'LGIHE Safeguarding');
+                
+                if ($request->reporterEmail && !$request->anonymousReport) {
+                    $message->replyTo($request->reporterEmail);
+                }
+            });
+            
+            // Log submission (without sensitive data)
+            \Log::info("Abuse report submitted: {$reportId}", [
+                'type' => $request->incidentType,
+                'anonymous' => $isAnonymous
+            ]);
+            
+            return response()->json([
+                'success' => true,
+                'message' => 'Report submitted successfully',
+                'reportId' => $reportId
+            ], 200);
+            
+        } catch (\Exception $e) {
+            \Log::error('Error submitting abuse report: ' . $e->getMessage());
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to submit report'
+            ], 500);
+        }
+    }
 }
 ```
 
-Then modify the API route:
+#### Step 3: Add Route in Laravel
 
-```typescript
-// In /app/api/report-abuse/route.ts
-import { prisma } from '@/lib/prisma';
+In `routes/api.php`:
 
-// After generating reportId, before sending email:
-await prisma.abuseReport.create({
-  data: {
-    reportId,
-    ...formData,
-    incidentDate: new Date(formData.incidentDate),
-  },
+```php
+use App\Http\Controllers\Api\V1\AbuseReportController;
+
+Route::prefix('v1')->group(function () {
+    Route::post('/report-abuse', [AbuseReportController::class, 'store']);
 });
 ```
 
-#### Step 5: Set Up Monitoring
+#### Step 4: Configure CORS
 
-Monitor the following:
-- Email delivery success rate
-- API response times
-- Error rates
-- Report submission volume
+In `config/cors.php`:
 
-Example logging:
-```typescript
-// Add to route.ts
-import { logger } from '@/lib/logger';
+```php
+return [
+    'paths' => ['api/*'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => [
+        'http://localhost:3000',
+        'https://lgihe.ac.ug',
+        'https://www.lgihe.ac.ug'
+    ],
+    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],
+    'exposed_headers' => [],
+    'max_age' => 0,
+    'supports_credentials' => false,
+];
+```
 
-logger.info('Abuse report submitted', {
-  reportId,
-  incidentType: formData.incidentType,
-  isAnonymous,
-  timestamp: new Date().toISOString(),
-});
+#### Step 5: Create Email Template
+
+Create `resources/views/emails/abuse-report.blade.php` with the email HTML template (see Email Template section below for full HTML).
+
+#### Step 6: Test the Integration
+
+```bash
+# Test from command line
+curl -X POST http://localhost:8000/api/v1/report-abuse \
+  -H "Content-Type: application/json" \
+  -d '{
+    "anonymousReport": true,
+    "incidentType": "bullying",
+    "incidentDate": "2026-05-01",
+    "incidentLocation": "Library",
+    "personsInvolved": "Test Person",
+    "detailedDescription": "This is a test report"
+  }'
 ```
 
 ### Alternative Email Services
 
-If not using Resend, you can adapt the code for:
+The Laravel backend can use various email services. Configure in `.env`:
 
-#### Nodemailer (SMTP)
-```typescript
-import nodemailer from 'nodemailer';
+#### Laravel Mail (SMTP)
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@lgihe.org
+MAIL_FROM_NAME="LGIHE Safeguarding"
+```
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
-
-await transporter.sendMail({
-  from: 'noreply@lgihe.org',
-  to: 'safeguarding@lgihe.ac.ug',
-  subject: `🚨 URGENT: Abuse Report [${reportId}]`,
-  html: emailHtml,
-});
+#### Mailgun
+```env
+MAIL_MAILER=mailgun
+MAILGUN_DOMAIN=your-domain.com
+MAILGUN_SECRET=your-mailgun-secret
+MAIL_FROM_ADDRESS=noreply@lgihe.org
 ```
 
 #### SendGrid
-```typescript
-import sgMail from '@sendgrid/mail';
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
-await sgMail.send({
-  from: 'noreply@lgihe.org',
-  to: 'safeguarding@lgihe.ac.ug',
-  subject: `🚨 URGENT: Abuse Report [${reportId}]`,
-  html: emailHtml,
-});
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=587
+MAIL_USERNAME=apikey
+MAIL_PASSWORD=your-sendgrid-api-key
+MAIL_ENCRYPTION=tls
 ```
 
 #### AWS SES
-```typescript
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-
-const ses = new SESClient({ region: 'us-east-1' });
-
-await ses.send(new SendEmailCommand({
-  Source: 'noreply@lgihe.org',
-  Destination: { ToAddresses: ['safeguarding@lgihe.ac.ug'] },
-  Message: {
-    Subject: { Data: `🚨 URGENT: Abuse Report [${reportId}]` },
-    Body: { Html: { Data: emailHtml } },
-  },
-}));
+```env
+MAIL_MAILER=ses
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_DEFAULT_REGION=us-east-1
 ```
 
 ---
