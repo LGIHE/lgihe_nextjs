@@ -1,175 +1,103 @@
-# Quick Start Guide - Email Functionality
+# Quick Start Guide - Tender Documents
 
-Get the email functionality up and running in 5 minutes!
+## 🎯 What's New
 
-## Step 1: Install Dependencies (Already Done)
+1. **RFP & ToR Documents** - Tenders now show separate Request for Proposal and Terms of Reference documents
+2. **HTML Content** - Descriptions and requirements can include formatted HTML
+3. **Smart Display** - Automatically shows the right UI based on available documents
 
-The required packages are already installed:
-- `resend` - Email sending service
-- `@react-pdf/renderer` - PDF generation
+## 🔍 How It Works
 
-## Step 2: Get Your Resend API Key
-
-1. Go to https://resend.com and sign up (it's free!)
-2. Verify your email address
-3. Go to https://resend.com/api-keys
-4. Click "Create API Key"
-5. Give it a name (e.g., "LGIHE Development")
-6. Copy the API key (starts with `re_`)
-
-## Step 3: Set Up Environment Variable
-
-1. Create a `.env.local` file in the root of your project:
-   ```bash
-   touch .env.local
-   ```
-
-2. Add your API key to `.env.local`:
-   ```
-   RESEND_API_KEY=re_your_actual_api_key_here
-   ```
-
-3. Save the file
-
-## Step 4: Start the Development Server
-
-```bash
-npm run dev
+### Backend Sends This:
+```json
+{
+  "has_rfp_document": true,
+  "rfp_download_url": "http://localhost:8000/api/v1/tenders/1/download-rfp",
+  "rfp_document_name": "tender_rfp.docx",
+  "rfp_document_size": 126980,
+  "has_tor_document": true,
+  "tor_download_url": "http://localhost:8000/api/v1/tenders/1/download-tor",
+  "tor_document_name": "tender_tor.docx",
+  "tor_document_size": 193460
+}
 ```
 
-## Step 5: Test It Out!
+### Frontend Shows This:
+```
+┌─────────────────────────────────────────┐
+│ 📄 Request for Proposal (RFP)          │
+│    tender_rfp.docx • 124 KB [Download] │
+└─────────────────────────────────────────┘
 
-### Test Application Form
-1. Open http://localhost:3000/admissions/apply
-2. Fill out the form
-3. Submit it
-4. Check your Resend dashboard at https://resend.com/emails
-5. You should see two emails:
-   - One to ar@lgihe.ac.ug (with PDF attachment)
-   - One to the email you entered in the form
+┌─────────────────────────────────────────┐
+│ 📄 Terms of Reference (ToR)            │
+│    tender_tor.docx • 188.93 KB [Download]│
+└─────────────────────────────────────────┘
+```
 
-### Test Contact Form
-1. Open http://localhost:3000/contact
-2. Fill out the form
-3. Submit it
-4. Check your Resend dashboard
-5. You should see two emails:
-   - One to info@lgihe.ac.ug
-   - One to the email you entered in the form
+## ✅ Checklist for Backend
 
-## That's It! 🎉
+Make sure your backend response includes:
 
-You now have fully functional email sending for both forms!
+- [ ] `has_rfp_document: true` when RFP exists
+- [ ] `rfp_download_url` with download link
+- [ ] `rfp_document_name` with file name
+- [ ] `rfp_document_size` in bytes
+- [ ] `has_tor_document: true` when ToR exists
+- [ ] `tor_download_url` with download link
+- [ ] `tor_document_name` with file name
+- [ ] `tor_document_size` in bytes
 
-## What Happens When You Submit?
+## 🎨 What Users See
 
-### Application Form
-1. Form data is sent to `/api/submit-application`
-2. A PDF is generated with all the application data
-3. Email #1 is sent to ar@lgihe.ac.ug with the PDF attached
-4. Email #2 is sent to the applicant with:
-   - Confirmation of submission
-   - List of required documents
-   - Payment details
-   - Next steps
-5. Success modal shows with all the information
+### Both Documents Available
+Two separate download buttons with clear labels
 
-### Contact Form
-1. Form data is sent to `/api/contact`
-2. Email #1 is sent to info@lgihe.ac.ug with the message
-3. Email #2 is sent to the sender with confirmation
-4. Success message shows at the top of the page
+### One Document Available
+Single download button
 
-## Viewing Sent Emails
+### No Documents
+Document section is hidden
 
-During development, all emails are captured in your Resend dashboard:
+## 🔧 Troubleshooting
 
-1. Go to https://resend.com/emails
-2. Click on any email to view:
-   - Email content (HTML preview)
-   - Recipients
-   - Delivery status
-   - Attachments (for application emails)
+**Documents not showing?**
+- Check `has_rfp_document` is `true`
+- Check `rfp_download_url` is provided
+- Same for ToR document
 
-## Next Steps
+**HTML not rendering?**
+- HTML is automatically detected
+- No special configuration needed
+- Dangerous tags are removed automatically
 
-### For Production Deployment
+**File size not showing?**
+- Provide size in bytes
+- Frontend converts to KB/MB automatically
 
-1. **Verify Your Domain**
-   - Go to https://resend.com/domains
-   - Add lgihe.ac.ug
-   - Add the DNS records to your domain
-   - Wait for verification
+## 📱 Responsive Design
 
-2. **Update Email Addresses**
-   - Edit `app/api/submit-application/route.ts`
-   - Edit `app/api/contact/route.ts`
-   - Change `from` addresses to use your verified domain
+Works perfectly on:
+- Desktop computers
+- Tablets
+- Mobile phones
 
-3. **Deploy to Vercel**
-   - See `VERCEL_DEPLOYMENT.md` for detailed instructions
-   - Add `RESEND_API_KEY` to Vercel environment variables
-   - Deploy!
+## 🔐 Security
 
-## Troubleshooting
+- HTML is sanitized automatically
+- Scripts and iframes are removed
+- Event handlers are stripped
+- Safe content is preserved
 
-### "RESEND_API_KEY is not defined"
-- Make sure `.env.local` exists in the root directory
-- Make sure the API key is correct
-- Restart the development server
+## 🚀 No Setup Required
 
-### Emails Not Showing in Dashboard
-- Check that you're logged into the correct Resend account
-- Verify the API key is correct
-- Check the browser console for errors
+- Works immediately with backend data
+- No configuration needed
+- No environment variables
+- No database changes
 
-### PDF Not Generating
-- Check the browser console for errors
-- Make sure all required form fields are filled
-- Check the server terminal for errors
+## 📖 More Information
 
-## Need Help?
-
-- Read `EMAIL_SETUP.md` for detailed setup instructions
-- Read `IMPLEMENTATION_SUMMARY.md` for technical details
-- Check Resend documentation: https://resend.com/docs
-- Contact: tech@lgihe.ac.ug
-
-## Testing Checklist
-
-- [ ] Created `.env.local` file
-- [ ] Added RESEND_API_KEY
-- [ ] Started development server
-- [ ] Tested application form
-- [ ] Received email to ar@lgihe.ac.ug
-- [ ] Received email to applicant
-- [ ] PDF attachment is correct
-- [ ] Tested contact form
-- [ ] Received email to info@lgihe.ac.ug
-- [ ] Received confirmation email
-- [ ] All emails display correctly
-
-## Pro Tips
-
-1. **Use Test Emails**
-   - During development, use your own email addresses
-   - This way you can see exactly what applicants will receive
-
-2. **Check Spam Folders**
-   - Sometimes emails might go to spam
-   - Mark them as "Not Spam" to improve deliverability
-
-3. **Monitor Your Dashboard**
-   - Keep an eye on your Resend dashboard
-   - Check for any delivery issues
-   - Monitor your usage (free tier: 100 emails/day)
-
-4. **Test Thoroughly**
-   - Test with different form data
-   - Test with long messages
-   - Test with special characters
-   - Make sure everything looks good!
-
----
-
-**Ready to go?** Start your development server and test it out! 🚀
+- **Backend Integration:** See `docs/BACKEND_INTEGRATION.md`
+- **Visual Examples:** See `docs/VISUAL_EXAMPLES.md`
+- **Complete Summary:** See `docs/FINAL_SUMMARY.md`

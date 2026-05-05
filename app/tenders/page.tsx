@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PageTemplate from "@/components/PageTemplate";
 import Link from "next/link";
 import { tendersApi, type Tender } from "@/lib/api-client";
+import { renderContent, isHtmlContent } from "@/lib/html-utils";
 
 export default function TendersPage() {
   const [tenderListings, setTenderListings] = useState<Tender[]>([]);
@@ -75,7 +76,14 @@ export default function TendersPage() {
                       )}
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{tender.title}</h3>
-                    <p className="text-gray-700 mb-4 line-clamp-3">{tender.description}</p>
+                    {isHtmlContent(tender.description) ? (
+                      <div 
+                        className="text-gray-700 mb-4 line-clamp-3 prose prose-sm max-w-none"
+                        dangerouslySetInnerHTML={renderContent(tender.description)}
+                      />
+                    ) : (
+                      <p className="text-gray-700 mb-4 line-clamp-3">{tender.description}</p>
+                    )}
                     {tender.deadline && (
                       <div className="flex items-center gap-2 text-sm text-gray-600">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,9 +109,17 @@ export default function TendersPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </Link>
-                    {tender.document_url && (
+                    {/* Show download button if documents are available */}
+                    {(tender.has_rfp_document && tender.rfp_download_url) || 
+                     (tender.has_tor_document && tender.tor_download_url) || 
+                     (tender.documents && tender.documents.length > 0) || 
+                     tender.document_url ? (
                       <a 
-                        href={tender.document_url}
+                        href={
+                          tender.rfp_download_url || 
+                          tender.tor_download_url || 
+                          (tender.documents && tender.documents.length > 0 ? tender.documents[0].url : tender.document_url)
+                        }
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-[#3d4d6f] text-[#3d4d6f] rounded-lg hover:bg-[#3d4d6f]/5 transition-colors text-sm font-medium"
@@ -113,7 +129,7 @@ export default function TendersPage() {
                         </svg>
                         Download
                       </a>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </div>

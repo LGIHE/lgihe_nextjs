@@ -201,6 +201,15 @@ export const eventsApi = {
 // TENDERS API
 // ============================================================================
 
+export interface TenderDocument {
+  id: number;
+  name: string;
+  type: string; // 'rfp', 'tor', 'other'
+  url: string;
+  size?: number;
+  created_at: string;
+}
+
 export interface Tender {
   id: number;
   title: string;
@@ -209,7 +218,26 @@ export interface Tender {
   requirements?: string;
   deadline: string;
   status: 'open' | 'closed' | 'awarded';
-  document_url?: string;
+  document_url?: string; // Legacy single document support
+  documents?: TenderDocument[]; // Multiple documents support (if backend sends array)
+  
+  // Backend specific fields for RFP and ToR documents
+  rfp_document_path?: string;
+  rfp_document_name?: string;
+  rfp_document_type?: string;
+  rfp_document_size?: number;
+  has_rfp_document?: boolean;
+  rfp_download_url?: string;
+  formatted_rfp_file_size?: string;
+  
+  tor_document_path?: string;
+  tor_document_name?: string;
+  tor_document_type?: string;
+  tor_document_size?: number;
+  has_tor_document?: boolean;
+  tor_download_url?: string;
+  formatted_tor_file_size?: string;
+  
   created_at: string;
   updated_at: string;
 }

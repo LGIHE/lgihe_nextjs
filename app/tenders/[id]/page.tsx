@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import PageTemplate from "@/components/PageTemplate";
-import { tendersApi, type Tender } from "@/lib/api-client";
+import { tendersApi, type Tender, type TenderDocument } from "@/lib/api-client";
+import { renderContent, isHtmlContent } from "@/lib/html-utils";
 
 export default function TenderDetailPage() {
   const params = useParams();
@@ -76,6 +77,67 @@ export default function TenderDetailPage() {
   const isOpen = tender.status === 'open';
   const deadline = new Date(tender.deadline);
   const isExpired = deadline < new Date();
+
+  // Build documents array from backend response
+  const buildDocumentsArray = (): TenderDocument[] => {
+    const docs: TenderDocument[] = [];
+    
+    // Add RFP document if available
+    if (tender.has_rfp_document && tender.rfp_download_url) {
+      docs.push({
+        id: 1,
+        name: tender.rfp_document_name || 'RFP Document',
+        type: 'rfp',
+        url: tender.rfp_download_url,
+        size: tender.rfp_document_size,
+        created_at: tender.created_at
+      });
+    }
+    
+    // Add ToR document if available
+    if (tender.has_tor_document && tender.tor_download_url) {
+      docs.push({
+        id: 2,
+        name: tender.tor_document_name || 'ToR Document',
+        type: 'tor',
+        url: tender.tor_download_url,
+        size: tender.tor_document_size,
+        created_at: tender.created_at
+      });
+    }
+    
+    // If backend sends documents array, use that instead
+    if (tender.documents && tender.documents.length > 0) {
+      return tender.documents;
+    }
+    
+    return docs;
+  };
+
+  const availableDocuments = buildDocumentsArray();
+  const hasMultipleDocuments = availableDocuments.length > 1;
+  const hasSingleDocument = availableDocuments.length === 1 || tender.document_url;
+  const hasDocuments = availableDocuments.length > 0 || tender.document_url;
+
+  // Helper function to get document type label
+  const getDocumentTypeLabel = (type: string): string => {
+    const labels: Record<string, string> = {
+      'rfp': 'Request for Proposal (RFP)',
+      'tor': 'Terms of Reference (ToR)',
+      'specification': 'Technical Specifications',
+      'other': 'Tender Document'
+    };
+    return labels[type.toLowerCase()] || 'Tender Document';
+  };
+
+  // Helper function to format file size
+  const formatFileSize = (bytes?: number): string => {
+    if (!bytes) return '';
+    const kb = bytes / 1024;
+    const mb = kb / 1024;
+    if (mb >= 1) return `${mb.toFixed(2)} MB`;
+    return `${kb.toFixed(2)} KB`;
+  };
 
   return (
     <PageTemplate 
@@ -171,18 +233,32 @@ export default function TenderDetailPage() {
         {/* Tender Description */}
         <div className="prose prose-lg max-w-none mb-8">
           <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Tender Description</h3>
-          <div className="text-gray-700 whitespace-pre-wrap">
-            {tender.description}
-          </div>
+          {isHtmlContent(tender.description) ? (
+            <div 
+              className="text-gray-700"
+              dangerouslySetInnerHTML={renderContent(tender.description)}
+            />
+          ) : (
+            <div className="text-gray-700 whitespace-pre-wrap">
+              {tender.description}
+            </div>
+          )}
         </div>
 
         {/* Requirements */}
         {tender.requirements && (
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Requirements & Qualifications</h3>
-            <div className="text-gray-700 whitespace-pre-wrap">
-              {tender.requirements}
-            </div>
+            {isHtmlContent(tender.requirements) ? (
+              <div 
+                className="text-gray-700"
+                dangerouslySetInnerHTML={renderContent(tender.requirements)}
+              />
+            ) : (
+              <div className="text-gray-700 whitespace-pre-wrap">
+                {tender.requirements}
+              </div>
+            )}
           </div>
         )}
 
@@ -199,24 +275,69 @@ export default function TenderDetailPage() {
           </ul>
         </div>
 
-        {/* Document Download */}
-        {tender.document_url && (
+        {/* Document Download Section */}
+        {hasDocuments && (
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
             <h3 className="text-lg font-bold text-[#3d4d6f] mb-4">Tender Documents</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-6">
               Download the complete tender document package including specifications, terms, and conditions.
             </p>
-            <a
-              href={tender.document_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Download Tender Documents
-            </a>
+            
+            {/* Multiple Documents */}
+            {hasMultipleDocuments && availableDocuments.length > 0 ? (
+              <div className="space-y-3">
+                {availableDocuments.map((doc, index) => (
+                  <div 
+                    key={doc.id || index}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#3d4d6f] transition-colors"
+                  >
+                    <div className="flex items-start gap-3 flex-1">
+                      <svg className="w-6 h-6 text-[#3d4d6f] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-900 mb-1">
+                          {getDocumentTypeLabel(doc.type)}
+                        </h4>
+                        <div className="flex items-center gap-3 text-sm text-gray-600">
+                          {doc.name && <span>{doc.name}</span>}
+                          {doc.size && (
+                            <>
+                              <span className="text-gray-400">•</span>
+                              <span>{formatFileSize(doc.size)}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors text-sm font-medium flex-shrink-0"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Download
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              /* Single Document */
+              <a
+                href={availableDocuments.length > 0 ? availableDocuments[0].url : tender.document_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#3d4d6f] text-white rounded-lg hover:bg-[#2f3d57] transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download Tender Documents
+              </a>
+            )}
           </div>
         )}
 
