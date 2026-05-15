@@ -174,6 +174,65 @@ html {
   color: #2f3d57;
 }
 
+/* Generic rich HTML content styling (used for tenders, news, etc.) */
+.rich-html-content p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.rich-html-content p:last-child {
+  margin-bottom: 0;
+}
+
+.rich-html-content strong,
+.rich-html-content b {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.rich-html-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.rich-html-content ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.rich-html-content li {
+  margin-bottom: 0.5rem;
+}
+
+.rich-html-content ul ul,
+.rich-html-content ol ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+}
+
+.rich-html-content h1,
+.rich-html-content h2,
+.rich-html-content h3,
+.rich-html-content h4 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.rich-html-content a {
+  color: #3d4d6f;
+  text-decoration: underline;
+}
+
+.rich-html-content a:hover {
+  color: #2f3d57;
+}
+
 /* Job excerpt/preview text - strip HTML formatting */
 .job-excerpt {
   display: -webkit-box;

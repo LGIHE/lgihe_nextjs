@@ -213,7 +213,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Job Description</h3>
             <div 
-              className="text-gray-700 job-description-content"
+              className="text-gray-700 job-description-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.description }}
             />
           </div>
@@ -224,7 +224,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Purpose of the Role</h3>
             <div 
-              className="text-gray-700 job-purpose-content"
+              className="text-gray-700 job-purpose-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.purpose_of_role }}
             />
           </div>
@@ -235,7 +235,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Key Responsibilities</h3>
             <div 
-              className="text-gray-700 job-responsibilities-content"
+              className="text-gray-700 job-responsibilities-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.responsibilities }}
             />
           </div>
@@ -246,7 +246,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Qualifications and Experience</h3>
             <div 
-              className="text-gray-700 job-requirements-content"
+              className="text-gray-700 job-requirements-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.requirements }}
             />
           </div>
@@ -257,7 +257,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Core Competencies</h3>
             <div 
-              className="text-gray-700 job-competencies-content"
+              className="text-gray-700 job-competencies-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.core_competencies }}
             />
           </div>
@@ -268,7 +268,7 @@ export default function JobDetailPage() {
           <div className="prose prose-lg max-w-none mb-8">
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Application Requirements</h3>
             <div 
-              className="text-gray-700 job-application-requirements-content"
+              className="text-gray-700 job-application-requirements-content rich-html-content"
               dangerouslySetInnerHTML={{ __html: job.application_requirements }}
             />
           </div>
@@ -332,7 +332,7 @@ export default function JobDetailPage() {
             <div className="bg-gray-50 border-l-4 border-gray-400 p-6 rounded-r-lg">
               <h3 className="text-lg font-bold text-gray-800 mb-3">Disclaimer</h3>
               <div 
-                className="text-gray-600 text-sm job-disclaimer-content"
+                className="text-gray-600 text-sm job-disclaimer-content rich-html-content"
                 dangerouslySetInnerHTML={{ __html: job.disclaimer }}
               />
             </div>
@@ -347,7 +347,7 @@ export default function JobDetailPage() {
             {/* Application Process Content */}
             {job.application_process ? (
               <div 
-                className="mb-6 job-application-process-content text-white [&_p]:text-white [&_li]:text-white [&_strong]:text-white"
+                className="mb-6 job-application-process-content rich-html-content text-white [&_p]:text-white [&_li]:text-white [&_strong]:text-white"
                 dangerouslySetInnerHTML={{ __html: job.application_process }}
               />
             ) : (

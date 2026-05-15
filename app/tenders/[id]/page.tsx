@@ -235,7 +235,7 @@ export default function TenderDetailPage() {
           <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Tender Description</h3>
           {isHtmlContent(tender.description) ? (
             <div 
-              className="text-gray-700"
+              className="text-gray-700 rich-html-content"
               dangerouslySetInnerHTML={renderContent(tender.description)}
             />
           ) : (
@@ -251,7 +251,7 @@ export default function TenderDetailPage() {
             <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">Requirements & Qualifications</h3>
             {isHtmlContent(tender.requirements) ? (
               <div 
-                className="text-gray-700"
+                className="text-gray-700 rich-html-content"
                 dangerouslySetInnerHTML={renderContent(tender.requirements)}
               />
             ) : (
