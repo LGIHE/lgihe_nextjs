@@ -65,8 +65,7 @@ export default function Footer() {
               <li><Link href="/portal" className="text-white/80 hover:text-white transition-colors">Student Portal</Link></li>
               <li><Link href="/student-life/library" className="text-white/80 hover:text-white transition-colors">Library</Link></li>
               <li><Link href="/admissions/portal" className="text-white/80 hover:text-white transition-colors">Apply Online</Link></li>
-              <li><Link href="/student-life/careers" className="text-white/80 hover:text-white transition-colors">Career Services</Link></li>
-              <li><Link href="/admissions/prospectus" className="text-white/80 hover:text-white transition-colors">Prospectus</Link></li>
+              <li><Link href="/jobs" className="text-white/80 hover:text-white transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="text-white/80 hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
