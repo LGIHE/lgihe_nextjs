@@ -132,7 +132,7 @@ export default function EventsPage() {
         </section>
 
         {/* Academic Calendar */}
-        <section className="bg-gray-50 p-8 rounded-lg">
+        {/*<section className="bg-gray-50 p-8 rounded-lg">
           <h2 className="text-3xl font-bold text-[#3d4d6f] mb-6">Academic Calendar</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -179,7 +179,7 @@ export default function EventsPage() {
             </div>
           </div>
         </section>
-
+        */}
         {/* Past Events */}
         {pastEvents.length > 0 && (
           <section>
