@@ -16,14 +16,34 @@ export default function EventsPage() {
         setLoading(true);
         const data = await eventsApi.getAll(1, 20);
         
+        console.log('Fetched events data:', data); // Debug log
+        
         // Separate upcoming and past events
         const now = new Date();
-        const upcoming = data.data.filter(event => 
-          new Date(event.start_date) >= now && event.status === 'upcoming'
-        );
-        const past = data.data.filter(event => 
-          new Date(event.start_date) < now || event.status === 'completed'
-        );
+        now.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
+        
+        const upcoming = data.data.filter(event => {
+          const eventDate = new Date(event.start_date);
+          eventDate.setHours(0, 0, 0, 0);
+          
+          // Show if date is today or in future, and status is not completed or cancelled
+          return eventDate >= now && 
+                 event.status !== 'completed' && 
+                 event.status !== 'cancelled';
+        });
+        
+        const past = data.data.filter(event => {
+          const eventDate = new Date(event.start_date);
+          eventDate.setHours(0, 0, 0, 0);
+          
+          // Show if date is in the past or status is completed
+          return eventDate < now || 
+                 event.status === 'completed' || 
+                 event.status === 'cancelled';
+        });
+        
+        console.log('Upcoming events:', upcoming); // Debug log
+        console.log('Past events:', past); // Debug log
         
         setUpcomingEvents(upcoming);
         setPastEvents(past);
@@ -110,7 +130,12 @@ export default function EventsPage() {
                         </div>
                       )}
                     </div>
-                    <p className="text-gray-700 text-sm mb-4 line-clamp-3">{event.description}</p>
+                    <p 
+                      className="text-gray-700 text-sm mb-4 line-clamp-3"
+                      dangerouslySetInnerHTML={{ 
+                        __html: event.description?.replace(/<[^>]*>/g, '') || '' 
+                      }}
+                    />
                     <Link 
                       href={`/events/${event.id}`}
                       className="block w-full bg-[#3d4d6f] text-white py-2 rounded-lg hover:bg-[#2f3d57] transition-colors text-center"

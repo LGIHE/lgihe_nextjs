@@ -19,6 +19,8 @@ export default function EventDetailPage() {
         setLoading(true);
         setError(null);
         const data = await eventsApi.getById(params.id as string);
+        console.log('Event data:', data);
+        console.log('Featured image URL:', getMediaUrl(data.featured_image));
         setEvent(data);
       } catch (err) {
         console.error('Failed to fetch event:', err);
@@ -98,13 +100,17 @@ export default function EventDetailPage() {
 
         {/* Featured Image */}
         {event.featured_image && (
-          <div className="relative h-96 rounded-lg overflow-hidden mb-8">
+          <div className="relative h-96 rounded-lg overflow-hidden mb-8 bg-gray-200">
             <Image
               src={getMediaUrl(event.featured_image)}
               alt={event.title}
               fill
               className="object-cover"
               priority
+              onError={(e) => {
+                console.error('Image failed to load:', getMediaUrl(event.featured_image));
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </div>
         )}
@@ -185,9 +191,12 @@ export default function EventDetailPage() {
         {/* Event Description */}
         <div className="prose prose-lg max-w-none mb-8">
           <h3 className="text-2xl font-bold text-[#3d4d6f] mb-4">About This Event</h3>
-          <div className="text-gray-700 whitespace-pre-wrap">
-            {event.description}
-          </div>
+          <div 
+            className="text-gray-700 whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ 
+              __html: event.description?.replace(/<[^>]*>/g, '') || '' 
+            }}
+          />
         </div>
 
         {/* Call to Action */}
