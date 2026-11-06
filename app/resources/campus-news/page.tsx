@@ -6,6 +6,11 @@ import Link from "next/link";
 import ImageWithLoader from "@/components/ImageWithLoader";
 import { newsApi, getMediaUrl, formatDate, type NewsItem } from "@/lib/api-client";
 
+// Helper function to strip HTML tags from text
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 export default function CampusNewsPage() {
   const [featuredNews, setFeaturedNews] = useState<NewsItem | null>(null);
   const [newsArticles, setNewsArticles] = useState<NewsItem[]>([]);
@@ -58,7 +63,7 @@ export default function CampusNewsPage() {
                   <span className="text-sm font-semibold uppercase tracking-wider mb-2">Featured Story</span>
                   <h2 className="text-3xl font-bold mb-4">{featuredNews.title}</h2>
                   <p className="mb-6 text-white/90 line-clamp-3">
-                    {featuredNews.excerpt || featuredNews.content.substring(0, 200) + '...'}
+                    {stripHtml(featuredNews.excerpt || featuredNews.content.substring(0, 200) + '...')}
                   </p>
                   <Link 
                     href={`/news/${featuredNews.slug}`}
@@ -68,7 +73,7 @@ export default function CampusNewsPage() {
                   </Link>
                 </div>
                 {featuredNews.featured_image ? (
-                  <div className="relative h-64 md:h-auto">
+                  <div className="relative h-64 md:h-auto min-h-[400px]">
                     <ImageWithLoader
                       src={getMediaUrl(featuredNews.featured_image)}
                       alt={featuredNews.title}
@@ -77,7 +82,7 @@ export default function CampusNewsPage() {
                     />
                   </div>
                 ) : (
-                  <div className="h-64 md:h-auto bg-[#2f3d57]"></div>
+                  <div className="h-64 md:h-auto min-h-[400px] bg-[#2f3d57]"></div>
                 )}
               </div>
             </div>
@@ -139,7 +144,7 @@ export default function CampusNewsPage() {
                     </div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2">{article.title}</h3>
                     {article.excerpt && (
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{article.excerpt}</p>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{stripHtml(article.excerpt)}</p>
                     )}
                     <Link 
                       href={`/news/${article.slug}`}

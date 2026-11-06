@@ -6,6 +6,11 @@ import PageTemplate from "@/components/PageTemplate";
 import { newsApi, type NewsItem, getMediaUrl, formatDate } from "@/lib/api-client";
 import Image from "next/image";
 
+// Helper function to strip HTML tags from text
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 export default function NewsDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -95,7 +100,7 @@ export default function NewsDetailPage() {
 
         {/* Featured Image */}
         {newsItem.featured_image && (
-          <div className="relative h-96 rounded-lg overflow-hidden mb-8">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
             <Image
               src={getMediaUrl(newsItem.featured_image)}
               alt={newsItem.title}
@@ -134,7 +139,7 @@ export default function NewsDetailPage() {
         {/* Excerpt */}
         {newsItem.excerpt && (
           <div className="bg-[#3d4d6f]/5 border-l-4 border-[#3d4d6f] p-6 rounded-r-lg mb-8">
-            <p className="text-lg text-gray-700 italic">{newsItem.excerpt}</p>
+            <p className="text-lg text-gray-700 italic">{stripHtml(newsItem.excerpt)}</p>
           </div>
         )}
 

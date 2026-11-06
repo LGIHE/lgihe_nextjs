@@ -6,6 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { newsApi, type NewsItem, getMediaUrl } from "@/lib/api-client";
 
+// Helper function to strip HTML tags from text
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 export default function NewsPage() {
   const [allNews, setAllNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -105,7 +110,7 @@ export default function NewsPage() {
                     {item.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {item.excerpt || item.content.substring(0, 150) + '...'}
+                    {stripHtml(item.excerpt || item.content.substring(0, 150) + '...')}
                   </p>
                   <Link 
                     href={`/news/${item.slug || item.id}`}
