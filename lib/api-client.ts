@@ -56,6 +56,7 @@ export interface NewsItem {
   excerpt?: string;
   content: string;
   featured_image?: string;
+  images?: string[] | null;
   category?: string;
   status: 'draft' | 'published' | 'archived';
   published_at: string;
